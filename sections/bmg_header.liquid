@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-6 bmgh_top_col">
                 {% for block in section.blocks %}
-                    {% if block.type == 'tnl_links' %}
+                    {% if block.type == 'tnr_links' %}
                         <a href="{{ section.settings.topnavleft_link_url }}" {% if section.settings.topnavright_link_icon %}class="bgm_h_icon"{% endif %}>
                             {% if section.settings.topnavright_link_icon %}<img src="{{ section.settings.topnavright_link_icon | img_url: 'master'}}">{% endif %}
                             {{ section.settings.topnavright_link_text }}
@@ -97,7 +97,7 @@
                     "label": "Top Nav Left Link Text"
                 },
                 {
-                    "type": "text",
+                    "type": "url",
                     "id": "topnavleft_link_url",
                     "label": "Top Nav Left Link URL"
                 }                  
@@ -118,7 +118,7 @@
                     "label": "Top Nav Right Link Text"
                 },
                 {
-                    "type": "text",
+                    "type": "url",
                     "id": "topnavright_link_url",
                     "label": "Top Nav Right Link URL"
                 }                   
