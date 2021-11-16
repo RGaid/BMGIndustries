@@ -206,7 +206,7 @@
             "type": "tnl_links",
             "settings": {
               "topnavleft_link_text": "Why Choose BMG",
-              "topnavleft_link_url": ""
+              "topnavleft_link_url": "shopify:\/\/pages\/about-us"
             }
           }
         },
