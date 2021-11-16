@@ -223,12 +223,20 @@
               "topnavright_link_text": "Digital Catalogue",
               "topnavright_link_url": "#"
             }
+          },
+          "5d427bf2-2690-4915-bb55-cd001a75281c": {
+            "type": "tnr_links",
+            "settings": {
+              "topnavright_link_text": "Order Status",
+              "topnavright_link_url": "#"
+            }
           }
         },
         "block_order": [
           "ffece707-0dc0-4d2c-b64c-05e15626a48e",
           "9e90fba2-ca54-467b-89d0-89e785aceaaf",
-          "1c44285d-8d5a-4ce0-985c-ee43536b470a"
+          "1c44285d-8d5a-4ce0-985c-ee43536b470a",
+          "5d427bf2-2690-4915-bb55-cd001a75281c"
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
