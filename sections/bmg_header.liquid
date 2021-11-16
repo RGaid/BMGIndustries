@@ -28,7 +28,7 @@
         <div class="row bmg_h_main">
             <div class="col-md-8 bmgh_m_logo_search">
                 <a href="/"> 
-                    <img src="">
+                    <img src="{{ section.settings.logo | | img_url: 'master' }}">
                 </a>
                 <div class="bmgh_search_form">
                     {% include 'search-bar'  %}
@@ -70,6 +70,18 @@
 {% schema %}
   {
     "name": "BMG Header",
-    "settings": []
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "logo",
+            "label": "Logo"
+        }
+    ],
+    "presets": [
+      {
+        "name": "BMG Header",
+        "category": "2021 - BMG"
+      }
+    ]
   }
 {% endschema %}
