@@ -61,7 +61,8 @@
         </div>
         <div class="row bmg_h_nav">
             <div class="col-md-12 bmgh_nav">
-                {% for link in linklists.[section.settings.header_menu].links %}
+                {% assign MainLinks = section.settings.header_menu %}
+                {% for link in linklists.MainLinks.links %}
                     <a href="{{ link.url }}">{{ link.title }}</a>
                 {% endfor %}
             </div>
