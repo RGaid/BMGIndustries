@@ -202,7 +202,8 @@
       "bmg_header": {
         "type": "bmg_header",
         "settings": {
-          "logo": "shopify:\/\/shop_images\/bmg_new.png"
+          "logo": "shopify:\/\/shop_images\/bmg_new.png",
+          "header_menu": "bmg-2021-nav"
         }
       }
     },
