@@ -1,1 +1,217 @@
-{"current":{"color_accent":"#0d0d0d","color_body_text":"#161d25","color_main_bg":"#ffffff","font_heading":"avenir_next_n4","font_body":"avenir_next_n4","share_image":"","social_sharing_blog":true,"share_facebook":true,"share_twitter":true,"share_pinterest":true,"social_twitter_link":"","social_facebook_link":"","social_pinterest_link":"","social_instagram_link":"","social_snapchat_link":"","social_tumblr_link":"","social_youtube_link":"","social_vimeo_link":"","cart_notes_enable":true,"favicon":"shopify:\/\/shop_images\/BMG-favico.png","checkout_header_image":"","checkout_logo_image":"shopify:\/\/shop_images\/BMG-CLOSEUP.jpg","checkout_logo_position":"center","checkout_logo_size":"large","checkout_body_background_image":"","checkout_body_background_color":"#fff","checkout_input_background_color_mode":"transparent","checkout_sidebar_background_image":"","checkout_sidebar_background_color":"#fafafa","checkout_heading_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_body_font":"-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'","checkout_accent_color":"#3169c9","checkout_button_color":"#d73630","checkout_error_color":"#e32c2b","social_google_plus_link":"","social_fancy_link":"","social_rss_link":"","sections":{"header":{"type":"header","settings":{"announcement_bar_enabled":false,"announcement_bar_home_page_only":false,"announcement_bar_text":"OUR NEW WEBSITE IS LIVE NOW!","announcement_bar_link":"shopify:\/\/collections","logo":"shopify:\/\/shop_images\/BMG-CLOSEUP.jpg","logo_max_width":280,"menu":"main-menu"}},"slider":{"type":"slider","blocks":{"1548554694152":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/man-hiking-in-mountains.jpg","title":"Bmg Industries Inc.","description":"Canada’s leading provider of Emergency Kits tailored towards individuals, families, automobiles, or large groups.","link":""}},"1548555625460":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/breakfast-from-above.jpg","title":"Food","description":"We offer a variety of emergency rations and long term freeze-dried foods options to suit your preparedness needs.","link":""}},"1548555217731":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/hiker-climbing-mountains.jpg","title":"Emergency supplies","description":"Wide Selection of Emergency  Preparedness and Outdoor Supplies","link":""}},"1548556215375":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/water-in-hand.jpg","title":"Water","description":"Offering Water Filtration & Storage units for any emergency or disaster.","link":""}},"1584392921625":{"type":"image","settings":{"image":"shopify:\/\/shop_images\/vinyl-record-spinning.jpg","title":"TO ALL WHOLESALE ORDERS:","description":"PLEASE BE ADVISED THAT THE CURRENT LEAD TIME FOR ALL ORDERS WILL BE 6-8 WEEKS","link":""}}},"block_order":["1548554694152","1548555625460","1548555217731","1548556215375","1584392921625"],"settings":{"slider_home_auto":true,"slider_home_show_dots":true,"slider_home_rate":"5000","slider_home_transition":"fade"}},"collection-list":{"type":"collection-list","blocks":{"collection-list-0":{"type":"collection","settings":{"collection":""}},"collection-list-1":{"type":"collection","settings":{"collection":""}}},"block_order":["collection-list-0","collection-list-1"],"settings":{"title":"Collection list"}},"featured-collection-2":{"type":"featured-collection","settings":{"title":"Packaging","collection":"mylar-bag-pouches","alltext":"Shop All Packaging"}},"featured-product":{"type":"featured-product","settings":{"product":"","show_share_buttons":false}},"footer":{"type":"footer","settings":{}},"product-template":{"type":"product-template","settings":{}},"cart":{"type":"cart","settings":{}},"1572669420397":{"type":"featured-collection","settings":{"title":"Food and Water","collection":"mountain-house","alltext":"Show All Food and Water"}},"1572669455803":{"type":"featured-collection","settings":{"title":"Supplies","collection":"supplies","alltext":"Shop all Supplies"}},"1577920655761":{"type":"featured-collection","settings":{"title":"First Aid Kit and Supplies","collection":"first-aid-kit-and-supplies","alltext":"Shop all First Aid Kit and Supplies"}},"1577920939349":{"type":"featured-collection","settings":{"title":"First Aid Safety Equipment","collection":"first-aid-safety-equipment","alltext":"Shop all First Aid Safety Equipment"}}},"content_for_index":["1572669420397","featured-collection-2","1572669455803","1577920655761","1577920939349"]}}
+{
+  "current": {
+    "color_accent": "#0d0d0d",
+    "color_body_text": "#161d25",
+    "color_main_bg": "#ffffff",
+    "font_heading": "avenir_next_n4",
+    "font_body": "avenir_next_n4",
+    "share_image": "",
+    "social_sharing_blog": true,
+    "share_facebook": true,
+    "share_twitter": true,
+    "share_pinterest": true,
+    "social_twitter_link": "",
+    "social_facebook_link": "",
+    "social_pinterest_link": "",
+    "social_instagram_link": "",
+    "social_snapchat_link": "",
+    "social_tumblr_link": "",
+    "social_youtube_link": "",
+    "social_vimeo_link": "",
+    "cart_notes_enable": true,
+    "favicon": "shopify:\/\/shop_images\/BMG-favico.png",
+    "checkout_header_image": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/BMG-CLOSEUP.jpg",
+    "checkout_logo_position": "center",
+    "checkout_logo_size": "large",
+    "checkout_body_background_image": "",
+    "checkout_body_background_color": "#fff",
+    "checkout_input_background_color_mode": "transparent",
+    "checkout_sidebar_background_image": "",
+    "checkout_sidebar_background_color": "#fafafa",
+    "checkout_heading_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_body_font": "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    "checkout_accent_color": "#3169c9",
+    "checkout_button_color": "#d73630",
+    "checkout_error_color": "#e32c2b",
+    "social_google_plus_link": "",
+    "social_fancy_link": "",
+    "social_rss_link": "",
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "announcement_bar_enabled": false,
+          "announcement_bar_home_page_only": false,
+          "announcement_bar_text": "OUR NEW WEBSITE IS LIVE NOW!",
+          "announcement_bar_link": "shopify:\/\/collections",
+          "logo": "shopify:\/\/shop_images\/BMG-CLOSEUP.jpg",
+          "logo_max_width": 280,
+          "menu": "main-menu"
+        }
+      },
+      "slider": {
+        "type": "slider",
+        "blocks": {
+          "1548554694152": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/man-hiking-in-mountains.jpg",
+              "title": "Bmg Industries Inc.",
+              "description": "Canada’s leading provider of Emergency Kits tailored towards individuals, families, automobiles, or large groups.",
+              "link": ""
+            }
+          },
+          "1548555625460": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/breakfast-from-above.jpg",
+              "title": "Food",
+              "description": "We offer a variety of emergency rations and long term freeze-dried foods options to suit your preparedness needs.",
+              "link": ""
+            }
+          },
+          "1548555217731": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/hiker-climbing-mountains.jpg",
+              "title": "Emergency supplies",
+              "description": "Wide Selection of Emergency  Preparedness and Outdoor Supplies",
+              "link": ""
+            }
+          },
+          "1548556215375": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/water-in-hand.jpg",
+              "title": "Water",
+              "description": "Offering Water Filtration & Storage units for any emergency or disaster.",
+              "link": ""
+            }
+          },
+          "1584392921625": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/vinyl-record-spinning.jpg",
+              "title": "TO ALL WHOLESALE ORDERS:",
+              "description": "PLEASE BE ADVISED THAT THE CURRENT LEAD TIME FOR ALL ORDERS WILL BE 6-8 WEEKS",
+              "link": ""
+            }
+          }
+        },
+        "block_order": [
+          "1548554694152",
+          "1548555625460",
+          "1548555217731",
+          "1548556215375",
+          "1584392921625"
+        ],
+        "settings": {
+          "slider_home_auto": true,
+          "slider_home_show_dots": true,
+          "slider_home_rate": "5000",
+          "slider_home_transition": "fade"
+        }
+      },
+      "collection-list": {
+        "type": "collection-list",
+        "blocks": {
+          "collection-list-0": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          },
+          "collection-list-1": {
+            "type": "collection",
+            "settings": {
+              "collection": ""
+            }
+          }
+        },
+        "block_order": [
+          "collection-list-0",
+          "collection-list-1"
+        ],
+        "settings": {
+          "title": "Collection list"
+        }
+      },
+      "featured-collection-2": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Packaging",
+          "collection": "mylar-bag-pouches",
+          "alltext": "Shop All Packaging"
+        }
+      },
+      "featured-product": {
+        "type": "featured-product",
+        "settings": {
+          "product": "",
+          "show_share_buttons": false
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+        }
+      },
+      "product-template": {
+        "type": "product-template",
+        "settings": {
+        }
+      },
+      "cart": {
+        "type": "cart",
+        "settings": {
+        }
+      },
+      "1572669420397": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Food and Water",
+          "collection": "mountain-house",
+          "alltext": "Show All Food and Water"
+        }
+      },
+      "1572669455803": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "Supplies",
+          "collection": "supplies",
+          "alltext": "Shop all Supplies"
+        }
+      },
+      "1577920655761": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "First Aid Kit and Supplies",
+          "collection": "first-aid-kit-and-supplies",
+          "alltext": "Shop all First Aid Kit and Supplies"
+        }
+      },
+      "1577920939349": {
+        "type": "featured-collection",
+        "settings": {
+          "title": "First Aid Safety Equipment",
+          "collection": "first-aid-safety-equipment",
+          "alltext": "Shop all First Aid Safety Equipment"
+        }
+      },
+      "bmg_header": {
+        "type": "bmg_header",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/bmg_new.png"
+        }
+      }
+    },
+    "content_for_index": [
+      "1572669420397",
+      "featured-collection-2",
+      "1572669455803",
+      "1577920655761",
+      "1577920939349"
+    ]
+  }
+}
