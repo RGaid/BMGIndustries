@@ -285,6 +285,22 @@
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
           "header_menu": "bmg-2021-nav"
         }
+      },
+      "bmg_footer": {
+        "type": "bmg_footer",
+        "settings": {
+          "logo": "shopify:\/\/shop_images\/bmg_new.png",
+          "footer_heading_1": "GOT A QUESTION?",
+          "footer_heading_2": "CUSTOMER SUPPORT",
+          "footer_2_links": "customer-support",
+          "footer_heading_3": "ACCOUNT & ORDER",
+          "footer_3_links": "account-order",
+          "footer_heading_4": "BMG INDUSTRIES",
+          "footer_4_links": "bmg-industries",
+          "copyright_footer_text": "©2021 72 HRS",
+          "copyright_footer_links": "",
+          "copyright_footer_payments": "shopify:\/\/shop_images\/Payment_Icons.png"
+        }
       }
     },
     "content_for_index": [
