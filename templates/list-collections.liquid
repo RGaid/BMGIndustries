@@ -1,0 +1,32 @@
+{% paginate collections by 4 %}
+ <div class="centercontent" >
+  <div class="grid-uniform grid-link__container">
+    {% for collection in collections %}
+      {% unless collection.handle == 'frontpage' %}
+        {% assign grid_item_width = 'wide--one-half' %}
+        <div class="grid__item {{grid_item_width}}">
+          <div class="collimage">
+            <a href="{{ collection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}" >
+              {% if collection.image != blank or collection.products.first != blank %}
+                {%- assign image_object = collection.image | default: collection.products.first.featured_image -%}
+                {% include 'responsive-image' with
+                  image: image_object,
+                  max_width: 280,
+                  max_height: 280
+                %}
+              {% else %}
+                {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+              {% endif %}
+            </a>
+          </div>
+          <div class="colltitle">{{collection.title}}</div>
+        </div>
+      {% endunless %}
+    {% endfor %}
+  </div>
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+ </div>
+ {% endpaginate %}

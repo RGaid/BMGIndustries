@@ -1,0 +1,26 @@
+<div id="prodslider">
+  <ul class="slides">
+    {% for image in slide_images %}
+      <li data-thumb="{{image | img_url}}">
+        {% include 'responsive-image' with
+            image: image,
+            max_width: 500,
+            max_height: 500
+          %}
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+
+<script>
+  $(window).load(function() {
+    $('#prodslider').flexslider({
+      animation: "slide",
+      controlNav: "thumbnails",
+      animationLoop: false,
+      slideshow: false,
+      allowOneSlide: false
+    });
+  });
+</script>

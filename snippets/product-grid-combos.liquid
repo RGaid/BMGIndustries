@@ -1,0 +1,4 @@
+{% if featured.handle == 'travel-berkey' or featured.handle == 'big-berkey' or featured.handle == 'crown-berkey' or featured.handle == 'imperial-berkey' or featured.handle == 'royal-berkey' %}
+  {% assign gift = all_products['stainless-steel-travel-mug-with-red-3-carabiner-handle-300ml']%}
+  <input type="hidden" name="id[]"  value="{{gift.selected_or_first_available_variant.id}}"  /> 
+{% endif %}

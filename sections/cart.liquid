@@ -1,0 +1,122 @@
+
+<div id="CartSection" data-section-id="{{ section.id }}" data-section-type="cart-template" data-notes-enable="{{ section.settings.cart_notes_enable }}" class="centercontent">
+    <p class="space50 small--hide" ></p>
+
+    <form action="/cart" method="post" novalidate class="cart" id="cartfrm">
+      <div class='grid'>
+        <div class="grid__item six-tenths medium--one-whole small--one-whole ">
+          {% if cart.item_count > 0 %}
+            {% for item in cart.items %}
+              <div class="grid cartitem">
+                <div class="grid__item two-tenths cart-left nopadding">
+                    <a href="{{ item.url | within: collections.all }}" class="cart__image">
+                      <img class="Image--lazyLoad Image--fadeIn" data-src="{{ item | img_url: 'medium' }}" alt="{{ item.title | escape }}">
+                    </a>
+                </div>
+                <div class="grid__item eight-tenths cart-left">
+                  <div class='grid'>
+                    <div class="grid__item four-fifths cart-right" style="padding-left:10px">
+                      <a href="{{ item.url }}">
+                        <span class="cartproducttitle small--hide">{{ item.product.title }}</span>
+                        <span class="cartproducttitle post-large--hide medium--hide">{{ item.product.title}}</span>
+                      </a>
+                    <p class="cartlineqtyprice small--hide">{{item.price | money}}</p>
+
+                      {% if product.variants.size>1%}
+                        <p class="cartlinevariantname"><span class="variantlabel">Variant Name:</span> {{item.variant.title}}</p>
+                      {%endif%}
+                    </div>
+                    <div class="grid__item one-fifth cart-right nopadding rightalign cartcloseholder">
+                      <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="cart__remove">
+												<img class="Image--lazyLoad Image--fadeIn" data-src="{{ 'cart-remove.png' | asset_url }}">
+                        {% comment %} {{ "cart-remove.png" | asset_url | img_tag }} {% endcomment %}
+                      </a>
+                    </div>
+                    <div class="grid__item two-thirds cart-right cartlineqtyprice " style="padding-left:10px">
+                      <span class="small--hide">Qty: &nbsp;&nbsp;</span>
+                      <span class="btnqtyminus"><a href="#" class="qtyminus" field="{{'cartqty' | append: item.variant_id}}" data-id="{{item.variant_id}}" >-</a></span>
+                      <span class="qtyinputtext"><input type="text" name="cartqty" id="{{'cartqty' | append: item.variant_id}}" field="{{item.variant_id}}" min="1" max="999" class="cartqty" value="{{item.quantity}}"/></span>
+                      <span class="btnqtyplus"><a href="#" class="qtyplus" field="{{'cartqty' | append: item.variant_id}}" data-id="{{item.variant_id}}" >+</a></span>
+                    </div>
+                    <div class="grid__item one-third cart-right nopadding rightalign cartlineqtyprice">
+                      {% if item.original_line_price != item.line_price %}
+                        <small class="cart-item__original-price"><s>{{ item.original_line_price | money }}</s></small>
+                      {% endif %}
+                      	<div class="cart-price">{{ item.line_price | money }}</div>
+                        {% if item.original_line_price != item.line_price %}
+                          {% for discount in item.discounts %}
+                            <small class="cart-item__discount">
+                              {{ discount.title }}
+                            </small>
+                          {% endfor %}
+                        {% endif %}
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            {%endfor%}
+            <p class="space10" />
+            <div class="grid">
+              <div class="grid__item one-half medium--one-whole small--one-whole nopadding">
+                 <div class="addCartAttr">Location Type:</div>
+                 <div class="attrBox">
+                     <input type="radio" name="attributes[location-type]" value="Commercial" id="commercial"/>
+                     <label for='commercial'>Commercial</label>
+                     <input type="radio" name="attributes[location-type]" value="Residential" id="residential"/>
+                     <label for='residential'>Residential</label>
+                   </div>
+              </div>
+              <div class="grid__item one-half medium--one-whole small--one-whole nopadding">
+                 <div class="addCartAttr">Delivery Services:</div>
+                 <div class="attrBox">
+                     <input type="radio" name="attributes[delivery-services]" value="Lift Gate" id="lift-gate"/>
+                     <label for='lift-gate'>Lift Gate</label>
+                     <input type="radio" name="attributes[delivery-services]" value="Dock" id="dock"/>
+                     <label for='dock'>Dock</label>
+                   </div>
+              </div>
+            </div>
+
+            <div class="grid">
+              <div class="grid__item one-whole medium--one-whole small--one-whole nopadding">
+                <div class="addnote">PO Number:</div>
+               <input type="text" class="input-full" name="attributes[po-number]" value="{{ cart.attributes.po-number }}" />
+              </div>
+            </div>
+            <div class="grid">
+              <div class="grid__item one-whole medium--one-whole small--one-whole nopadding">
+                <div class="addnote">Add a note to your order:</div>
+                <textarea name="note" class="input-full" id="CartSpecialInstructions">{{ cart.note }}</textarea>
+              </div>
+            </div>
+          {% else %}
+            <div class="grid noitems">
+              <div class="grid__item one-half medium--one-whole small--one-whole">
+                <p >Your cart is empty...</p>
+                <p><strong><a href="/">RETURN TO STORE</a></strong></p>
+              </div>
+            </div>
+          {% endif %}
+        </div>
+        <div class="grid__item one-tenth medium--hide small--hide">
+        </div>
+        <div class="grid__item three-tenths medium--one-whole small--one-whole">
+          <div class="subtotal">
+            <span class="cart-total-left">{{ 'layout.cart_dropdown.subtotal' | t }} :</span>
+            <span class="cart-total-right">{{cart.total_price | money}}</span>
+            <div class="clearfix"></div>
+          </div>
+          <div class="action">
+            <input type="submit" name="checkout" class="btn btnalt buttonred" value="{{ 'cart.general.checkout' | t }}" />
+          </div>
+          
+        
+        </div>
+      </div>
+
+
+    </form>
+
+  
+</div>

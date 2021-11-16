@@ -1,0 +1,46 @@
+
+  <footer class="site-footer" role="contentinfo">
+
+  <div class="wrapper">
+		{%- assign load_bg_src = 'newsletterfooterbackground.jpg' | asset_url -%}
+		{%- assign load_bg_class = 'grid newsletter' -%}
+		<div
+		{% include '__opt_load_bg' src:load_bg_src class:load_bg_class %}
+		>	
+      <div class="centercontent" >
+   	   	<div class="grid__item post-large--three-sixths medium--one-half small--one-whole" style="padding-left:0;">
+        <h3 class="newsletterheader" >Join the List!</h3>
+        <p class='newsletterdesc'>Sign up for exclusive deals from BMG Industries Inc.</p>
+      </div>
+      	<div class="grid__item post-large--three-sixths medium--one-half small--one-whole" style="padding-left:0;">
+      	{% include 'newsletter-form' %}
+      	</div>  
+      </div>
+    </div>
+    
+    <div class="grid footerlnks centercontent">
+      
+      <div class="grid__item post-large--one-half medium--one-half">
+        <ul class="site-footer__links ul--onecolumn site-footer__links_lg">
+          <li></li>        
+          <li><h1>BMG INDUSTRIES INC.</h1></li>
+          <li>Unit A - 7492 Conway Ave Burnaby BC V5E 2P8</li>
+          <li>PHONE: 1-800-964-2029 | FAX: 1-888-983-3006</li>
+          <li>EMAIL: SALES@BMGIND.COM</li>  
+        </ul>
+      </div>
+      <div class="grid__item post-large--one-quarter medium--one-half " >
+        &nbsp;
+      </div>
+      <div class="grid__item post-large--one-quarter medium--one-half " >
+        <a href="/" itemprop="url">
+          <img class="Image--lazyLoad Image--fadeIn" data-src="{{ 'BMG-CLOSEUP.jpg' | file_url }}" alt="{{ shop.name }}">
+        </a>
+      </div>
+    </div>
+    
+    
+    
+    
+
+  </footer>

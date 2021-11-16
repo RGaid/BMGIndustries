@@ -1,0 +1,13 @@
+<span class="regularprice">
+  {% if featured.variants.size > 1  %}
+    From 
+  {% endif %}
+  {{ featured.price_min | money }}
+</span>
+{% if featured.compare_at_price_min > featured.price %}
+<span class="grid_product_price_cross">
+  <s>
+    {{ featured.compare_at_price_max | money }}
+  </s>
+</span>  
+{% endif %}    

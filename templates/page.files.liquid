@@ -1,0 +1,30 @@
+{% assign imgklass = '' %}
+{% case page.handle %}
+  {% when 'corporate-branding' %}
+     {% assign imgklass = 'branding' %}
+{% endcase %}
+
+<header class="section-header section-header--large searchheader">
+  <div class="sectionheadertitle">
+    <div class="sectionheadertitleinner">
+      <h1 class="section-header__title">{{ page.title }}</h1>
+    </div>
+  </div>
+</header>
+
+<p class="space20" />
+
+
+<div class="rte pagecenter">
+  {{ 
+		page.content
+		| replace: '<img src=', '<img class="Image--lazyLoad Image--fadeIn" data-src='
+	 }}
+</div>
+
+
+<div  class="rte pagecenter">
+  <div> Display image etc here</div>
+  <a href="https://1drv.ms/u/s!Ar2SJrqrGqsOZzqlxbuVDLKXXlY?e=72H3da">View</a>
+
+</div>

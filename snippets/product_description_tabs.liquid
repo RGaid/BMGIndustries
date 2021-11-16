@@ -1,0 +1,145 @@
+{% assign productdtl = product.description | split:'!!!!!-----!!!!!' | last%}
+{% assign productdesc = productdtl | split:'!!!!!tabs!!!!!'%}
+
+<div class="productdtl">
+  <div class="product-detail-description " itemprop="description">
+    {%if productdesc.size > 1%}
+
+    <ul class="tabs">
+      <li rel="tab1">What's included</li>
+    </ul>
+
+    <div class="tab_container">
+      
+      <h3 class="tab_drawer_heading" rel="tab1">What's included</h3>
+      <div id="tab1" class="tab_content">
+        {{ productdesc[1] }}
+      </div>
+      
+      
+    </div>
+    <!-- .tab_container -->
+
+    {% else %} 
+    <ul class="tabs">
+      <li class="active" rel="tab1">Details</li>
+    </ul>
+
+    <div class="tab_container">
+      <h3 class="d_active tab_drawer_heading" rel="tab1">Detail</h3>
+      <div id="tab1" class="tab_content">
+        {{ productdesc[0] }} 
+      </div>
+      
+    </div>
+    <!-- .tab_container -->
+
+    {%endif%}
+
+
+  </div>
+</div>      
+
+
+<script>
+  
+document.addEventListener("StartOtherLoading", function(event) {
+        tabControl();
+  
+        function tabControl() {
+         // tabbed content
+            $(".tab_content").hide();
+            $(".tab_content:first").show();
+			
+          
+          /* if in tab mode */
+            $("ul.tabs li").click(function() {
+
+              var activeTab = $(this).attr("rel"); 
+			  setTabActive(activeTab, true);	
+
+              $(".tab_drawer_heading").removeClass("d_active");
+              $(".tab_drawer_heading[rel^='"+activeTab+"']").addClass("d_active");
+
+            });
+            /* if in drawer mode */
+            $(".tab_drawer_heading").click(function() {
+
+              //Expand or collapse this panel
+              $(this).toggleClass('d_active');
+              $(this).next().slideToggle('fast');
+              $(".tab_content").not($(this).next()).hide();
+              $(this).siblings().removeClass('d_active');  
+              //Hide the other panels              
+              //$(".tab_content").not($(this).next()).slideUp('fast');
+
+//               $('html, body').animate({
+//                 scrollTop: ($(this).offset().top - 100)
+//               },400);      
+           });
+
+        }
+  
+  
+  
+        function setTabActive(tabname, scroll) {
+			$(".tab_content").hide();
+            var activeTab = tabname; 
+            $("#"+activeTab).fadeIn();
+            $("ul.tabs li").removeClass("active");
+          
+          	var selectedTabHeader = $("ul.tabs li[rel^='"+activeTab+"']");
+            selectedTabHeader.addClass("active");
+
+            $(".tab_drawer_heading").removeClass("d_active");
+          	var selectedTabHeaderMobile = $(".tab_drawer_heading[rel^='"+activeTab+"']");
+            selectedTabHeaderMobile.addClass("d_active"); 
+          	          
+            if (scroll) {
+        			 if ( $(window).width() < 768 ) {
+                      $('html, body').animate({
+                        scrollTop: (selectedTabHeaderMobile.offset().top - 100)
+                      },400); 
+        			 } else {
+                      $('html, body').animate({
+                        scrollTop: (selectedTabHeader.offset().top - 100)
+                      },400); 
+        			 }                            
+            }
+          
+        }
+
+           
+
+		setTabActive('tab1', false);
+});
+</script>
+
+<style>
+.productdtl {overflow: hidden;}
+
+ul.tabs {margin: 0; padding: 0; list-style: none; width: 100%; text-align:center;}
+ul.tabs li {margin: 10px 0; cursor: pointer; padding: 5px 25px; line-height: 31px; color: #7f7f7f; overflow: hidden; position: relative; display: inline-block;
+    letter-spacing: 1px; font-size: 18px; text-transform: uppercase; font-family: AvenirNext-DemiBold;}
+.tab_last {  }
+ul.tabs li:hover {color: #000;}
+ul.tabs li.active {color: #000;	font-family: AvenirNext-Bold; border-bottom: 1px solid #000;}
+.tab_container {clear: both;width: 100%;overflow: auto; margin-bottom:20px;}
+.tab_content {padding: 20px;display: none;}
+.tab_drawer_heading { display: none; }
+  
+@media screen and (max-width: 767px) {
+  .tabs {display: none;}
+  .tab_drawer_heading {margin: 0;	padding: 10px 20px;	display: block;	cursor: pointer;-webkit-touch-callout: none;-webkit-user-select: none;-khtml-user-select: none;
+		-moz-user-select: none;	-ms-user-select: none;user-select: none;border-top: 1px solid #dedede;border-left: 1px solid #dedede;border-right: 1px solid #dedede;
+      	position:relative;font-family: AvenirNext-DemiBold;text-transform: uppercase;letter-spacing: 1px;color: #192024;font-size:16px;}
+  .tab_drawer_heading:after {content: "\e605"; font-family: icons; position: absolute; right: 15px; font-size: 16px; top: 12px;}
+  .tab_container .tab_drawer_heading.last {border-bottom: 1px solid #dedede;}
+  .d_active {color: #fff; background: #192024;}
+  .d_active:after {color: #fff; content: "\e602";}
+  .tab_content {display: block;}  
+  .tab_content iframe {width: 100% !important;}
+  
+
+  
+</style>

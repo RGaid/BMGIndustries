@@ -1,0 +1,70 @@
+<div class="promo">
+  <div class="captionholder">
+    <div class="caption">
+      {% if section.settings.announcement_bar_link %}
+      <a href="{{ section.settings.announcement_bar_link }}">
+        {% endif %}
+        {{ section.settings.announcement_bar_text }} 
+        {% if section.settings.announcement_bar_link %}
+      </a>
+      {% endif %}           
+    </div>
+    <div class="btncloseholder">
+      <a href="#" class="btnclose"><i class="fa fa-times"></i></a>
+    </div>
+  </div>
+</div>
+
+
+<script type="text/javascript">    
+			document.addEventListener("StartOtherLoading", function(event) {
+
+			var bannerdisplay;
+		
+			if ( $(window).width() < 1200 ) {    
+					var sitenavdropdown = '158px';
+					var pushheadertop = '120px';
+				var sitenavchidlesstop = '158px';
+					var pushheadertopafterclosed = '0px';
+			} else {
+					var sitenavdropdown = '158px';
+					var pushheadertop = '130px';
+				var sitenavchidlesstop = '158px';
+					var pushheadertopafterclosed = '0px';
+			}
+		
+		
+			function showTopBanner() { 
+					if({{section.settings.announcement_bar_enabled}} && Cookies.get('hidebanner') == null) {
+				$('.promo').css('opacity','1');
+							$('.siteheader').css('top','0');
+							$('.pushheader').css('height',pushheadertop);
+							$('.site-nav--has-grandchild').css('top', sitenavdropdown);
+						$('.site-nav__childless').css('top',sitenavchidlesstop);
+					} else {
+								$('.pushheader').css('height',pushheadertopafterclosed);
+								$('.site-nav--has-grandchild').css('top',sitenavdropdown);
+							$('.site-nav__childless').css('top',sitenavchidlesstop);              
+						
+					}
+			};
+
+      showTopBanner();
+
+      $('.btnclose').click(function () {
+          $('.siteheader').animate({
+            top: "-30px"
+          }, 100, function() {
+              $('.promo').css('opacity','0');
+              $('.pushheader').css('height',pushheadertopafterclosed);
+              $('.site-nav--has-grandchild').css('top',sitenavdropdown);
+         	  $('.site-nav__childless').css('top',sitenavchidlesstop);            
+
+          });
+          Cookies.set('hidebanner', '1');      
+          return false;
+      });
+
+    });
+      
+</script>  

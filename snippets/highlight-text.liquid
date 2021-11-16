@@ -1,0 +1,31 @@
+<div class="page-width highlight_text">
+  
+  
+<dl class="highlight_accordion">
+    <dt>
+      <div class="highlight_title">{{ section.settings.highlight_title }}</div>
+      {% if section.settings.hideexpandarea %}      
+      {% else %}
+      <i class="accordion_icon fa fa-plus"></i>
+      {% endif %}
+      <div class="highlight_introduction">{{ section.settings.highlight_text }}</div>
+    </dt>
+    <dd class="highlight_content">{{ pages[section.settings.selectedpage].content }}</dd>
+</dl>
+   
+</div>
+
+
+   <script>
+  jQuery(document).ready( function() { 
+	 jQuery('.highlight_accordion dt').click(function() {
+     	jQuery(this).find('i').toggleClass('fa-plus fa-minus').closest('dt').next()
+     .slideToggle().siblings('.highlight_content').slideUp();
+});
+
+jQuery('.highlight_content').hide();
+
+    
+    
+  }); //end documentready
+  </script>

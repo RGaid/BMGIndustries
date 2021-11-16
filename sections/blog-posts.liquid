@@ -1,0 +1,98 @@
+<section>
+  <div class="centercontent blog-postholder" >
+    
+
+    {%- assign blog = blogs[section.settings.blog] -%}
+
+    <ul class="blog-post">
+      {% for article in blog.articles limit: 1 %}
+        <li class="blog-post__item Image--lazyLoad Image--fadeIn" data-bgset="{% include 'responsive-bg-image', image: article.image %}">
+          <div class="blogoverlay">
+            <div class="blogoverlayinner">
+                <a href="{{ article.url }}">
+                  <h3>{{ article.title }}</h3>
+                </a>
+                <div class="blogexcerpt">
+                    {% if article.excerpt.size > 0 %}
+                      {{ article.excerpt }}
+                    {% else %}
+                      {{ article.content | strip_html | truncate: 100 }}
+                    {% endif %}
+                  <a class="bpostreadmore" href="{{ article.url }}" aria-label="{{ 'blogs.article.read_more_title' | t: title: article.title }}">{{ 'blogs.article.read_more' | t }}</a>
+                 </div>
+              </div>
+ 			</div>
+        </li>
+      {% endfor %}
+      <li class="blog-post__item Image--lazyLoad Image--fadeIn" data-bgset="{% include 'responsive-bg-image', image: section.settings.faq_bg_image %}">
+        <div class="blogoverlay">
+          <div class="blogoverlayinner">
+            <a href="/pages/shipping-faq">
+              <h3>FREQUENTLY ASKED QUESTIONS</h3>
+            </a>
+            <div class="blogexcerpt">
+              &nbsp;
+              <a class="bpostreadmore" href="/pages/shipping-faq" >{{ 'blogs.article.read_more' | t }}</a>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Blog posts",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Blog posts"
+      },
+      {
+        "id": "blog",
+        "type": "blog",
+        "label": "Blog"
+      },
+      {
+        "type": "range",
+        "id": "post_limit",
+        "label": "Posts",
+        "min": 3,
+        "max": 12,
+        "step": 1,
+        "default": 3
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_author",
+        "label": "Show author",
+        "default": false
+      },
+      {
+        "type": "checkbox",
+        "id": "blog_show_date",
+        "label": "Show date",
+        "default": true
+      },
+	  {
+		"type": "image_picker",
+        "id": "faq_bg_image",
+        "label": "Image"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Blog posts",
+        "category": "Blog",
+        "settings": {
+          "blog": "News",
+          "post_limit": 3,
+		  "faq_bg_image": ""
+        }
+      }
+    ]
+  }
+{% endschema %}

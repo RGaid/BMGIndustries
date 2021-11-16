@@ -1,0 +1,19 @@
+<div class="sidebar-filter-dynamic clearfix">
+  <h3>Filter by:</h3>
+  <nav class="sidebar-filter-dynamic-options">
+    <a href="#" class="sidebar-filter-dynamic-filter-option js-current-filter">All</a>
+
+    {% assign available_sizes = '' %}
+    {% for product in collections.frontpage.products limit: limit %}
+      {% for variant in product.variants %}
+        {% unless available_sizes contains variant.title %}
+          {% if  variant.available %}
+             {% capture available_sizes %}{{ available_sizes }}, {{ variant.title }}{% endcapture %}
+            <a href="#" class="sidebar-filter-dynamic-filter-option">{{ variant.title }}</a>
+          {% endif %}
+        {% endunless %}
+      {% endfor %}
+    {% endfor %}
+
+  </nav>
+</div>

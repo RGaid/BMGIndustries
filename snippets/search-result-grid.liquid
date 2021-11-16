@@ -1,0 +1,101 @@
+
+{% unless grid_item_width %}
+  {% assign grid_item_width = 'wide--one-third large--one-third medium--one-half' %}
+{% endunless %}
+
+<div class="grid__item search-result {{ grid_item_width }}{% if settings.collections_center_grid_link %} text-center{% endif %}">
+
+  {% if item.featured_image or item.image %}
+    {% assign image_alt = item.title | escape %}
+    <a href="{{ item.url }}" title="{{ image_alt  }}">
+      
+{% if item.object_type == 'product' %}
+      
+{% assign on_sale = false %}
+{% assign sale_text = 'products.product.sale' | t %}
+{% if item.compare_at_price > item.price %}
+  {% assign on_sale = true %}
+{% endif %}
+
+{% assign sold_out = true %}
+{% assign sold_out_text = 'products.product.sold_out' | t %}
+{% if item.available %}
+  {% assign sold_out = false %}
+{% endif %}
+  
+      
+    <span class="grid-link__image grid-link__image--product">
+      {% if on_sale %}
+        <span class="badge badge--sale">
+          <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">
+                       {{ item.compare_at_price_max | minus: item.price | times: 100.0 | divided_by: item.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%<br>off
+          </span>
+        </span>
+      {% endif %}
+      {% if sold_out and section.settings.show_sold_out_circle %}
+        <span class="badge badge--sold-out">
+          <span class="badge__text{% if sold_out_text.size > 9 %} badge__text--small{% endif %}">{{ 'products.product.sold_out' | t }}</span>
+        </span>
+      {% endif %}
+      <span class="grid-link__image-centered">
+        {% if item.title != '' %}
+					{%- assign load_img_src = item.featured_image.src | img_url: '10x', format: 'pjpg' -%}
+					{%- assign load_img_class = '' -%}
+					<img
+					{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+					alt="{{ item.featured_image.alt | escape }}" 
+					/>
+
+          {% comment %} <img src="{{ item.featured_image.src | img_url: 'large' }}" alt="{{ item.featured_image.alt | escape }}"> {% endcomment %}
+        {% else %}
+          {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+          {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </span>
+    </span>
+      
+{% else %}
+     <span class="grid-link__image"> 
+       <span class="grid-link__image-centered">
+					{%- assign load_img_src = item | img_url: '10x', format: 'pjpg' -%}
+					{%- assign load_img_class = '' -%}
+					<img
+					{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+					alt="{{ image_alt }}" 
+					/>			 
+           {% comment %} {{ item | img_url: 'medium' | img_tag: image_alt }} {% endcomment %}
+      </span>
+    </span>
+          
+      
+{% endif %}
+      
+      
+    </a>
+  {% endif %}
+
+
+    {% if item.object_type == 'product' %}
+  
+    <p class="grid-link__meta">
+        {% capture price %}{{ item.price | money }}{% endcapture %}
+        {% if on_sale %}
+        <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+        <s class="grid-link__sale_price">{{ item.compare_at_price | money }}</s>
+        {% endif %}
+        {% if item.price_varies %}
+          {{ 'products.general.from_html' | t: price: price }}
+        {% else %}
+          {% if on_sale %}
+            <span class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+          {% else %}
+            <span class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+          {% endif %}
+          {{ price }}
+        {% endif %}      
+      
+    </p>
+    {% endif %}
+    <p class="grid-link__title">{{ item.title | link_to: item.url }}<p>
+
+</div>

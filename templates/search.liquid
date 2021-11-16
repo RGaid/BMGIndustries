@@ -1,0 +1,55 @@
+{% paginate search.results by 12 %}
+
+    
+<header class="section-header section-header--large searchheader">
+  <div class="sectionheadertitle">
+    <div class="sectionheadertitleinner">
+      <h1 class="section-header__title">        
+        {% if search.performed %}
+            {{ 'general.search.results_with_count' | t: terms: search.terms, count: search.results_count }}
+        {% else %}
+          {{ 'general.search.title' | t }}
+        {% endif %}
+      </h1>
+      <form action="/search" method="get" role="search" class="searchform">
+        <i class="icon searchbaricon" aria-hidden="true"></i>
+        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="{{ 'general.search.placeholder' | t }}"/>
+        <input type="hidden" name="type" value="product" />    
+      </form>        
+    </div>
+  </div>
+</header>
+
+  <p class="space20" />
+
+  <div class=" centercontent" style="margin: auto !important">
+    <div class="grid__item one-whole  nopadding rightalign">
+      
+      <p class="space20" />
+
+      <div class="grid-uniform grid-link__container">
+        {% assign grid_item_width = 'wide--one-quarter medium--one-half small--one-half' %}
+        {%- assign product_width = 335 -%}
+        {% if search.results_count != 0 %}
+          {% for item in search.results %}
+            {% if item.object_type == 'product' %}
+              {% assign featured = item %}
+              {% assign product = item %}
+              <div class="grid__item {{grid_item_width}}">
+                {% include 'product-grid-item' %}
+              </div>
+            {% endif %}
+          {% endfor %}
+        {% else %}
+          <div class="section-header section-header--large centeralign">
+            <h1 class="section-header__title h2">{{ 'general.search.no_results_html' | t: terms: search.terms }}</h1>
+          </div>
+        {% endif %}
+      </div>
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
+    </div>
+  </div>
+
+{% endpaginate %}

@@ -1,0 +1,39 @@
+{% capture LOAD_BG %}
+
+	{%- comment -%}
+	Lazyload for background
+	Dont forget add https://github.com/aFarkas/lazysizes/tree/gh-pages/plugins/bgset
+	{%- endcomment -%}
+
+	{%- assign exists = true -%}
+
+	{%- if src == null -%}
+		{%- assign exists = false -%}		
+	{%- endif -%}
+
+	{%- if src contains 'no-image' -%}
+		{%- assign exists = false -%}
+	{%- endif -%}
+
+	{%- if exists == true  -%}
+		
+		{% capture data-bgset %}
+			{{ src | replace: '_10x', '_800x' }} [(max-width: 480px)] | 
+			{{ src | replace: '_10x', '_1000x' }} [(max-width: 700px)] | 
+			{{ src | replace: '_10x', '_1200x' }} [(max-width: 1024px)] |
+			{{ src | replace: '_10x', '_1600x' }} [(max-width: 1480px)] |
+			{{ src | replace: '_10x', '_1600x' }} [(max-width: 1980px)] |
+			{{ src | replace: '_10x', '_1800x' }} [(max-width: 2200px)] |
+			{{ src | replace: '_10x', 'master' }} [(max-width: 6000px)] |
+			{{ src | replace: '_10x', 'master'  }}  6001w
+		{% endcapture %}	
+
+		data-bgset="{{ data-bgset }}" data-sizes="auto" class="Image--lazyLoad Image--fadeIn {{ class }}" 
+
+	{%- else -%}
+
+		class="Image--lazyLoad Image--fadeIn {{ class }}"
+		
+	{%- endif -%}
+
+{% endcapture %}{{ LOAD_BG | strip | replace:'	' | strip_newlines }}

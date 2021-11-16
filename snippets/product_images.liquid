@@ -1,0 +1,34 @@
+<div class="product-single__photos" id="xProductPhoto">
+  {% for image in product.images %}
+    <div class="img_single" src="{{ image | img_url: '1024x1024' }}">
+        <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image | img_url: '600x600' }}" alt="{{ image.alt | escape }}" id="xProductPhotoImg"  data-image-id="{{ image.id }}">
+    </div>
+  {% endfor %}
+  
+  {% if product.metafields.video !=blank %} 
+      <div class="img_single" src="//www.youtube.com/embed/{{ product.metafields.video['videoid'] }}?rel=0&showinfo=0&vq=720">
+        <div class="video-wrapper" >
+          <iframe class="Image--lazyLoad Image--fadeIn" src="//www.youtube.com/embed/{{ product.metafields.video['videoid'] }}?rel=0&showinfo=0&vq=720"  width="850" height="480" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+  {% endif %}
+   
+</div>
+
+{% if product.images.size > 1 %}
+
+    <ul class="product-single__thumbnails grid-uniform" id="xProductThumbs">
+      {% for image in product.images %}
+      <li class="grid__item one-sixth medium--one-quarter">
+          <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}">
+      </li>
+      {% endfor %}
+      {% if product.metafields.video !=blank %} 
+          <li class="grid__item one-sixth medium--one-quarter">
+            <img class="Image--lazyLoad Image--fadeIn" data-src="https://i1.ytimg.com/vi/{{ product.metafields.video['videoid'] }}/1.jpg" border="0" alt="Video" />
+          </li>
+      
+      {% endif %}
+    </ul>
+
+{% endif %}

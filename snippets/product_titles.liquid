@@ -1,0 +1,46 @@
+<div class="product_info">
+  <h1 itemprop="name" class="product_title ">{{ product.title }}</h1>
+	{% assign current_variant = product.selected_or_first_available_variant %}
+	<div class="variant-sku">ITEM {{ current_variant.sku }}</div>  
+  <div class="product-single__prices">  
+    
+    
+          <div class="product-single__prices">
+            {% if product.compare_at_price_min > product.price %}
+              <span id="ComparePriceA11y" class="visually-hidden">{{ 'products.product.sale_price' | t }}</span>
+            {% else %}
+              <span id="PriceA11y" class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+            {% endif %}
+            <span id="ProductPrice" class="product_price {% if on_sale %}discountprice{% endif %}" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
+              {{ product.price | money }}
+            </span>
+
+            {% if product.compare_at_price_min > product.price %}
+              <span id="PriceA11y" class="visually-hidden">{{ 'products.product.regular_price' | t }}</span>
+              <s id="ComparePrice" class="product_price_cross">
+                {{ product.compare_at_price_max | money }}
+              </s>
+            {% endif %}
+            
+            <div class="product-single_save">
+                {% if product.compare_at_price_max > product.price %}
+                Save: {{ product.compare_at_price_max | minus: product.price | money }}
+                {% endif %}
+            </div>
+            
+          </div>
+          {% if cpi != '' %}
+            <br/>
+            <span class="per_product_price">{{ cpi }} Per Unit</span>
+          {% endif %}
+          {% if msrp != '' %}
+            <p class="msrpp">
+              <span class="per_product_price">{{ msrp }} MSRP</span>
+            </p>
+          {% endif %}
+                    
+ 
+  </div>
+
+</div>
+<hr class="hr--small" />

@@ -1,0 +1,203 @@
+{% assign featuredcollection = section.settings.featured_collection %}
+{% assign products_per_row = section.settings.num_per_row %}
+{% assign total_products = products_per_row  %}
+
+<div data-section-id="{{ section.id }}" data-section-type="featured-products-section" class="flex{{ section.id }}">
+  {% unless section.settings.title == blank %}
+  <div class="section-header section-header--small">
+    <h2 class="section-header__title {% if section.settings.alternate_header_style %}alt_header_style{% endif %}">
+      {{ section.settings.title }}
+    </h2>
+  </div>
+  {% endunless %}
+  
+  <div class="flexproduct featured">
+    <ul class="slides productgrid">
+    {% for product in collections[featuredcollection].products limit: total_products %}
+      {% assign featured = product %}
+      <li>
+      <div class="grid__item one-whole" {{ block.shopify_attributes }}>
+        {% include 'product-grid-item' %}
+      </div>
+      </li>  
+      
+    {% else %}
+      <li>
+      <div class="grid__item">
+        <div class="helper-section">
+          <div class="grid-uniform helper-content">
+            {% for i in (1..total_products) %}
+              <div class="grid__item {{grid_item_width}}">
+                <a href="/admin/products" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+                  <span class="grid-link__image grid-link__image--product">
+                    <span class="grid-link__image-centered">
+                      {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                      {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+                    </span>
+                  </span>
+                  <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
+                  <p class="grid-link__meta">
+                    <strong>$19.99</strong>
+                  </p>
+                </a>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+      </li>
+    {% endfor %}
+    </ul> 
+    <div class="flex-custom-navigation">
+      <a href="#" class="flex-prev"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+      <a href="#" class="flex-next"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+    </div>    
+    <div class="flex-custom-controls-container"></div>
+    
+
+
+  </div>
+  
+
+  
+</div>
+
+
+<script type="text/javascript">      
+        
+  document.addEventListener("StartOtherLoading", function(event) { 
+    
+    if ( $(window).width() < 770 && $(window).width() > 500  ) {    
+      	var minitem = 3;
+      	var itemwidth = 320;
+    } else if ( $(window).width() < 500 ) {
+      	var minitem = 2;
+        var itemwidth = 200;
+    } else {
+      	var minitem = 4;
+        var itemwidth = 360;
+    }
+    
+			$(".flex{{ section.id }} .flexproduct").flexslider({
+              animation: "slide",
+              animationLoop: false,
+              itemWidth: itemwidth,
+              minItems: minitem,
+              directionNav: false,
+    		  controlsContainer: $(".flex{{ section.id }} .flex-custom-controls-container"),
+              customDirectionNav: $(".flex{{ section.id }} .flex-custom-navigation a")
+			});	
+    
+            $(".flex{{ section.id }} .flex-custom-navigation .flex-prev").on('click', function(){
+                $(".flex{{ section.id }} .flexproduct").flexslider('prev');
+                return false;
+            })
+
+            $(".flex{{ section.id }} .flex-custom-navigation .flex-next").on('click', function(){
+                $(".flex{{ section.id }} .flexproduct").flexslider('next');
+                return false;
+            })   
+            
+			$(".flex{{ section.id }} .flex-control-paging").append( "<li><a class='flexmorelink' href='{{ collections[featuredcollection].url }}'>more</a></li>" );
+            
+            $(".flex{{ section.id }} .flexmorelink").on('click', function(){
+ 	            window.location.href = "{{ collections[featuredcollection].url }}";              
+                return false;
+            })   
+  });
+        
+</script>  
+
+{% schema %}
+  {
+    "name": "Featured products scroll",
+    "class": "index-section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured products scroll"
+      },
+      {
+        "type": "checkbox",
+        "id": "alternate_header_style",
+        "label": "Use alternate header style"
+      },
+      {
+        "type": "collection",
+        "id": "featured_collection",
+        "label": "Collection"
+      },
+      {
+        "type": "select",
+        "id": "num_per_row",
+        "label": "Products per row",
+        "default": "8",
+        "options": [
+          {
+            "value": "4",
+            "label": "4"
+          },
+          {
+            "value": "8",
+            "label": "8"
+          },
+          {
+            "value": "12",
+            "label": "12"
+          },
+          {
+            "value": "16",
+            "label": "16"
+          },
+          {
+            "value": "20",
+            "label": "20"
+          },
+          {
+            "value": "-1",
+            "label": "Unlimited"
+          }
+
+        ]
+      },
+      {
+        "type": "checkbox",
+        "id": "vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sale_circle",
+        "label": "Show product sale circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_sold_out_circle",
+        "label": "Show product sold out circle"
+      },
+      {
+        "type": "checkbox",
+        "id": "center_grid_link",
+        "label": "Center text below product images"
+      },
+		{
+        "type": "checkbox",
+        "id": "show_review",
+        "label": "Display Reviews"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured products scroll",
+        "category": "Collection",
+        "settings":
+        {
+          "title": "Featured products scroll",
+          "featured_collection": "frontpage"
+        }
+      }
+    ]
+  }
+{% endschema %}

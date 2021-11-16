@@ -1,0 +1,138 @@
+{%for tag in product.tags%}
+  {% if tag contains 'collection'%}
+    {% assign collection_tag = tag | replace: 'collection-','' %}
+    {% break %}
+  {% endif %}
+{%endfor%}
+
+{% assign selected_collection = 'NaN' %}
+{%for collection in product.collections%}
+  {% if collection.handle == collection_tag%}
+    {% assign selected_collection = collection %}
+    {% break %}
+  {% endif %}
+{%endfor%}
+
+<div itemscope itemtype="http://schema.org/Product" id="KitProductSection" data-section-id="{{ section.id }}" data-section-type="product-template" data-image-zoom-type="zoom-in" data-related-enabled="{{ section.settings.product_related_enable }}" data-social-sharing="{{ section.settings.social_sharing }}" data-show-extra-tab="{{ section.settings.show_extra_tab }}" data-extra-tab-content="{{ section.settings.extra_tab_content }}" data-enable-history-state="true" class="centercontent">
+
+  <meta itemprop="url" content="{{ shop.url }}{{ product.url }}">
+  <meta itemprop="image" content="{{ product.featured_image.src | img_url: 'grande' }}">
+
+  <div class="product-single">
+    <div class="grid product-single__hero">
+      <div class="post-large--hide  medium--hide small--one-whole mobileprodtitle">
+            <div class="product_info">
+                <h1 itemprop="name" class="product_title ">{{ product.title }}</h1>
+                {% assign current_variant = product.selected_or_first_available_variant %}
+                <div class="variant-sku">ITEM {{ current_variant.sku }}</div>  
+              
+                <div class="product-single__prices">
+                  <span id="ProductPrice" class="product_price {% if on_sale %}discountprice{% endif %}" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
+                    {{ product.price | money }}
+                  </span>
+                </div>
+             
+                
+              </div>
+      </div>
+      <div class="grid__item post-large--two-quarters medium--two-quarters small--one-whole product-single_image_holder">
+        {% assign on_sale = false %}
+        {% if product.compare_at_price_min > 0 %}
+          {% assign on_sale = true %}
+        {% endif %}
+        
+        {% if on_sale %}
+        <span class="badge badge--sale">
+          <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">
+              {{ product.compare_at_price_min  | minus: product.price  | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%<br>off
+          </span>
+        </span>
+        {% endif %}
+        
+        {%include 'product_images'%}
+      </div>
+      
+      <div class="grid__item post-large--three-eighths medium--two-quarters small--one-whole ">
+        <div class=" small--hide">
+          <div class="product_info">
+            <h1 itemprop="name" class="product_title ">{{ product.title }}</h1>
+            {% assign current_variant = product.selected_or_first_available_variant %}
+            <div class="variant-sku">ITEM {{ current_variant.sku }}</div>  
+			<div class="product-single__prices">
+              <span id="ProductPrice" class="product_price {% if on_sale %}discountprice{% endif %}" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
+                {{ product.price | money }}
+              </span>
+            </div>
+            
+            
+          </div>
+        </div>
+        <p class="space20"/>
+
+
+        <div class="swatch_options">
+          <div class="swatch clearfix" data-option-index="0">
+          {% for item in selected_collection.products %}
+            
+          {% assign opt_title = item.title | remove: '72HRS Deluxe Backpack' | remove: ' - Emergency Survival Kit' | remove: '72HRS Deluxe Toilet' | remove: ' Food and Water Refill Kit' | remove: ' 72HRS Essential Backpack' | remove: ' 72HRS Essential Toilet' | remove: '- 72HRS Real Meal Survival Kit' | remove: ' 72HRS Real Meal Emergency Survival Kit'%}
+          {% assign variant = item.selected_or_first_available_variant %}
+          {% assign imgname =  opt_title | handle | append: '.png' %}          
+          {% assign variant_name =  opt_title | handle | replace:"-"," " | downcase | strip %}
+          {% assign opt_title_name = product.title | remove: '72HRS Deluxe Backpack' | remove: ' - Emergency Survival Kit' | remove: '72HRS Deluxe Toilet' | remove: ' Food and Water Refill Kit' | remove: ' 72HRS Essential Backpack' | remove: ' 72HRS Essential Toilet' | remove: '- 72HRS Real Meal Survival Kit' | remove: ' 72HRS Real Meal Emergency Survival Kit' | downcase | strip %}  
+          
+            <div data-value="{{ opt_title | escape }}" class="swatch-element {{ opt_title | handle }}-swatch {% if variant.available %}available{% else %}soldout{% endif %}" >
+              <a href="{{item.url}}"> <label for="swatch-{{ option_index }}-{{ opt_title | handle }}-{{ product.id }}" style="background-image: url({{ imgname | asset_url }});" class="{%if opt_title_name == variant_name %}selected{%endif%} {{ swatch | downcase }} {{ opt_title | downcase }}">{{ opt_title }}<span class="crossed-out"></span></label></a>
+            </div>  
+            
+          {% endfor %}
+          </div>
+          </div>
+
+          {% if customer %}
+                  <form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="" autocomplete="off">
+                    
+                    <input type='hidden' name='id' value="{{product.selected_or_first_available_variant.id }}" />
+                    <button type="submit" name="add" id="AddToCart" class="btn btnAddtocart">
+                      add to cart
+                    </button>
+                    <input type="number" id="Quantity" name="quantity" value="1" min="1" class="xquantity-selector">
+                  </form>
+          {% endif %}
+          <div class="product-description rte keyfea" itemprop="description">
+            AVAILABILITY: {% if current_variant.inventory_quantity > 0 %} IN STOCK {% else %} SOLD OUT {% endif %}
+          </div>
+          
+      </div>
+      
+      <hr class="hr--clear hr--small hr--divline ">
+
+      {% include 'product_description_tabs' %}
+    </div>
+  </div>
+
+</div>
+
+{% unless product.empty? %}
+  <script type="application/json" id="ProductJson-{{ section.id }}">
+    {{ product | json }}
+  </script>
+{% endunless %}
+{{ 'option_selection.js' | shopify_asset_url | script_tag }}
+
+
+<script>
+
+  document.addEventListener("StartOtherLoading", function(event) {
+  	$('.viewfull').on('click', function(e){
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: ($('.productdtl').offset().top - 150)
+      },500);
+    });
+    
+    $('#kitProduct').change(function(e){
+	      window.location = $(this).find(':selected').data('url');
+    });
+  
+  });
+</script>

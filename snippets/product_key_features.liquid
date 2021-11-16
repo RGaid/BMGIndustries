@@ -1,0 +1,21 @@
+<div class="product-description rte keyfea" itemprop="description">
+  {{ product.description | split:'</p>' | first | replace: '!!!!!-----!!!!!',''}}
+  <p class="padded20">
+    <a href='#' id='viewfull' class='viewfull'>VIEW FULL SPECS</a>
+  </p>
+</div>
+<p class="space20"></p>
+{% if section.settings.social_sharing %}
+  {%include 'product_social_links'%}
+{% endif %}
+
+<script>
+  document.addEventListener("StartOtherLoading", function(event) { 
+    $('#viewfull').on('click', function(e){
+      e.preventDefault();
+      $('html, body').animate({
+        scrollTop: ($('.productdtl').offset().top - 150)
+      },500);
+    });
+  });
+</script>

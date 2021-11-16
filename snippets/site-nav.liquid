@@ -1,0 +1,37 @@
+
+<ul class="site-nav" role="navigation" id="AccessibleNav">
+  {% for link in site-nav.links %}
+
+      {% if link.levels == 0 %}
+          <li {% if link.active %}class="site-nav--active"{% endif %}>
+            <a href="{{link.url}}" class="site-nav__link">{{ link.title }}</a>
+          </li>
+      {% else %}
+          <li class="site-nav--has-dropdown{% if link.active %} site-nav--active{% endif %}" aria-haspopup="true">
+            <span class="site-nav__link">
+              {{ link.title }}
+            </span>  
+            <ul class="site-nav__dropdown site-nav__childless">
+              <div class='navdroptabcontent'>
+                <ul class="navgridfour">
+                  {% for sub_link in link.links %}
+                        <ul  class="{{sub_link.handle}}">
+                          <li class='nav-li-catgry' contentid={{ sub_link.title | handle }} >
+                            {{ sub_link.title | escape }}
+                          </li>
+                          {% if sub_link.levels > 0 %}
+                            {% for sub_sub_link in sub_link.links %}
+                              <li class='nav-li-sub-catgry' contentid={{ sub_sub_link.title | handle }}>
+                                <a href="{{ sub_sub_link.url }}" >{{ sub_sub_link.title | escape }}</a>
+                              </li>
+                            {% endfor %}
+                          {% endif %}
+                        </ul>
+                  {% endfor %}
+                </ul>
+              </div>
+            </ul>
+          </li>
+      {% endif %}
+  {% endfor %}
+</ul>

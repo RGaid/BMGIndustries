@@ -1,0 +1,44 @@
+<h3>{{ 'sidebar.general.categories' | t }}</h3>
+<ul class="cat-nav" role="navigation" id="accordion">
+  {% for link in cat-nav-accordion.links %}
+    {% comment %}
+      Create a dropdown menu by naming a linklist the same as a link in the parent nav
+
+      More info on dropdowns:
+        - http://docs.shopify.com/manual/your-website/navigation/create-drop-down-menu
+    {% endcomment %}
+    {% assign child_list_handle = link.title | handleize %}
+    {% if linklists[child_list_handle].links != blank %}
+      <li class="cat-nav--has-dropdown{% if link.active %} cat-nav--active{% endif %}" aria-haspopup="true">
+        <a href="{{ link.url }}" class="cat-nav__link">{{ link.title }}</a>
+        <ul class="cat-nav__dropdown">
+          {% for childlink in linklists[child_list_handle].links %}
+            <li{% if childlink.active %} class="cat-nav--active"{% endif %}>
+              <a href="{{ childlink.url }}" class="cat-nav__link">{{ childlink.title | escape }}</a>
+            </li>
+          {% endfor %}
+        </ul>
+      </li>
+    {% else %}
+      <li {% if link.active %}class="cat-nav--active"{% endif %}>
+        <a href="{{ link.url }}" class="cat-nav__link">{{ link.title }}</a>
+      </li>
+    {% endif %}
+  {% endfor %}
+</ul>
+
+  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+   <script>
+  jQuery(document).ready( function() { 
+    
+    var defaultindex = $('#accordion').find('li.cat-nav--active').parent().parent().index();
+    if (defaultindex == "-1") { defaultindex = false; }
+      $( "#accordion" ).accordion({
+        heightStyle: "content",
+		collapsible: true,         
+        active: defaultindex
+      });
+    
+    
+  }); //end documentready
+  </script>

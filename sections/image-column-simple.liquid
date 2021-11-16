@@ -1,0 +1,103 @@
+<div data-section-id="{{ section.id }}" data-section-type="imagebycolumn-section">
+
+  {% if section.settings.title != blank %}
+  <div class="section-header section-header--small">
+    <h2 class="section-header__title">{{ section.settings.title }}</h2>
+  </div>
+  {% endif %}
+
+  <div class="grid-uniform categorygrid">
+    {% case section.blocks.size %}
+      {% when 1 %}
+        {%- assign imagebycolumn_item_width = 'one-half' -%}
+    	{%- assign imagebycolumn_item_img_size = 'grande' -%}    
+      {% when 2 %}
+        {%- assign imagebycolumn_item_width = 'one-half' -%}
+    	{%- assign imagebycolumn_item_img_size = 'grande' -%}    
+      {% when 3 %}
+        {%- assign imagebycolumn_item_width = 'medium-down--one-third one-third' -%}
+      {% when 4 %}
+        {%- assign imagebycolumn_item_width = 'medium-down--one-quarter one-quarter' -%}
+      {% when 5 %}
+        {%- assign imagebycolumn_item_width = 'small--one-half medium--one-third post-large--one-fifth' -%}  
+      {% when 6 %}
+        {%- assign imagebycolumn_item_width = 'small--one-half medium--one-third post-large--one-sixth' -%}      
+    {% endcase %}
+
+    {% for block in section.blocks limit: section.blocks.size %}
+
+    {% unless imagebycolumn_item_img_size %}
+      {% assign imagebycolumn_item_img_size = 'grande' %}
+    {% endunless %}
+    
+      <div class="grid__item {{imagebycolumn_item_width}} text-center imagebycolumnsimple" {{ block.shopify_attributes }}>
+      {% if block.settings.url != blank %}<a href="{{ block.settings.url }}" class="{{ block.settings.class }} grid-link">{% endif %}        
+				{%- assign load_img_src = block.settings.image | img_url: '10x', format: 'pjpg', crop: 'center' -%}
+				{%- assign load_img_class = 'grid-link__image' -%}
+				<img
+				{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+				alt="{{ block.settings.image.alt }}"
+				/>        
+				{% comment %} {{ block.settings.image | img_url: imagebycolumn_item_img_size, crop: 'center' | img_tag: block.settings.image.alt, 'grid-link__image' }} {% endcomment %}
+        {% if block.settings.title != blank %} <p class="grid-link__title alt">{{ block.settings.title }}</p>{% endif %}  
+        {% if block.settings.url != blank %}</a>{% endif %}  
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Image by column simple",
+    "class": "index-section",
+    "max_blocks": 6,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Categories"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "image",
+        "name": "imageset",
+        "settings": [
+          {
+            "type": "image_picker",
+            "id": "image",
+            "label": "Image"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Item 1"
+          },{
+            "type": "url",
+            "id": "url",
+            "label": "URL that link to"
+          }
+  		]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Image by column simple",
+        "category": "Image",
+        "blocks": [
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          },
+          {
+            "type": "image"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

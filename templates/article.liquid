@@ -1,0 +1,127 @@
+{% capture date %}{{ article.published_at | time_tag: format: 'month_day_year' }}{% endcapture %}
+<article role="article">
+
+  {% if article.image %}
+    <div class=" articleheader hero-banner hero-banner--article Image--lazyLoad Image--fadeIn" data-bgset="{% include 'responsive-bg-image', image: article.image %}">
+      <div class="articletitle">
+         <div class="articletitleinner">
+       		 <span class="articlename">{{ article.title }}</span><br/>
+           	  <span class="articledate">{{ date }}</span>
+        </div>
+      </div>
+    </div>
+
+    <noscript>
+      {%- assign image_size = article.image.width | append: 'x' -%}
+      <div class="hero-banner hero-banner--article" style="background-image: {{ article.image | img_url: image_size }}"></div>
+    </noscript>
+  {% endif %}
+
+  <div class="articlesocial">
+    {% include 'social-sharing' %}
+  </div>
+
+  <div class="pagecenter">
+    <div class="rte">
+      {{ article.content }}
+    </div>
+  </div>
+  
+  <hr class=" hr--small">
+
+  <div class=" commentform">
+    {% form 'new_comment', article %}
+      <h3>{{ 'blogs.comments.title' | t }}</h3>
+
+      {{ form.errors | default_errors }}
+
+      <label for="CommentBody" class="label-hidden">
+        {{ 'blogs.comments.message' | t }}
+      </label>
+      <textarea
+        name="comment[body]"
+        id="CommentBody"
+        class="{% if form.errors contains 'body' %}input-error{% endif %}"
+        placeholder="{{ 'blogs.comments.message' | t }}">
+        {{- form.body -}}
+      </textarea>
+
+          <div class='inputgroup'>
+        <label for="CommentAuthor" class="label-hidden">
+          {{ 'blogs.comments.name' | t }}
+        </label>
+        <input type="text"
+               name="comment[author]"
+               id="CommentAuthor"
+               class="{% if form.errors contains 'author' %}input-error{% endif %} halfinputleft"
+               placeholder="{{ 'blogs.comments.name' | t }}"
+               value="{{ form.author }}"
+               autocapitalize="words">
+
+        <label for="CommentEmail" class="label-hidden">
+          {{ 'blogs.comments.email' | t }}
+        </label>
+        <input type="email"
+               name="comment[email]"
+               id="CommentEmail"
+               class="{% if form.errors contains 'email' %}input-error{% endif %} halfinputright"
+               placeholder="{{ 'blogs.comments.email' | t }}"
+               value="{{ form.email }}"
+               spellcheck="false"
+               autocomplete="off"
+               autocapitalize="off">
+      </div>
+
+      <input type="submit" class="btn btn-lg" value="{{ 'blogs.comments.post' | t }}">
+    {% endform %}
+  </div>
+</article>
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Article",
+  "articleBody": "{{ article.content | strip_html }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "{{ shop.url }}{{ page.url }}"
+  },
+  "headline": "{{ article.title }}",
+  {% if article.excerpt != blank %}
+    "description": "{{ article.excerpt | strip_html }}",
+  {% endif %}
+  {% if article.image %}
+    {% assign image_size = article.image.width | append: 'x' %}
+    "image": [
+      "https:{{ article | img_url: image_size }}"
+    ],
+  {% endif %}
+  "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+  "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+  "author": {
+    "@type": "Person",
+    "name": "{{ article.author }}"
+  },
+  "publisher": {
+    "@type": "Organization",
+    {% if settings.share_image %}
+      {% assign image_size = settings.share_image.width | append: 'x' %}
+      "logo": {
+        "@type": "ImageObject",
+        "height": "{{ settings.share_image.height }}",
+        "url": "https:{{ settings.share_image | img_url: image_size }}",
+        "width": "{{ settings.share_image.width }}"
+      },
+    {% elsif article.image %}
+      {% assign image_size = article.image.width | append: 'x' %}
+      "logo": {
+        "@type": "ImageObject",
+        "height": "{{ article.image.height }}",
+        "url": "https:{{ article.image | img_url: image_size }}",
+        "width": "{{ article.image.width }}"
+      },
+    {% endif %}
+    "name": "{{ shop.name }}"
+  }
+}
+</script>

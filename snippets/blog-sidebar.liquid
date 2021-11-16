@@ -1,0 +1,31 @@
+<h3 class="h3">{{ 'blogs.sidebar.recent_articles' | t }}</h3>
+{% for article in blogs[blog.handle].articles limit:6 %}
+<a href="{{ article.url }}">
+	{%- assign load_img_src = article.image.src | img_url: '10x', format: 'pjpg' -%}
+	{%- assign load_img_class = '' -%}
+	<img
+	{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+	alt="" 
+	/>
+	{% comment %} <img src="{{ article.image.src | img_url: 'medium' }}"> {% endcomment %}
+</a>   
+    <a href="{{ article.url }}">{{ article.title }}</a>
+    <br>
+    <time pubdate datetime="{{ article.published_at | date: '%Y-%m-%d' }}">
+      <small><em class="text-light">Published date: {{ article.published_at | date: format: 'month_day_year' }}</em></small>
+    </time>
+<p class="hr--divline"></p>
+{% endfor %}
+
+{% if blog.all_tags.size > 0 %}
+  <h3 class="h3">{{ 'blogs.sidebar.categories' | t }}</h3>
+  <ul>
+    {% for tag in blog.all_tags %}
+      {% if current_tags contains tag %}
+      <li>{{ tag }}</li>
+      {% else %}
+      <li>{{ tag | link_to_tag: tag }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}

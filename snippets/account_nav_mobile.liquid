@@ -1,0 +1,9 @@
+{% include 'breadcrumb' %}
+  <h1 class="acttitle">MY ACCOUNT</h1>
+  <div  class="accountnav">
+    <a href="/account" {%if currpage == '/account'%} class="currentpage" {% endif %}>My Orders</a>
+    &nbsp;|&nbsp;
+    <a href="/account/addresses"  {%if currpage == '/account/addresses'%} class="currentpage" {% endif %} >My Profile</a>
+    &nbsp;|&nbsp;
+    {{ 'layout.customer.log_out' | t | customer_logout_link }}
+  </div>

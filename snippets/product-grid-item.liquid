@@ -1,0 +1,112 @@
+{% if featured.available %}
+  {% assign sold_out = false %}
+{% else %}
+  {% assign sold_out = true %}
+{% endif %}
+{% assign on_sale = false %}
+{% if product.compare_at_price_min > 0 %}
+  {% assign on_sale = true %}
+{% endif %}
+        
+<div class="prodbox item{{ featured.id }} {% if on_sale %}onsale{% endif %}">
+  <div class="relatedprodgriditemimgholder" >
+    <a href="{{ featured.url | within: collection }}" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+      <div class="grid-link__image{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product">
+        <div class="productimageholder">
+
+        {% if on_sale %}
+        <span class="badge badge--sale">
+          <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">
+              {{ product.compare_at_price_min  | minus: product.price  | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%<br>off
+          </span>
+        </span>
+        {% endif %}
+          
+            <div class="productimageholderinner">
+            {% include 'responsive-image' with
+                image: featured.featured_image.src ,
+                max_width: 280,
+                max_height: 280,
+                wrapper_class: 'prodgridimgnew'
+              %}
+          </div>
+        </div>  
+      </div>
+     </a>
+   </div>   
+   <div class="listitemholder centeralign">
+        {%if customer%}
+          <button type="button" value="{{ product.variants.first.id }}" {% if sold_out %}disabled{% endif %} class="btn btnaddtocart xquickshop">
+            {% if sold_out %}Sold out{% else %}quick shop{% endif %}
+          </button>
+        {%endif%}
+    <a href="{{ featured.url | within: collection }}" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+      <span class="grid-link__title relatedprodgridlinktitle">{{ featured.title | escape  }}</span> 
+    </a>
+    {%if customer%}
+      <span class="relatedprodgridlinkprice">
+        {% include 'product-grid-price' %}
+      </span>
+    {%endif%}
+    
+  </div>
+  
+  <!-- quickshop popup content -->
+  <div class="quickshop-modal" id="{{ product.variants.first.id }}">
+    <div class="quickshop-contentx">
+      <div class="grid">
+        <div class="grid__item one-half small--one-whole">
+          <span class="grid-link__image{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product">
+          {% include 'responsive-image' with
+              image: featured.featured_image.src ,
+              max_width: 450,
+              max_height: 450
+            %}
+        </span>
+        </div>
+        <div class="grid__item one-half small--one-whole">
+          <div class="product_info">
+            <h1 itemprop="name" class="product_title" style="clear: both;">{{ product.title }}</h1>
+            <div class="product-single__prices">
+              <span id="ProductPrice" class="product_price" itemprop="price" content="{{ product.price | divided_by: 100.00 }}">
+                {{ product.price | money }}
+              </span>
+            </div>
+          </div>
+          <form action="/cart/add" method="post" enctype="multipart/form-data"  class="quickform">
+            {% if product.variants.length > 1 %}
+                <select name="id" id="productSelect" class="product-single__variants">
+                  {% for variant in product.variants %}
+                    {% if variant.available %}
+
+                      <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+                    {% else %}
+                      <option disabled="disabled">
+                        {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+                      </option>
+                    {% endif %}
+                  {% endfor %}
+                </select>
+            {% else %}
+              <input type="hidden" name="id" value="{{product.selected_or_first_available_variant.id}}" />
+            {% endif %}
+            
+            <button type="submit" name="add" class="btn btnAddtocart"  {% if sold_out %}disabled{% endif %}>
+              <span id="AddToCartText">{% if sold_out %}Sold out{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
+            </button>
+            <input type="number" name="quantity" value="1" min="1" class="xquantity-selector" >
+          </form>
+          <div class="product-description rte quickdesc" itemprop="description">
+            {{ product.description | strip_html | truncate: 100 }}
+            <p class="padded20">
+              <a href="{{ featured.url | within: collection }}" class='viewfull'>SEE FULL DETAILS</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>

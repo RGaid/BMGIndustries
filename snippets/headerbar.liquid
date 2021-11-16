@@ -1,0 +1,26 @@
+<div class="headerbar grid">
+  <div class="grid__item one-whole  medium--hide small--hide nopadding">
+    <div class="headerbar_links headerbar_cartval"> 
+      <a href="/cart" class="cart-page-link" id="addtomodalcart2">
+        <span id='headercartcnt' class='cart-count'>{{ cart.item_count }}</span>
+      </a>  
+    </div>  
+    
+    <div class="headerbar_links"> 
+      {{ 'cart-icon-white.png' | asset_url | img_tag: '','cartimg' }}
+      MY CART
+    </div>
+    <div class="headerbar_links"> 
+      {% if customer %}
+        <a href="/account">MY ACCOUNT</a> 
+        &nbsp;&nbsp;|&nbsp;&nbsp;
+        {{ 'LOGOUT'  | customer_logout_link }}
+      {% else %}
+        {{ 'LOGIN'  | customer_login_link }}
+      {% endif %}
+    </div> 
+  </div>
+  
+  
+  
+</div>

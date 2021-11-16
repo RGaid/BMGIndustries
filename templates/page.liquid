@@ -1,0 +1,43 @@
+{% assign imgklass = '' %}
+{% case page.handle %}
+  {% when 'corporate-branding' %}
+     {% assign imgklass = 'branding' %}
+{% endcase %}
+
+<header class="section-header section-header--large searchheader">
+  <div class="sectionheadertitle">
+    <div class="sectionheadertitleinner">
+      <h1 class="section-header__title">{{ page.title }}</h1>
+    </div>
+  </div>
+</header>
+
+<p class="space20" />
+
+
+<div class="rte pagecenter">
+  {{ 
+		page.content
+		| replace: '<img src=', '<img class="Image--lazyLoad Image--fadeIn" data-src='
+	 }}
+</div>
+
+
+{%if page.handle == 'faq'%}
+  <script>
+    document.addEventListener("StartOtherLoading", function(event) {
+      $( function() {
+        var selector = '.faqaccordion';
+        $( selector ).accordion({
+          heightStyle: "content",
+          collapsible: true,
+          icons: { "header": "ui-icon-plus", "activeHeader": "ui-icon-minus" }
+
+        });
+        $( "#toggle" ).button().on( "click", function() {
+           $( selector ).accordion( "option", "icons", null );
+        });
+      } );
+    } );
+  </script>
+{% endif %}

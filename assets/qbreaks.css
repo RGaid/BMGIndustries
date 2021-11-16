@@ -1,0 +1,52 @@
+/*slider styles */
+#selctr .ui-widget.ui-widget-content {border: 1px solid #d8dcdf;}
+#selctr .ui-slider .ui-slider-handle {border-radius: 10px !important; background: #fff; border: 2px solid #d3232a !important;}
+#selctr .ui-widget-header{background: #d3232a;}
+.sliderqty {float: right !important; width: 100px !important;}
+#dtldisplay {padding-bottom: 10px !important;}
+.prange {font-family: AvenirNext-Regular; font-size: 14px; font-style: italic;}
+#savdtotal{font-family: AvenirNext-DemiBold; font-size: 13px; color: #1db71d; text-align: left; line-height:1.2; padding-top: 25px;}
+#max-display {float: right;}
+#min-display {float: left;}
+.slideinfotxt {font-family: AvenirNext-Regular; font-size: 14px; text-align: left; clear: both; margin-bottom: 10px;}
+.slidewrap {font-family: AvenirNext-Regular;}
+body {counter-reset: section;}
+.secnttl::before {counter-increment: section; content: counter(section) ": ";}
+.secndsc {border-top: 1px solid #192024; font-size: 14px; color: #192024; font-family: AvenirNext-Regular; padding-top: 5px;}
+.bkydescshort {font-size: 14px;}
+.bkydescshort a {color: #1db71d; font-weight: bold}
+.bkydescshort .bkydescttl{line-height: 25px; font-size: 20px; font-family: AvenirNext-DemiBold;}
+.grdqty {width: 96px !important;}
+.buysavmor { padding-top: 38px; font-size: 14px; padding-left: 10px;}
+.buysvmorimg { width: 25px; vertical-align: bottom;}
+.lastload {display: none;}
+/* overrides of fixes for other pages */
+.product-detail-description h1{font-family: AvenirNext-Regular; font-size: 32px; line-height: 48px;}
+.product-detail-description h3{font-family: AvenirNext-Regular; font-size: 20px; line-height: 40px;}
+.colldesc h1{font-family: AvenirNext-Regular; font-size: 32px; line-height: 48px;}
+.footlinks {margin-bottom: 20px;}
+.product-detail-description .desctabbed h1 {margin-top: 0px;}
+.product-detail-description .desctabbed ul {margin-left: 20px;}
+.product-detail-description .desctabbed ul li{list-style: disc;}
+.product-detail-description ul {list-style: disc;padding-left: 30px;}
+.detail-list{width:100%; display:inline-block;}
+.detail-list h2{font-family: AvenirNext-Regular; font-size:32px; line-height:48px; padding:0; margin:5px 0 20px; letter-spacing:0;}
+.detail-list p{margin:0 0 3px;}
+
+.how-to-detail{width:100%; display:inline-block; padding-right:2%;}
+.how-to-detail h3{font-family: AvenirNext-Regular; font-size:32px; color: #494949; padding:0; margin:0 0 20px; letter-spacing:0; font-weight:400;}
+.how-to-detail p{color: #494949; font-size: 16px; font-weight: 400; letter-spacing: 0.6px;line-height: 24px;}
+
+@media only screen and (max-width:767px){
+  .detail-list {margin-bottom: 15px;}
+  .detail-list h2{font-size:22px;}
+  .how-to-detail{padding:0;}
+  .how-to-detail h3{font-size:22px; line-height:normal;}
+  .video-wrap{margin:15px 0 0;}
+  
+  #gridiscstbl{max-height: 175px; overflow: auto; position: relative;}
+}
+
+.keyfea li:nth-of-type(1n+6) {
+  display: none
+}

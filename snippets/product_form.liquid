@@ -1,0 +1,127 @@
+{% if customer%}
+
+
+{% if product.available %}
+  {% assign sold_out = false %}
+{% else %}
+  {% assign sold_out = true %}
+{% endif %}
+
+<form action="/cart/add" method="post" enctype="multipart/form-data" id="AddToCartForm" class="atcform">
+  {% if product.variants.size !=1 %}
+      <select name="id" id="productSelect" class="product-single__variants">
+        {% for variant in product.variants %}
+          {% if variant.available %}
+
+            <option {% if variant == product.selected_or_first_available_variant %} selected="selected" {% endif %} data-sku="{{ variant.sku }}" value="{{ variant.id }}">{{ variant.title }} - {{ variant.price | money_with_currency }}</option>
+
+          {% else %}
+            <option disabled="disabled">
+              {{ variant.title }} - {{ 'products.product.sold_out' | t }}
+            </option>
+          {% endif %}
+        {% endfor %}
+      </select>
+  {% else %}
+    <input type="hidden" id="variant-select" name="id" value="{{ current_variant.id }}" />
+  {% endif %}
+
+  {%if product.tags contains 'xxbulkdisc'%}
+    {% if sold_out %}
+    {% else %}
+      <div class="grid">
+        <div class="grid__item one-whole  nopadding" id='dtldisplay'>
+          &nbsp;
+        </div>
+      </div>
+      <div class="grid qtyslidertxt">
+        
+        <div class="grid__item six-tenths nopadding">
+          Quantity <br/>
+          <div class="nopadding-desktop">
+            <div id='selctr'>&nbsp;</div>
+            <div class="slidewrap">
+              <span id="min-display"></span>
+              <span id="max-display"></span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="grid__item one-tenth" style="text-align: center;line-height:110px;">
+          OR
+        </div>  
+        
+        <div class="grid__item three-tenths rightalign">
+          QTY<br/> 
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="sliderqty">
+        </div>
+        
+         <div class="grid__item one-whole nopadding">
+          <div class="slideinfotxt">
+            Click and drag or enter the quantity you'd like to find a quantity and price that's best for you.
+          </div>        
+        </div>
+      </div>
+      <div class="space20"></div>
+      <div class="grid qtyslidertxt">
+        <div class="grid__item two-fifths  nopadding"  style='text-align: left'>
+          <span style='font-size: 14px'>Total Cost</span><br/>
+          <input disabled type="text" id="sliderttl" class="slidertotal" value="0"/>
+        </div>
+        <div class="grid__item three-fifths " id='savdtotal'>
+          &nbsp;
+        </div>
+      </div>
+    {% endif %}
+    <button type="submit" name="add" id="AddToCart" class="btn btnAddtocart"  {% if sold_out %}disabled{% endif %}>
+      <span id="AddToCartText">{% if sold_out %}Sold out{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
+    </button>
+  {% elsif product.tags contains 'xxgridisc'%}
+    {% if sold_out %}
+    {% else %}
+      <div class="grid">
+        <div class="grid__item one-whole  nopadding" id='dtldisplay'>
+          &nbsp;
+        </div>
+      </div>
+      <div class="space20"></div>
+      <div class="grid qtyslidertxt lastload">
+        <div class="grid__item one-fifth  nopadding"  style='text-align: left'>
+          <span style='font-size: 14px'>Quantity</span><br/>
+          <input type="number" id="Quantity" name="quantity" value="1" min="1" class="grdqty" pattern="[0-9]*"  step="1.00">
+        </div>
+        <div class="grid__item three-fifths buysavmor" >
+          {{ 'green_tick_circle.png' | asset_url | img_tag: '','buysvmorimg' }}
+          BUY MORE, SAVE MORE
+        </div>
+      </div>
+      <div class="space20"></div>
+      <div class="grid qtyslidertxt lastload">
+        <div class="grid__item two-fifths  nopadding"  style='text-align: left'>
+          <span style='font-size: 14px'>Total Cost</span><br/>
+          <input disabled type="text" id="sliderttl" class="slidertotal" value="0"/>
+        </div>
+        <div class="grid__item three-fifths " id='savdtotal'>
+          &nbsp;
+        </div>
+      </div>
+    {% endif %}
+    <button type="submit" name="add" id="AddToCart" class="btn btnAddtocart"  {% if sold_out %}disabled{% endif %}>
+      <span id="AddToCartText">{% if sold_out %}Sold out{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
+    </button>
+    
+  {%else%}
+        <button type="submit" name="add" id="AddToCart" class="btn btnAddtocart"  {% if sold_out %}disabled{% endif %}>
+          <span id="AddToCartText">{% if sold_out %}Sold out{% else %}{{ 'products.product.add_to_cart' | t }}{% endif %}</span>
+        </button>
+      {% if sold_out %}
+      {% else %}
+        <input type="number" id="Quantity" name="quantity" value="1" min="1" class="xquantity-selector" >
+      {% endif %}
+  {%endif%}
+<div class="clearfix"></div>
+ </form>
+
+<p class="clearfix"></p>
+
+{% endif %}

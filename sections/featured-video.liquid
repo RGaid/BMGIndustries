@@ -1,0 +1,138 @@
+<div class="page-width">
+  {% if section.settings.title != blank %}
+    <div class="section-header">
+      <h2 class="section-header__title">{{ section.settings.title | escape }}</h2>
+    </div>
+  {% endif %}
+
+  {% case section.blocks.size %}
+    {% when 1 %}
+      {%- assign block_width = 'one-whole' -%}
+    {% when 2 %}
+      {%- assign block_width = 'small--one-whole medium--one-whole post-large--one-half' -%}
+  {% endcase %}
+
+  <div class="custom-content">
+    {% for block in section.blocks %}
+      <div class="custom__item {{ block_width }}" {{ block.shopify_attributes }}>
+        <div class="custom__item-inner custom__item-inner--{{ block.type }}">
+          {% case block.type %}
+            {% when 'video' %}
+              <div class="video-wrapper">
+                {% if block.settings.video_url == blank %}
+                  <iframe src="//www.youtube.com/embed/_9VUPq3SxOc?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                {% else %}
+                  {% if block.settings.video_url.type == "youtube" %}
+                    <iframe src="//www.youtube.com/embed/{{ block.settings.video_url.id }}?rel=0&showinfo=0&vq=720" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                  {% endif %}
+                  {% if block.settings.video_url.type == "vimeo" %}
+                    <iframe src="//player.vimeo.com/video/{{ block.settings.video_url.id }}?color={{ settings.color_secondary | remove: "#" }}&byline=0&portrait=0&badge=0" width="850" height="480" frameborder="0" allowfullscreen></iframe>
+                  {% endif %}
+                {% endif %}
+              </div>
+          	{% if block.settings.footercaption %}
+            <div class="video-footer-caption">
+                {% if block.settings.footercaptionurl != blank %}<a href="{{ block.settings.footercaptionurl }}">{% endif %}
+				{{ block.settings.footercaption }}
+                {% if block.settings.footercaptionurl != blank %}</a>{% endif %}
+        	</div>
+          	{% endif %}
+          
+            {% when 'text' %} 
+						{% if block.settings.captionlogo %}
+						{%- assign load_img_src = block.settings.captionlogo | img_url: '10x', format: 'pjpg' -%}
+						{%- assign load_img_class = '' -%}
+						<img
+						{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+						alt="{{ block.settings.captionlogo.alt }}" 
+						/>						 
+						{% comment %} {{ block.settings.captionlogo | img_url: '500x' | img_tag: block.settings.captionlogo.alt }}  {% endcomment %}
+						{% endif %}         
+              {% if block.settings.title != blank %}
+                <h3>{{ block.settings.title }}</h3>
+              {% endif %}
+              {{ block.settings.richtext }}
+          {% endcase %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+  {
+    "name": "Video with text",
+    "class": "index-section",
+    "max_blocks": 2,
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Video"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "video",
+        "name": "Video",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "video_url",
+            "id": "video_url",
+            "label": "YouTube or Vimeo link",
+            "accept": ["youtube", "vimeo"]
+          },{
+            "type": "text",
+            "id": "footercaption",
+            "label": "Footer caption",
+            "default": "Caption below the video"
+          },{
+            "type": "url",
+            "id": "footercaptionurl",
+            "label": "URL of the caption"
+          }
+
+        ]
+      },
+      {
+        "type": "text",
+        "name": "Text",
+        "limit": 1,
+        "settings": [
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Heading",
+            "default": "Talk about your featured video"
+          },{
+            "type": "image_picker",
+            "id": "captionlogo",
+            "label": "If there is logo before header, select here"
+          },
+          {
+            "type": "richtext",
+            "id": "richtext",
+            "label": "Text",
+            "default": "<p>Introduce your video, describe your product and brand, or showcase a review.</p>"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Video with text",
+        "category": "Video",
+        "blocks": [
+          {
+            "type": "video"
+          },
+          {
+            "type": "text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,135 @@
+<div class="newdealer grid ">
+  <div class="grid__item one-fifth medium--one-whole small--one-whole">&nbsp;</div>
+  <div class="grid__item three-fifths medium--one-whole small--one-whole padding80 contactusform">
+    <h1 class="contactustitle">New Authorize Reseller Application / Agreement</h1>
+    <p class="space10"> 
+      Please fill out completely. Note: Applications may take up to 3 business days to process
+    </p>
+    
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+        <p class="form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+      
+       <div class="formlabel twoinput">
+          <label for="ContactFormName">{{ 'contact.form.name' | t }}:<sup><i class="fa fa-asterisk"></i></sup></label>
+          <input type="text"
+            name="contact[first_name]"
+            id="ContactFormName" placeholder="First Name" 
+            required>
+          <div class='seperatr'>&nbsp;</div>
+          <input type="text"
+            name="contact[last_name]" placeholder="Last Name" 
+            required>
+      </div>
+
+      <div class="formlabel">
+            <label for="ContactFormEmail">{{ 'contact.form.email' | t }}:<sup><i class="fa fa-asterisk"></i></sup></label>
+            <input type="email"
+              name="contact[email]"
+              id="ContactFormEmail"
+              spellcheck="false" placeholder="Email Address" 
+              autocomplete="off"
+              autocapitalize="off" required>
+      </div>
+     
+     <div class="formlabel">
+            <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}:<sup><i class="fa fa-asterisk"></i></sup></label>
+            <input type="tel"
+              name="contact[phone]"
+              id="ContactFormPhone"
+              pattern="[0-9\-]*" maxlength=12 placeholder='Format: 0123456789' required>
+      </div>
+
+      <div class="formlabel">
+            <label for="ContactFormBusiness">Name of Business:<sup><i class="fa fa-asterisk"></i></sup></label>
+            <input type="text"
+              name="contact[business_name]"
+              id="ContactFormBusiness"  required>
+      </div>
+      <div class="formlabel">
+            <label for="ContactFormWebsite">Website Url:</label>
+            <input type="text"
+              name="contact[website]"
+              id="ContactFormWebsite" >
+      </div>
+      <div class="formlabel">
+            <label for="ContactFormGST">GST / HST #:</label>
+            <input type="text"
+              name="contact[business_name]"
+              id="ContactFormGST" >
+      </div>
+
+      <div class="formlabel twoinput">
+            <label for="ContactFormBillingAddr">Billing Address:<sup><i class="fa fa-asterisk"></i></sup></label>
+            <input type="text"
+              name="contact[billing_address_street]" placeholder="Street"
+              required>
+            <div class='seperatr'>&nbsp;</div>
+            <input type="text"
+              name="contact[billing_address_city]" placeholder="City" 
+              required>
+      </div>
+      <div class="formlabel twoinput">
+            <label for="ContactFormBillingAddr">&nbsp;</label>
+            <select name="contact[billing_address_country]" class="crs-country" data-region-id="bill_one" data-whitelist="US,CA"  required></select>
+            <div class='seperatr'>&nbsp;</div>
+            <select name="contact[billing_address_province]" id="bill_one"  required></select>
+      </div>
+      <div class="formlabel twoinput">
+            <label for="ContactFormBillingAddr">&nbsp;</label>
+            <input type="text"
+              name="contact[billing_address_postal_code]" placeholder="Postal Code" 
+              required>
+      </div>
+
+      <div class="formlabel">
+            <label for="ContactFormShippingAddr">Ship to Address:</label>
+            <input type="checkbox" id="ContactFormShippingAddr" name="contact[shipping_same_as_billing]" value="Same as Billing." /> Same as Billing Address
+      </div>
+      <div class="formlabel twoinput">
+            <label for="ContactFormShippingAddr">&nbsp;</label>
+            <input type="text"
+              name="contact[shipping_address_street]" placeholder="Street"
+              required>
+            <div class='seperatr'>&nbsp;</div>
+            <input type="text"
+              name="contact[shipping_address_city]" placeholder="City" 
+              required>
+      </div>
+      <div class="formlabel twoinput">
+            <label for="ContactFormShippingAddr">&nbsp;</label>
+            <select name="contact[shipping_address_country]" class="crs-country" data-region-id="ship_one" data-whitelist="US,CA"  required></select>
+            <div class='seperatr'>&nbsp;</div>
+            <select name="contact[shipping_address_province]" id="ship_one"  required></select>
+      </div>
+      <div class="formlabel twoinput">
+            <label for="ContactFormShippingAddr">&nbsp;</label>
+            <input type="text"
+              name="contact[shipping_address_postal_code]" placeholder="Postal Code" 
+              required>
+      </div>
+
+      <div class="formlabel">
+            <label for="ContactFormMessage">Additional Comments:</label>
+            <textarea rows="5"
+              name="contact[body]"
+              id="ContactFormMessage"
+              >
+            </textarea>
+      </div>
+      <div class="formlabel">
+            <label>&nbsp;</label>
+            <input type="submit" class="button buttonlarge btnsubmit" value="submit">
+      </div>
+      
+
+    {% endform %}
+  </div>
+  <div class="grid__item one-fifth medium--one-whole small--one-whole">&nbsp;</div>
+</div>

@@ -1,0 +1,38 @@
+<script>
+
+
+
+jQuery(".qtyplus").on("click", function (e) {
+    // console.log('plusplus');
+      e.preventDefault();
+      var fieldName = jQuery(this).attr('field');
+      var itemid =  jQuery(this).attr('data-id');
+      var currentVal = parseInt(jQuery('input[id='+fieldName+']').val());
+      if (!isNaN(currentVal)) {
+          jQuery('input[id='+fieldName+']').val(currentVal + 1);
+          Shopify.changeItem(itemid, currentVal+1, function(){$('#cartfrm').submit();});
+      }   
+  });     
+jQuery(".qtyminus").on("click", function (e) {
+      e.preventDefault();
+      var fieldName = jQuery(this).attr('field');
+      var itemid =  jQuery(this).attr('data-id');
+      var currentVal = parseInt(jQuery('input[id='+fieldName+']').val());
+      if (!isNaN(currentVal)) {
+        jQuery('input[id='+fieldName+']').val(currentVal - 1);
+        Shopify.changeItem(itemid, currentVal-1, function(){$('#cartfrm').submit();});
+      } 
+  });    
+
+  jQuery("input.cartqty").on("keypress", function (e) {
+    if (e.keyCode == 13) {
+        // console.log('inputchng');
+          e.preventDefault();
+          var itemid = jQuery(this).attr('field');
+          var currentVal = jQuery(this).val();
+          if (!isNaN(currentVal)) {
+              Shopify.changeItem(itemid, currentVal, function(){$('#cartfrm').submit();});
+          }   
+      }   
+  });      
+</script>

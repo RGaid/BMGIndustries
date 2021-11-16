@@ -1,0 +1,58 @@
+{%- assign collection = collections[section.settings.collection] -%}
+<section class="xfeatured-collection">
+  <div class="centercontent" >
+    {% if section.settings.title != blank %}
+      <div class="homecolltitle">
+        <di class="titleleft">
+	        <h2 class="featured-collection__title ">{{ section.settings.title | escape }}</h2>
+        </di>
+    	<div class="morelink"><a href="{{collection.url}}">{{ section.settings.alltext | escape }}</a></div>
+
+      </div>
+    {% endif %}
+    
+    <div class="grid-uniform grid-link__container">
+      {% assign grid_item_width = 'post-large--one-quarter small--one-half medium--one-quarter' %}
+      {% if collection.products  != empty %}
+        {% for product in collection.products limit: 4 %}
+          {% assign featured = product %}
+          <div class="grid__item {{grid_item_width}} ">
+            {% include 'product-grid-item' %}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+    
+  </div>
+</section>
+
+{% schema %}
+  {
+    "name": "Featured collection",
+    "settings": [
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Heading",
+        "default": "Featured collection"
+      },
+      {
+        "id": "collection",
+        "type": "collection",
+        "label": "Collection"
+      },
+      {
+        "type": "text",
+        "id": "alltext",
+        "label": "Text for shop all",
+        "default": "Shop all"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Featured collection",
+        "category": "Collection"
+      }
+    ]
+  }
+{% endschema %}

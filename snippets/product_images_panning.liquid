@@ -1,0 +1,63 @@
+<div class="product-single__photos"  id="ProductPhoto">
+  {% assign featured_image = product.selected_or_first_available_variant.featured_image | default: product.featured_image %}
+
+	{%- assign load_img_src = featured_image | img_url: '10x', format: 'pjpg' -%}
+	{%- assign load_img_class = 'zoom-lightbox' -%}
+	<img
+	{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+	alt="{{ featured_image.alt | escape }}"
+	id="ProductPhotoImg"  data-zoom="{{ featured_image | img_url: '1024x1024' }}" 
+	/>
+
+  {% comment %} <img src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"  data-zoom="{{ featured_image | img_url: '1024x1024' }}"  class="zoom-lightbox" > {% endcomment %}
+  
+  
+  {% if product.metafields.video !=blank %}   
+    <div class="video-wrapperinner">
+      <iframe src="//www.youtube.com/embed/{{ product.metafields.video['videoid'] }}?rel=0&showinfo=0&vq=720"  width="850" height="480" frameborder="0" allowfullscreen></iframe>
+    </div>
+    <script>
+        document.addEventListener("StartOtherLoading", function(event) { 
+                  $('.video-wrapperinner').hide();
+        });    
+    </script>  
+    {% endif %}
+</div>
+
+{% if product.images.size > 1 %}
+  <ul class="product-single__thumbnails grid-uniform" id="ProductThumbs">
+    {% for image in product.images %}
+      <li class="grid__item wide--one-eighth large--one-sixth medium-down--one-third">
+        <a data-image-id="{{ image.id }}" href="{{ image.src | img_url: '1024x1024' }}" class="product-single__thumbnail">
+					{% comment %} {%- assign load_img_src = image.src | img_url: '10x', format: 'pjpg' -%}
+					{%- assign load_img_class = '' -%}
+					<img
+					{% include '__opt_load_img' src:load_img_src class:load_img_class %}
+					alt="{{ image.alt | escape }}" 
+					/> {% endcomment %}
+
+          {% comment %} <img src="{{ image.src | img_url: 'grande' }}" alt="{{ image.alt | escape }}"> {% endcomment %}
+        </a>
+      </li>
+    {% endfor %}
+   {% if product.metafields.video !=blank %} 
+    <li class="grid__item wide--one-eighth large--one-sixth medium-down--one-third">
+        <a href="#" class="thmvideotoggle"><img class="Image--lazyLoad Image--fadeIn" data-src="https://i1.ytimg.com/vi/{{ product.metafields.video['videoid'] }}/1.jpg" border="0" alt="Video" /></a>
+      </li>
+            <script>
+              document.addEventListener("StartOtherLoading", function(event) { 
+                  $('.thmvideotoggle').click(function () {
+                      $('.video-wrapperinner').show();
+                      $('#ProductPhotoImg').hide();
+                      $('#ProductPhoto').removeClass('image-zoom');
+                      $('.zoomImg').hide();
+                      $('#ProductPhoto').trigger('zoom.destroy');
+                      return false;
+                  });    
+              });              
+
+          </script> 
+   {% endif %}
+</ul>
+
+{% endif %}

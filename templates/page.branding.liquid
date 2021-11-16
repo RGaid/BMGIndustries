@@ -1,0 +1,81 @@
+<header class="section-header section-header--large searchheader branding" style="background: #000;  background-size: cover;">
+  <div class="sectionheadertitle">
+    <div class="sectionheadertitleinner">
+      <h1 class="section-header__title">{{ page.title }}</h1>
+      {%if page_description %}<p>{{ page_description }}</p>{%endif%}
+
+    </div>
+  </div>
+</header>
+
+<p class="space20" />
+
+<div class=" grid brandingcontent">
+  <h1 class="contactustitle">REQUEST A FREE MOCKUP & QUOTE</h1>
+  <p class="space10"> 
+72HOURS offers corporate branding for both small and large group buys for great prices and a quick turnaround time. A majority of our products can be branded with your logo and our kits are fully customized. Request for a mock up and quote.  We make it easy, fast and affordable.
+  </p>
+  
+  <p class="space20" />
+  {% form 'contact' %}
+
+    {% if form.posted_successfully? %}
+      <p class="form-success">
+        {{ 'contact.form.post_success' | t }}
+      </p>
+    {% endif %}
+
+    {{ form.errors | default_errors }}
+
+    <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+    <input type="text"
+      name="contact[name]"
+      id="ContactFormName"
+      value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+
+    <label for="ContactFormEmail">Organization Name</label>
+    <input type="text"
+      name="contact[organization_name]"
+      id="ContactFormEmail"
+      value="{% if form.organization_name %}{{ form.organization_name }}{% endif %}"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off">
+
+    <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+    <input type="email"
+      name="contact[email]"
+      id="ContactFormEmail"
+      value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+      spellcheck="false"
+      autocomplete="off"
+      autocapitalize="off">
+
+    <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+    <input type="tel"
+      name="contact[phone]"
+      id="ContactFormPhone"
+      value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+      pattern="[0-9\-]*">
+
+    <label for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+    <textarea rows="10"
+      name="contact[body]"
+      id="ContactFormMessage"
+      >
+      {%- if form.body -%}
+        {{- form.body -}}
+      {%- endif -%}
+    </textarea>
+
+    <input type="submit" class="btn btn-lg buttonlarge" value="{{ 'contact.form.send' | t }}">
+
+  {% endform %}
+  
+</div>
+<div class="rte ">
+  {{ 
+		page.content
+		| replace: '<img src=', '<img class="Image--lazyLoad Image--fadeIn" data-src='
+	 }}
+</div>

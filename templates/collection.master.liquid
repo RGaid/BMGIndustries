@@ -1,0 +1,104 @@
+{% assign list-collections = linklists[collection.handle].links %}
+
+{% case collection.handle %}
+  {% when 'emergency-kits' %}
+     {% assign list-collections = linklists['emergency-kit'].links %}
+  {% when 'vehicle-kits' %}
+     {% assign list-collections = linklists['vehicle-kit'].links %}
+{% endcase %}
+
+{%assign coll_image = collection.metafields.headerimage['url']%}
+{%- assign load_bg_src = coll_image -%}
+{%- assign load_bg_class = 'section-header section-header--large collectionheader' -%}
+<header
+{% include '__opt_load_bg' src:load_bg_src class:load_bg_class %}
+>
+{% comment %} <header class="section-header section-header--large collectionheader" {% if coll_image %} style="background: url('{{ coll_image }}') no-repeat center center; background-size: cover;" {% endif %}> {% endcomment %}
+  <div class="collectiontitle">
+    <div class="collectiontitleinner">
+      <h1 class="section-header__title">{{ collection.title }}</h1>
+      {%if page_description %}<p>{{ page_description }}</p>{%endif%}      
+    </div>
+  </div>
+  
+</header>
+<p class="space20" />
+
+<div class="centercontent" id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="true" data-tags-enabled="true">
+  <div class=" grid">
+    <div class="grid__item one-whole nopadding">
+      <div class="grid-uniform grid-link__container">
+        {% for link in list-collections %}
+          {% assign subcollection = link.object%}
+          {% assign grid_item_width = 'wide--one-half medium--one-whole small--one-whole' %}
+          <div class="grid__item {{grid_item_width}} collbox">
+            <a href="{{ subcollection.url }}" title="{{ 'collections.general.link_title' | t: title: title }}" >
+              <div class="collimage">
+                       <div class="collbtn">
+                         	<div class="collshopmore">
+                              <div class="btn btnshopmore">shop now</div>
+                         	</div> 
+                    	</div>                
+				  <div class="collimageinner">	
+                   {%assign image_object = subcollection.metafields.coverimage['url'] %} 
+
+                  {% if image_object != blank || subcollection.products.first != blank %}
+
+                    <div class="collimageholder">
+                      <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image_object }}" alt="{{ 'collections.general.link_title' | t: title: title }}" border="0" />
+                    </div>
+                  {% else %}
+                    {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
+                    {{ 'collection-' | append: current | placeholder_svg_tag: 'placeholder-svg placeholder-svg--small' }}
+                  {% endif %}
+                </div>
+
+              </div>
+              <div class="colltitle">{{subcollection.title}}</div>
+            </a>
+            {%assign short_description = subcollection.metafields.description['short'] %} 
+            {% if short_description != blank %}
+            <div class="colldescbox">{{short_description}}</div>            
+            {% else %}
+            <div class="colldescbox">{{subcollection.description | strip_html | truncate: 300}}</div>            
+            {% endif %}
+            <div class="collmobileshopmore"><a class="btn btnshopmore" href="{{ subcollection.url }}">shop now</a></div>
+          </div>
+      {% endfor %}
+      </div>
+      
+    </div>
+  </div>
+
+</div>
+    <p class="space50"></p>
+
+  {% if collection.description != blank %}
+    <div class="rte colldesc">
+      <div class="centercontent" >
+	      {{ collection.description }}
+      </div>
+    </div>
+	<p class="space50"></p>
+  {% endif %}
+
+      {% if collection.metafields.topsellers != blank %}    
+	  <div class="centercontent">
+        <div class="section-header section-header--small">
+          <h3 class="section-header__title"><div class="uppertitle">{{ 'collections.general.top_sellers' | t }} {{ collection.title }}</div></h3>
+        </div>
+        <div class="grid-uniform grid-link__container productgrid">
+          {% assign topsellercollection = collections[collection.metafields.topsellers['collection'] ] %}
+          {% assign grid_item_width = 'post-large--one-quarter medium--one-quarter small--one-half' %}
+          {% for product in collections[topsellercollection.handle].products %}
+            {% assign featured = product %}
+
+            <div class="grid__item {{grid_item_width}}">
+              {% include 'product-grid-item' %}
+            </div>
+
+          {% endfor %}
+        </div>  
+        <hr class="hr--clear hr--small hr--divline space30"> 
+	  </div>
+      {% endif %}  

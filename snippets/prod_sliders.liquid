@@ -1,0 +1,56 @@
+{% if template == 'product' %}
+<script>
+
+
+
+</script>
+<style>
+  .slick-next, .slick-prev {
+  	top: 40%;
+  }
+  .slick-lightbox-inner .slick-next, .slick-lightbox-inner .slick-prev {
+  	top: 80%;
+  }
+  .slick-prev-thumb:before, .slick-next-thumb:before{
+    color: #192024 !important;
+  }
+  .video-wrapperinner{
+  	position: absolute;
+    top: 30%;
+    margin: 0 auto;
+  }
+  .product-single__photos { width: 100%; margin: 0 auto;}
+  .product-single__thumbnails .slick-current img{ border: 2px solid #cdd4d8; }
+  .product-single__photos .img_single {max-width: 600px; max-height: 600px}
+</style>
+
+<script>
+
+$( document ).ready(function(){
+//     console.log('in pimag');
+    $('.product-single__photos').slick({
+      infinite: false, 
+      edgeFriction : 0,
+      arrows: false
+    });
+    
+    $('.product-single__thumbnails').slick({
+      asNavFor: '.product-single__photos', 
+      slidesToShow: 6, 
+      slidesToScroll: 1, 
+      edgeFriction: 0, 
+      focusOnSelect : true,
+      arrows: true,
+      infinite: true,
+      prevArrow: '<button type="button" class="slick-prev slick-prev-thumb">Previous</button>',
+      nextArrow: '<button type="button" class="slick-next slick-next-thumb">Next</button>'
+    });
+    $('.product-single__photos').slickLightbox({
+      itemSelector: '.img_single', 
+      src: 'src'
+    })
+  });
+
+</script>
+
+{%endif%}

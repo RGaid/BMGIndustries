@@ -1,0 +1,59 @@
+{% if featured.available %}
+  {% assign sold_out = false %}
+{% else %}
+	{% assign sold_out = true %}
+{% endif %}
+{% assign on_sale = false %}
+{% if product.compare_at_price_min > 0 %}
+  {% assign on_sale = true %}
+{% endif %}
+        
+<div class="prodbox item{{ featured.id }} {% if on_sale %}onsale{% endif %}">
+  <div class="relatedprodgriditemimgholder" >
+    <a href="{{ featured.url | within: collection }}" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+      <div class="grid-link__image{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product">
+        <div class="productimageholder">
+
+        {% if on_sale %}
+        <span class="badge badge--sale">
+          <span class="badge__text{% if sale_text.size > 7 %} badge__text--small{% endif %}">
+              {{ product.compare_at_price_min  | minus: product.price  | times: 100.0 | divided_by: product.compare_at_price_max | money_without_currency | times: 100 | remove: '.0'}}%<br>off
+          </span>
+        </span>
+        {% endif %}
+          
+          	<div class="productimageholderinner">
+            {% include 'responsive-image' with
+                image: featured.featured_image.src ,
+                max_width: 280,
+                max_height: 280,
+                wrapper_class: 'prodgridimgnew'
+              %}
+          </div>
+        </div>  
+      </div>
+     </a>
+   </div>   
+   <div class="listitemholder centeralign">
+        {%if customer%}
+          <form method="post" action="/cart/add" class="gridproductform pgiform">
+            <input type="hidden" name="id[]" value="{{ featured.selected_or_first_available_variant.id }}" />
+            <input type="hidden"  name="quantity" value="1" />
+            <button type="submit" name="add" idx="AddToCart" class="btn xquickadd" {% if sold_out %}disabled{% endif %}>
+              {% if sold_out %}Sold out{% else %}add to cart{% endif %}
+            </button>
+          </form> 
+    	  {%endif%}
+    <a href="{{ featured.url | within: collection }}" class="grid-link{% if section.settings.center_grid_link %} text-center{% endif %}">
+      <span class="grid-link__title relatedprodgridlinktitle">{{ featured.title | escape  }}</span> 
+    </a>
+    {%if customer%}
+      <span class="relatedprodgridlinkprice">
+        {% include 'product-grid-price' %}
+      </span>
+    {%endif%}
+    
+  </div>
+  
+
+</div>

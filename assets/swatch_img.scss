@@ -1,0 +1,292 @@
+/* #Swatch Styles
+================================================== */
+/* SASS variables for swatch dimensions */
+.swatch-element.swatch--active {border-color: black; box-shadow: 0px 0px 0px 2px white;}
+.selector-wrapper label {margin-bottom: 0.5em;}
+.product_section .product_form {opacity: 0; transition: opacity 0.2s ease;}
+.product_section .product_form.is-visible {opacity: 1;}
+/* .selector-wrapper, .select {display: none;} */
+.swatch_options { margin-bottom: 30px;}
+.swatch .option_title {margin: 0.5em 0;}
+
+/* Hide radio buttons.*/
+.swatch input {display: none;}
+.swatch label {float: left; min-width: 40px; margin: 0; font-size: 13px; text-align: center; line-height: 40px; white-space: nowrap; text-transform: uppercase;
+  cursor: pointer; background-repeat: no-repeat; background-position: top 4px center; padding: 55px 10px 0px 10px; height: 105px; width: 100px; letter-spacing:0; background-color: #fff;}
+.swatch label.long-title {line-height: normal; white-space: normal; background-size: auto; padding: 70px 1px 5px 1px; height: auto;}
+.gallery-wrap-swatch label, .gallery-wrap-floating-frame-swatch label{background-repeat: no-repeat; background-position: top 5px center; padding: 70px 10px 0px 10px;
+  height: 115px; width: 120px; line-height: 20px;}
+.swatch .color label {min-width: 34px; height: 34px !important; line-height: 34px; background-position: center; background-size: cover;}
+.swatch-element {border: #e2e2e2 1px solid; min-width: 40px; min-height: 40px;}
+.swatch-element.color {padding: 3px;}
+.swatch-element.color, .swatch-element.color label {border: #e2e2e2 1px solid;}
+.swatch-element.color label {padding: 0; margin: 0; width: 34px; height: 34px;}
+.swatch_options label.selected {border: 1px solid #000;}
+.swatch .swatch-element {-webkit-transform: translateZ(0); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; margin: 0px 8px 8px 0;
+  position: relative; display: inline-block; vertical-align: top;}
+.crossed-out {position: absolute; left: 0; right: 0; top: 0; bottom: 0; margin: auto;}
+.swatch .swatch-element .crossed-out {display: none;}
+.swatch .swatch-element.soldout .crossed-out {display: block; height: 100%; width: 100%; pointer-events: none;}
+.swatch .swatch-element.soldout label {filter: alpha(opacity=60); -khtml-opacity: 0.6; -moz-opacity: 0.6; opacity: 0.6;}
+.swatch .tooltip:before {bottom: -20px; content: " "; display: block; height: 20px; left: 0; position: absolute; width: 100%;}
+
+.swatch label span {display: block; margin-top: 45px;
+    font-size: 16px;}
+
+/* custom css */
+.breadcrumb {background: #fbfbfb;}
+span.current_page {font-family: AvenirNext-Bold;}
+.breadcrumb__sep{line-height:normal; font-size:16px;}
+.breadcrumb a, .breadcrumb__sep {letter-spacing: 1px;}
+
+
+/* .product-single__thumbnails .product-single__thumbnail img {max-height: 100% !important;} */
+
+/* Quick Shop */
+.remodal.quick-shop {padding: 0 35px;}
+.quick-shop .container {max-width: 100%;text-align: left; margin-left: auto; margin-right: auto;}
+.quick-shop .container .gallery-wrap.eight.columns {width: calc(55% - 40px); margin: 0; margin-right: 40px; min-height: 1px; transition: opacity 1s 0.3s linear;}
+.quick-shop .container .gallery-wrap.eight.columns.hidden-element {opacity: 0;}
+.quick-shop .container .gallery-wrap.eight.columns.align-gallery-right {float: right; margin-right: 0; margin-left: 40px;}
+.quick-shop .container .text-modal-wrap.six.columns {width: 45%; margin: 0; min-height: 1px;transition: opacity 0.3s linear;}
+.quick-shop .container .text-modal-wrap.six.columns.hidden-element { opacity: 0;}
+.quick-shop .container .new_banner_product:empty, .quick-shop .container .sale_banner_product:empty, .quick-shop .container .preorder_banner_product:empty {display: none;}
+.quick-shop img[alt*="[right]"], .quick-shop img[alt*="[left]"], .quick-shop img[alt*="[center]"] {display: none;}
+.remodal-is-opened .quick-shop .hidden-element {opacity: 1 !important;}
+
+/* Related Items Gallery */
+.related-products--grid {font-size: 0; text-align: center;}
+.related-products--grid.container {padding-top: 0;}
+.related-products--grid .product-list .thumbnail.column,
+.related-products--grid .product-list .thumbnail.columns {font-size: initial; display: inline-block; float: none; vertical-align: top;}
+
+
+/*
+ *  Remodal - v1.0.6
+ *  Responsive, lightweight, fast, synchronized with CSS animations, fully customizable modal window plugin with declarative configuration and hash tracking.
+ *  http://vodkabears.github.io/remodal/
+ *
+ *  Made by Ilya Makarov
+ *  Under MIT License
+ */
+
+/* ==========================================================================
+   Remodal's necessary styles
+   ========================================================================== */
+
+/* Hide scroll bar */
+
+html.remodal-is-locked {overflow: hidden; -ms-touch-action: none; touch-action: none;}
+
+/* Anti FOUC */
+.remodal,
+[data-remodal-id] {display: none;}
+
+/* Necessary styles of the overlay */
+.remodal-overlay {position: fixed; z-index: 9999; top: -5000px; right: -5000px; bottom: -5000px; left: -5000px; display: none;}
+
+/* Necessary styles of the wrapper */
+.remodal-wrapper{position:fixed; z-index:1000000; top:0;right:0;bottom:0;left:0;display: none; overflow: auto; text-align: center;-webkit-overflow-scrolling: touch;}
+.remodal-wrapper:after {display: inline-block; height: 100%; margin-left: -0.05em; content: "";}
+
+/* Fix iPad, iPhone glitches */
+.remodal-overlay, .remodal-wrapper {-webkit-backface-visibility: hidden; backface-visibility: hidden;}
+
+/* Necessary styles of the modal dialog */
+.remodal {position: relative;outline: none;-webkit-text-size-adjust: 100%;-moz-text-size-adjust: 100%;-ms-text-size-adjust: 100%;text-size-adjust: 100%;}
+.remodal-is-initialized {/* Disable Anti-FOUC */display: inline-block;}
+
+/* ==========================================================================
+   Remodal's default mobile first theme
+   ========================================================================== */
+
+/* Default theme styles for the background */
+.remodal-bg.remodal-is-opening, .remodal-bg.remodal-is-opened {filter: blur(3px);}
+
+/* Default theme styles of the overlay */
+.remodal-overlay {background: rgba(43, 46, 56, 0.9);}
+.remodal-overlay.remodal-is-opening, .remodal-overlay.remodal-is-closing {animation-duration: 0.3s; animation-fill-mode: forwards;}
+.remodal-overlay.remodal-is-opening {animation-name: remodal-overlay-opening-keyframes;}
+.remodal-overlay.remodal-is-closing {animation-name: remodal-overlay-closing-keyframes;}
+
+/* Default theme styles of the wrapper */
+.remodal-wrapper {padding: 10px 10px 0;}
+
+/* Default theme styles of the modal dialog */
+.remodal {width: 100%; margin-bottom: 10px; padding: 35px; -ms-transform: translateY(0,0,0);transform: translate3d(0, 0, 0); color: {{ settings.modal_text_color }};
+  background: #fff;
+  @include respond-to('small') {
+    overflow-x: scroll;
+  }
+}
+
+.remodal.remodal-is-opening, .remodal.remodal-is-closing {animation-duration: 0.3s; animation-fill-mode: forwards;}
+.remodal.remodal-is-opening { animation-name: remodal-opening-keyframes;}
+.remodal.remodal-is-closing { animation-name: remodal-closing-keyframes;}
+
+/* Vertical align of the modal dialog */
+.remodal, .remodal-wrapper:after {vertical-align: middle;}
+
+/* Close button */
+.remodal-close {position: absolute; top: 0; right: 0; display: block; overflow: visible; width: 35px; height: 35px; margin: 0; padding: 0;cursor: pointer;
+  transition: color 0.2s; text-decoration: none; color: #95979c; border: 0; outline: 0; background: transparent; z-index: 1000;}
+.remodal-close:hover, .remodal-close:focus {color: #2b2e38;}
+.remodal-close:before {font-family: Arial, "Helvetica CY", "Nimbus Sans L", sans-serif !important; font-size: 25px; line-height: 35px; position: absolute; top: 0; left: 0;
+  display: block; width: 35px; content: "\00d7"; text-align: center;}
+
+/* Dialog buttons */
+.remodal-confirm, .remodal-cancel {font: inherit; display: inline-block; overflow: visible; min-width: 110px; margin: 0; padding: 12px 0;cursor: pointer;
+  transition: background 0.2s; text-align: center; vertical-align: middle; text-decoration: none;  border: 0; outline: 0;}
+.remodal-confirm {color: #fff; background: #81c784;}
+.remodal-confirm:hover, .remodal-confirm:focus {background: #66bb6a;}
+.remodal-cancel {color: #fff; background: #e57373;}
+.remodal-cancel:hover, .remodal-cancel:focus {background: #ef5350;}
+
+/* Remove inner padding and border in Firefox 4+ for the button tag. */
+
+.remodal-confirm::-moz-focus-inner, .remodal-cancel::-moz-focus-inner,.remodal-close::-moz-focus-inner {padding: 0; border: 0;}
+
+/* Keyframes */
+
+@keyframes remodal-opening-keyframes {
+  from {transform: scale(1.05); opacity: 0;}
+  to {transform: none;opacity: 1;}
+}
+
+@keyframes remodal-closing-keyframes {
+  from {transform: scale(1); opacity: 1;}
+  to {transform: scale(0.95); opacity: 0;}
+}
+
+@keyframes remodal-overlay-opening-keyframes {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes remodal-overlay-closing-keyframes {
+  from{opacity: 1;}
+  to{opacity: 0;}
+}
+
+
+/* Recently Viewed*/
+#rv__recent_products.rv__grid{width: 100%; margin:20px 0; display:inline-block;}
+.rv__grid .row{ display: block; clear: both;}
+.rv__grid .rv__row .rv__column{ float: left; }
+.rv__grid .rv__row .rv__column.rv__one{ width: 8.3%;}
+.rv__grid .rv__row .rv__column.rv__two{ width: 16.66%;}
+.rv__grid .rv__row .rv__column.rv__three{ width: 24.96%;}
+.rv__grid .rv__row .rv__column.rv__four{ width: 33.2%;}
+.rv__grid .rv__row .rv__column.rv__five{ width: 41.5%;}
+.rv__grid .rv__row .rv__column.rv__six{ width: 49.8%;}
+.rv__grid .rv__row .rv__column.rv__seven{ width: 58.1%;}
+.rv__grid .rv__row .rv__column.rv__eight{ width: 66.4%;}
+.rv__grid .rv__row .rv__column.rv__nine{ width: 77.4%;}
+.rv__grid .rv__row .rv__column.rv__ten{ width: 83%;}
+.rv__grid .rv__row .rv__column.rv__eleven{ width: 91.3%;}
+.rv__grid .rv__row .rv__column.rv__twelve{ width: 100%;}
+.rv__grid .rv__row .rv__column>div{ margin: 1em;}
+.rv__clearfix{ clear: both;}
+.rv__grid img.rv__responsive{max-width:100%; /*max-height:300px; width:auto; display:inline-block;*/}
+.rv__grid h2{ font-size: 14px; margin:5px 0; font-family: AvenirNext-DemiBold; line-height:1.7em;}
+.rv__grid h2 a{font-size: 16px; letter-spacing: .2px;font-family: AvenirNext-DemiBold; font-weight: 400;}
+.rv__center{ text-align: center; }
+
+
+
+.uppertitle{margin: 0; line-height: normal;}
+.responsive-image__wrapper{width:100%;}
+.rv__product_img {margin-bottom: 10px;}
+
+@media screen and (max-width: 568px){
+  .rv__grid .rv__row .rv__column>div {margin:0;}
+  .rv__sm_twelve{ width: 50% !important; clear: both;}
+  .responsive-image__wrapper {margin: 0 0 5px;}
+}
+
+
+
+/* Media queries
+   ========================================================================== */
+
+@media only screen and (min-width: 641px) {
+  .remodal {max-width: 900px;}
+}
+
+/* IE8
+   ========================================================================== */
+.lt-ie9 .remodal-overlay {background: #2b2e38;}
+.lt-ie9 .remodal {width: 700px;}
+
+/*.product-single_image_holder .multi-image img{max-width:80%;}*/
+
+@media only screen and (max-width:1600px) {
+  /*.product-single__thumbnails .flickity-viewport{height:110px !important;}*/
+}
+@media only screen and (max-width:1440px) {
+  .product-single__thumbnails .flickity-viewport{height:110px !important;}
+  .swatch .swatch-element {margin: 0px 0px 8px 0;}
+}
+@media only screen and (max-width:1366px) {
+  .xswatch label{width: 86px;}
+  .product-single__thumbnails .flickity-viewport{height:105px !important;}
+}
+@media only screen and (max-width:1280px) {
+  .xswatch label {padding: 53px 5px 0px 5px; width: 80px; font-size:12px;}
+}
+
+@media only screen and (max-width:1024px) {
+  .product-single__thumbnails .flickity-viewport{height:98px !important;}
+}
+
+@media only screen and (max-width:769px) {
+  .flickity-slider > li {width: 25%;}
+  .product-single__thumbnails .flickity-viewport{height:93px !important;}
+  #ProductSection .product-single__thumbnails li.grid__item {padding-left:5px !important;}
+  ul.tabs li {padding: 5px 15px;}
+  .tab_container{margin-bottom:0 !important;}
+}
+
+@media only screen and (max-width:667px) {
+  .product-single__thumbnails .flickity-viewport{height:81px !important;}
+  .xswatch label {padding: 53px 0px 0px 0px; width: 70px;}
+  .swatch .swatch-element {margin-bottom:8px;}
+}
+@media only screen and (max-width:568px) {
+  .flickity-slider .grid__item {padding: 3px;}
+  #ProductSection .product-single__thumbnails li.grid__item {padding-left:3px !important;}
+  .product-single__thumbnails li{min-height:auto;}
+  .product-single__thumbnails .flickity-viewport{height:73px !important;}
+  .swatch .swatch-element {margin: 0px 8px 8px 0;}
+  .xswatch label {padding: 53px 5px 0px 5px; width: 80px;}
+  
+}
+@media only screen and (max-width:414px) {
+  .product-single__thumbnails .flickity-viewport{height:103px !important;}
+  .swatch_options {margin-top: 1.5em;}
+  .prodrelateddiv .flickity-prev-next-button{height:200px;}
+  .rv__grid .flickity-prev-next-button{height:185px;}
+  .prodrelateddiv .flickity-prev-next-button svg, .rv__grid .flickity-prev-next-button svg{top:auto; bottom:10px;}
+  
+  .relatedprodgridlinkprice, .relatedprodgridlinktitle {font-size: 14px; display: inline-block;}
+  .rv__grid h2 {font-size: 14px; line-height: 1.2em; padding:0 3px;}
+  .rv__grid h2 a {font-size: 14px;}
+  .product_recent-viewed .rv__price {font-size: 14px;}
+  
+}
+@media only screen and (max-width:384px) {
+  .product-single__thumbnails .flickity-viewport{height:95px !important;}
+  .swatch .swatch-element {margin: 0px 0px 8px 0;}
+  .xswatch label {width: 75px;}
+}
+@media only screen and (max-width:360px) {
+  .product-single__thumbnails .flickity-viewport{height:90px !important;}
+}
+@media only screen and (max-width:320px) {
+.xswatch label {padding: 45px 0px 0px 2px;height:75px;width: 65px;background-size: 50px;font-size: 11px;}  
+.product-single__thumbnails .flickity-viewport {height: 80px !important;}
+  
+  .btn.xquickadd{padding: 5px 10px; letter-spacing: 1px;min-width: 140px;}
+  .rv__grid .flickity-prev-next-button{height:175px;}
+  
+}

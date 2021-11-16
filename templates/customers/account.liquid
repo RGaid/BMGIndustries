@@ -1,0 +1,77 @@
+<div class="grid usraccount ">
+  <div class="grid__item acntnav one-quarter rightalign medium--hide small--hide padding20">
+    {% include 'account_nav' with currpage: '/account' %}
+  </div>
+  <div class="grid__item post-large--hide wide--hide nopadding medium--one-whole small--one-whole centeralign">
+    {% include 'account_nav_mobile' with currpage: '/account' %}
+  </div>
+  <div class="grid__item three-quarters medium--one-whole small--one-whole padding50">
+    <div class="centercontent">
+      <h1 class="pagetitle">MY ORDERS</h1>
+      {% paginate customer.orders by 5 %}
+        {% if customer.orders.size != 0 %}
+          <table class="responsive-table ordertabl medium--hide small--hide">
+            <thead>
+              <tr>
+                <th>{{ 'customer.orders.order_number' | t }}</th>
+                <th>{{ 'customer.orders.date' | t }}</th>
+                <th>{{ 'customer.orders.payment_status' | t }}</th>
+                <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                <th>{{ 'customer.orders.total' | t }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for order in customer.orders %}
+                <tr class="responsive-table-row">
+                  <td data-label="{{ 'customer.orders.order_number' | t }}">{{ order.name | link_to: order.customer_url }}</td>
+                  <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: format: 'month_day_year' }}</td>
+                  <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                  <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          <div id='ordersaccord' class="post-large--hide wide--hide">
+            {% for order in customer.orders %}
+              <h3 class='orderhead' data-label="{{ 'customer.orders.order_number' | t }}">Order {{ order.name | link_to: order.customer_url }}</h3>
+              <div class='ordercontent'>
+                <p>Date {{ order.created_at | date: format: 'month_day_year' }}</p>
+                <p>Order Status {{ order.financial_status_label }}</p>
+                <p>Fulfillment Status {{ order.fulfillment_status_label }}</p>
+                <p>Total {{ order.total_price | money }}</p>
+                <p>Tracking: {{ 'Track Order' | link_to: order.customer_url }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        {% else %}
+          <p>{{ 'customer.orders.none' | t }}</p>
+        {% endif %}
+
+        {% if paginate.pages > 1 %}
+          {% include 'pagination' %}
+        {% endif %}
+
+      {% endpaginate %}
+    </div>
+  </div>
+  <div class="grid__item post-large--hide wide--hide nopadding medium--one-whole small--one-whole">
+    <div class="navcontents bottominfo">
+      {% include 'contactinfo' %}
+    </div>
+  </div>
+</div>
+<script>
+  document.addEventListener("StartOtherLoading", function(event) {
+    $( function() {
+      var selector = '#ordersaccord';
+      $( selector ).accordion({
+        heightStyle: "content",
+        collapsible: true
+      });
+      $( "#toggle" ).button().on( "click", function() {
+         $( selector ).accordion( "option", "icons", null );
+      });
+    } );
+   } );
+  </script>

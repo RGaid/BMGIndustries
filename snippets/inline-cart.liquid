@@ -1,0 +1,27 @@
+<div id="cart-info" class="">
+  <div class="cartheader">
+    <div class="grid">
+      <div class="grid__item one-fifth  nopadding">
+				<img class="Image--lazyLoad Image--fadeIn" data-src="{{ 'cart-icon.png' | asset_url }}">
+        {% comment %} {{ 'cart-icon.png' | asset_url | img_tag }} {% endcomment %}
+      </div>
+      <div class="grid__item three-fifths nopadding centeralign">
+         <span class='inlinecartcnt'>{{ cart.item_count }}</span> items in your cart
+      </div>
+      <div class="grid__item one-fifth  nopadding">
+        <a href="#" id="btn-close-modal" class="close-floatingcart right"> 
+					<img class="Image--lazyLoad Image--fadeIn" data-src="{{ 'icon-close.png' | asset_url }}">
+          {% comment %} {{ 'icon-close.png' | asset_url | img_tag }} {% endcomment %}
+         </a> 
+      </div>
+    </div>  
+  </div>  
+  <div id="cart-content">
+    <div class="loading">
+			<img class="Image--lazyLoad Image--fadeIn" data-src="{{'loader.gif' | asset_url}}" alt="" />
+      {% comment %} <img src="{{'loader.gif' | asset_url}}" alt="" /> {% endcomment %}
+    </div>
+  </div>
+</div>
+            
+<div id="floatingcart" class="close-floatingcart" ></div>

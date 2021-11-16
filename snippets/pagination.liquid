@@ -1,0 +1,27 @@
+<div class='collpaginate'>
+    {% if paginate.previous %}
+      <span class="prevpage"><a {% if !paginate.previous %}disabled{%endif%} href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">PREVIOUS PAGE</a></span>
+    {% else %}
+      <span class="prevpage"><a class='disabled'>PREVIOUS PAGE</a></span>
+    {% endif %}  
+  <ul class="pagination-custom">
+    {% for part in paginate.parts %}
+      {% if part.is_link %}
+        <li>
+          <a href="{{ part.url }}" title="">{{ part.title }}</a>
+        </li>
+      {% else %}
+        {% if part.title == paginate.current_page %}
+          <li class="active"><span>{{ part.title }}</span></li>
+        {% else %}
+          <li><span>{{ part.title }}</span></li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+    {% if paginate.next %}
+      <span class="nextpage"><a href="{{ paginate.next.url }}" title="{{ paginate.next.title }}">NEXT PAGE</a></span>
+    {% else %}
+      <span class="nextpage"><a  class='disabled'>NEXT PAGE</a></span>
+    {% endif %}
+</div>

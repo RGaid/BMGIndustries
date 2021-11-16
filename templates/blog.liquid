@@ -1,0 +1,96 @@
+{% paginate blog.articles by 5 %}
+
+  {%- assign blog_title = blog.title -%}
+
+  {% if current_tags %}
+    {% capture blog_title %}{{ blog.title | link_to: blog.url }} &mdash; {{ current_tags.first }}{% endcapture %}
+  {% endif %}
+
+
+  {% for article in blog.articles %}
+    {% if forloop.first == true %}
+      <div class="grid topblog">
+        <div class="grid__item one-half medium--one-whole small--one-whole nopadding">
+          <a href="{{ article.url }}">
+					{%- assign load_bg_src = article.image.src | img_url: '10x', format: 'pjpg' -%}
+					{%- assign load_bg_class = 'blogfeaturedimage' -%}
+					<div
+					{% include '__opt_load_bg' src:load_bg_src class:load_bg_class %}
+					data-parent-fit="cover"
+					></div>					
+			{% comment %} <div class="blogfeaturedimage" style="background: url('{{ article.image.src | img_url: "1024x" }}') no-repeat center center; background-size: cover;"></div>             {% endcomment %}
+          </a>
+        </div>
+        <div class="grid__item one-half medium--one-whole small--one-whole padding50">
+          <h1 class="blogfeaturedheader">
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </h1>
+          <div class="rte">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              <p>
+                {{ article.content | strip_html | truncatewords: 40 }}
+              </p>
+            {% endif %}
+          </div>
+          <p>
+            <a class="blogreadmore btn" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+          </p>
+        </div>
+      </div>
+      {% if blog.all_tags.size > 0 %}
+        <div class="blogtags">
+          <ul>
+            {% if canonical_url contains 'tagged' %}
+              <li ><a href="{{blog.url}}">all posts</a></li>
+            {% else %}
+              <li class='activ' >all posts</li>
+            {%endif%}
+            {% for tag in blog.all_tags %}
+              {% if current_tags contains tag %}
+                <li class='activ'>{{ tag }}</li>
+              {% else %}
+                <li>{{ tag | link_to_tag: tag }}</li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="pagecenter blogarticle grid">
+        <div class="grid__item one-half medium--one-whole small--one-whole">
+          <a href="{{ article.url }}">
+            {% include 'responsive-image' with
+              image: article.image,
+              max_width: 500,
+              max_height: 500
+            %}
+          </a>
+        </div>
+        <div class="grid__item one-half medium--one-whole small--one-whole paddingleft50">
+          <h2>
+            <a href="{{ article.url }}">{{ article.title }}</a>
+          </h2>
+          <div class="rte">
+            {% if article.excerpt.size > 0 %}
+              {{ article.excerpt }}
+            {% else %}
+              <p>
+                {{ article.content | strip_html | truncatewords: 50 }}
+              </p>
+            {% endif %}
+          </div>
+          <p>
+            <a class="blogreadmore btn" href="{{ article.url }}">{{ 'blogs.article.read_more' | t }}</a>
+          </p>
+        </div>
+      </div>
+  {% endif %}
+  {% endfor %}
+
+  {% if paginate.pages > 1 %}
+    {% include 'pagination' %}
+  {% endif %}
+
+{% endpaginate %}

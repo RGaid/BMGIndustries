@@ -1,0 +1,59 @@
+<div class="contactus grid ">
+  <div class="grid__item two-thirds medium--one-whole small--one-whole padding80 contactusform">
+    <h1 class="contactustitle">{{ page.title }}</h1>
+    <p class="space10"> 
+      Have a question or comment?  Send us a message using the form below and one of our dedicated customer service experts will get back to you within 24 hours!  If you need help immediately, please give us a call or chat with us during business hours.
+    </p>
+    
+    {% form 'contact' %}
+
+      {% if form.posted_successfully? %}
+        <p class="form-success">
+          {{ 'contact.form.post_success' | t }}
+        </p>
+      {% endif %}
+
+      {{ form.errors | default_errors }}
+
+      <label for="ContactFormName">{{ 'contact.form.name' | t }}</label>
+      <input type="text"
+        name="contact[name]"
+        id="ContactFormName"
+        value="{% if form[name] %}{{ form[name] }}{% elsif customer %}{{ customer.name }}{% endif %}">
+
+      <label for="ContactFormEmail">{{ 'contact.form.email' | t }}</label>
+      <input type="email"
+        name="contact[email]"
+        id="ContactFormEmail"
+        value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off">
+
+      <label for="ContactFormPhone">{{ 'contact.form.phone' | t }}</label>
+      <input type="tel"
+        name="contact[phone]"
+        id="ContactFormPhone"
+        value="{% if form[phone] %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+        pattern="[0-9\-]*">
+
+      <label for="ContactFormMessage">{{ 'contact.form.message' | t }}</label>
+      <textarea rows="10"
+        name="contact[body]"
+        id="ContactFormMessage"
+        >
+        {%- if form.body -%}
+          {{- form.body -}}
+        {%- endif -%}
+      </textarea>
+
+      <input type="submit" class="button buttonlarge" value="{{ 'contact.form.send' | t }}">
+
+    {% endform %}
+  </div>
+  <div class="grid__item one-third medium--one-whole small--one-whole padding80">
+    <div class="rte contactuscontent">
+      {{ page.content }}
+    </div>
+  </div>
+</div>
