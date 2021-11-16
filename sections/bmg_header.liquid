@@ -61,7 +61,7 @@
         </div>
         <div class="row bmg_h_nav">
             <div class="col-md-12 bmgh_nav">
-                {% for link in linklists.header_menu.links %}
+                {% for link in linklists.[section.settings.header_menu].links %}
                     <a href="{{ link.url }}">{{ link.title }}</a>
                 {% endfor %}
             </div>
