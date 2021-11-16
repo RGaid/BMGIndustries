@@ -1,3 +1,61 @@
+<div class="bmg_footer">
+    <div class="container">
+        <div class="row bmgf_top">
+            <div class="col-md-2">
+                <a href="/">
+                    <img src="{{ section.settings.logo | img_url: 'master'}}">
+                </a>
+            </div>
+            <div class="col-md-2">
+                <h3>{{ section.settings.footer_heading_1 }}</h3>
+                <ul>
+                    {% for block in section.blocks %}
+                        <li>
+                            <a href="{{ block.settings.footer_1_url }}">
+                                {% if  block.settings.footer_1_icon %}
+                                    <img src="{{ block.settings.footer_1_icon | img_url: 'master'}}">
+                                {% endif %}
+                                {{ block.settings.footer_1_text }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-2 footer_navs">
+                <h3>{{ section.settings.footer_heading_2 }}</h3>
+                {% for link in linklists[section.settings.footer_2_links].links %}
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-md-2 footer_navs">
+                <h3>{{ section.settings.footer_heading_3 }}</h3>
+                {% for link in linklists[section.settings.footer_3_links].links %}
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+            </div>
+            <div class="col-md-2 footer_navs">
+                <h3>{{ section.settings.footer_heading_4 }}</h3>
+                {% for link in linklists[section.settings.footer_4_links].links %}
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="row bmgf_copyright">
+            <div class="col-md-6">
+                <ul>
+                    <li>{{ section.settings.copyright_footer_text }}</li>
+                    {% for link in linklists[section.settings.copyright_footer_links].links %}
+                        <li><a href="{{ link.url }}">{{ link.title }}</a></li> {% if forloop.last != true %}|{% endif %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="col-md-6">
+                <img src="{{ section.settings.copyright_footer_payments | img_url: 'master'}}">
+            </div>
+        </div>
+    </div>
+</div>
+
 {% schema %}
 {
     "name": "BMG Footer",
@@ -54,11 +112,6 @@
             "type": "text",
             "id": "copyright_footer_text",
             "label": "Copyright Footer Text"
-        },
-        {
-            "type": "link_list",
-            "id": "copyright_footer_links",
-            "label": "Copyright Footer Links"
         },
         {
             "type": "link_list",
