@@ -34,24 +34,16 @@
             <div class="col-md-4">
                 <div class="bmgh_m_icons">
                     <ul>
-                        <li>
-                            <a href="#">
-                                <img src="">
-                                Reorder
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="">
-                                Order by Item No.
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <img src="">
-                                Cart
-                            </a>
-                        </li>
+                        {% for block in section.blocks %}
+                            {% if block.type == 'icons' %}
+                                <li>
+                                    <a href="{{ block.settings.header_icon_url }}">
+                                        <img src="{{ block.settings.header_icon | img_url: 'master'}}">
+                                        {{ block.settings.header_icon_text }}
+                                    </a>
+                                </li>
+                            {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
@@ -130,14 +122,19 @@
             "settings": [
                 {
                     "type": "image_picker",
-                    "id": "header_icons",
+                    "id": "header_icon",
                     "label": "Header Icon"
                 },
                 {
                     "type": "text",
                     "id": "header_icon_text",
                     "label": "Header Icon Text"
-                }                  
+                },
+                {
+                    "type": "url",
+                    "id": "header_icon_url",
+                    "label": "Header Icon URL"
+                }                       
             ]
         }
     ],
