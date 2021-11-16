@@ -201,6 +201,18 @@
       },
       "bmg_header": {
         "type": "bmg_header",
+        "blocks": {
+          "ffece707-0dc0-4d2c-b64c-05e15626a48e": {
+            "type": "tnl_links",
+            "settings": {
+              "topnavleft_link_text": "Why Choose BMG",
+              "topnavleft_link_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "ffece707-0dc0-4d2c-b64c-05e15626a48e"
+        ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
           "header_menu": "bmg-2021-nav"
