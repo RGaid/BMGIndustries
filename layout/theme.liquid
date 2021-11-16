@@ -79,7 +79,8 @@
 </head>
 
 	<body>
-		{% section 'header' %}
+
+		{% section 'bgm_header' %}
 				
 		<div id="PageContainer" class="is-moved-by-drawer">
         		{% if template == 'index' %}
@@ -109,6 +110,21 @@
 		
 		 {%include 'prod_sliders'%}
     {% include 'atc-popup'%}
-     
+
+    {% comment %}
+    {% if template != 'page.newdealer' and template != 'customers/activate_account' and template != 'customers/reset_password'%}
+       {% if customer%}
+       {% else %}
+              <div id="myModal" class="modal" style="display: block">
+                <div class='modal-content-login'>
+                    <div class="padding20">
+                      {% include 'login_content'%}
+                    </div>
+                  </div>
+              </div>
+       {% endif %}
+     {% endif %}
+     {% endcomment %}
+
 	</body>
 </html>
