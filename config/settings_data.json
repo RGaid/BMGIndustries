@@ -264,8 +264,9 @@
           "f34f097e-fd70-4935-b38b-519359324736": {
             "type": "icons",
             "settings": {
-              "header_icon_text": "",
-              "header_icon_url": ""
+              "header_icon": "shopify:\/\/shop_images\/cart-simple.png",
+              "header_icon_text": "Cart",
+              "header_icon_url": "#"
             }
           }
         },
