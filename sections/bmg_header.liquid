@@ -4,9 +4,9 @@
             <div class="col-md-6 bmgh_top_col">
                 {% for block in section.blocks %}
                     {% if block.type == 'tnl_links' %}
-                        <a href="{{ section.settings.topnavright_link_url }}" {% if section.settings.topnavleft_link_icon %}class="bgm_h_icon"{% endif %}>
-                            {% if section.settings.topnavleft_link_icon %}<img src="{{ section.settings.topnavleft_link_icon | img_url: 'master'}}">{% endif %}
-                            {{ section.settings.topnavleft_link_text }}
+                        <a href="{{ block.settings.topnavright_link_url }}" {% if block.settings.topnavleft_link_icon %}class="bgm_h_icon"{% endif %}>
+                            {% if block.settings.topnavleft_link_icon %}<img src="{{ block.settings.topnavleft_link_icon | img_url: 'master'}}">{% endif %}
+                            {{ block.settings.topnavleft_link_text }}
                         </a>
                     {% endif %}
                 {% endfor %}
@@ -14,9 +14,9 @@
             <div class="col-md-6 bmgh_top_col">
                 {% for block in section.blocks %}
                     {% if block.type == 'tnr_links' %}
-                        <a href="{{ section.settings.topnavleft_link_url }}" {% if section.settings.topnavright_link_icon %}class="bgm_h_icon"{% endif %}>
-                            {% if section.settings.topnavright_link_icon %}<img src="{{ section.settings.topnavright_link_icon | img_url: 'master'}}">{% endif %}
-                            {{ section.settings.topnavright_link_text }}
+                        <a href="{{ block.settings.topnavleft_link_url }}" {% if block.settings.topnavright_link_icon %}class="bgm_h_icon"{% endif %}>
+                            {% if block.settings.topnavright_link_icon %}<img src="{{ block.settings.topnavright_link_icon | img_url: 'master'}}">{% endif %}
+                            {{ block.settings.topnavright_link_text }}
                         </a>
                     {% endif %}
                 {% endfor %}
