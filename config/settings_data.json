@@ -216,11 +216,19 @@
               "topnavleft_link_text": "1-800-964-2029",
               "topnavleft_link_url": "#1-800-964-2029"
             }
+          },
+          "1c44285d-8d5a-4ce0-985c-ee43536b470a": {
+            "type": "tnr_links",
+            "settings": {
+              "topnavright_link_text": "Digital Catalogue",
+              "topnavright_link_url": "#"
+            }
           }
         },
         "block_order": [
           "ffece707-0dc0-4d2c-b64c-05e15626a48e",
-          "9e90fba2-ca54-467b-89d0-89e785aceaaf"
+          "9e90fba2-ca54-467b-89d0-89e785aceaaf",
+          "1c44285d-8d5a-4ce0-985c-ee43536b470a"
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
