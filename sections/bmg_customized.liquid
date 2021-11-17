@@ -1,0 +1,67 @@
+<div class="bmg_categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ section.settings.bmg_customized_heading }}</h2>
+                <p>{{ section.settings.bmg_customized_text }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for block in section.blocks %}
+                <div class="col-md-3">
+                    <div class="bmgc_body">
+                        {% if collections[block.settings.featured_collection].featured_image == blank %} 
+                            <img src="{{ block.settings.collection_image | img_url: 'master' }}"> 
+                        {% else %}
+                            <img src="{{ collections[block.settings.featured_collection].featured_image | img_url: 'master'}}"> 
+                        {% endif %}
+                        <h3>{{ collections[block.settings.featured_collection].title }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "BMG Customized",
+    "settings": [
+        {
+            "type": "text",
+            "id": "bmg_customized_heading",
+            "label": "BMG Categories Heading"
+        },
+        {
+            "type": "text",
+            "id": "bmg_customized_text",
+            "label": "BMG Categories Paragraph"
+        }
+    ], 
+    "blocks": [
+        {
+            "name": "BMG Customized Categories",
+            "type": "bmg_customized_categories",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "featured_collection",
+                    "label": "Collection"
+                },               
+                {
+                    "type": "image_picker",
+                    "id": "collection_image",
+                    "label": "Collection Image",
+                    "info": "This field is for manual addition of collection featured image only or if the collection featured image is empty"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "BMG Customized",
+        "category": "2021 - BMG"
+      } 
+    ]
+  }
+{% endschema %}

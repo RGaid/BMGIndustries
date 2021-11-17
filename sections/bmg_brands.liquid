@@ -1,0 +1,66 @@
+<div class="bmg_categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ section.settings.bmg_customized_heading }}</h2>
+                <p>{{ section.settings.bmg_customized_text }}</p>
+            </div>
+        </div>
+        <div class="row">
+            {% for block in section.blocks %}
+                <div class="col-md-3">
+                    <div class="bmgc_body">
+                        {% if collections[block.settings.featured_collection].featured_image == blank %} 
+                            <img src="{{ block.settings.collection_image | img_url: 'master' }}"> 
+                        {% else %}
+                            <img src="{{ collections[block.settings.featured_collection].featured_image | img_url: 'master'}}"> 
+                        {% endif %}
+                        <h3>{{ collections[block.settings.featured_collection].title }}</h3>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "BMG Brands",
+    "settings": [
+        {
+            "type": "text",
+            "id": "bmg_customized_heading",
+            "label": "BMG Brands Heading"
+        },
+        {
+            "type": "text",
+            "id": "bmg_customized_text",
+            "label": "BMG Categories Paragraph"
+        }
+    ], 
+    "blocks": [
+        {
+            "name": "BMG Brand Logos",
+            "type": "bmg_brand_logos",
+            "settings": [
+                {
+                    "type": "image_picker",
+                    "id": "brand_logo",
+                    "label": "BMG Brand Logo"
+                },
+                {
+                    "type": "text",
+                    "id": "brand_text",
+                    "label": "BMG Brand Text"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "BMG Brands",
+        "category": "2021 - BMG"
+      } 
+    ]
+  }
+{% endschema %}
