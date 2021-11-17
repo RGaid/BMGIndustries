@@ -184,7 +184,7 @@ HOMEPAGE STYLING
 
 .bmg_brands {
     padding-top: 1.5vw;
-    padding-bottom: 1.5vw;
+    padding-bottom: 2vw;
 }
 
 .bmg_brands .container {
@@ -233,6 +233,37 @@ HOMEPAGE STYLING
 .bmg_two_cols .container {
     max-width: 73.958vw;
     width: 100%;
+}
+
+.bmg_two_cols .bmg_tc_col1, .bmg_two_cols .bmg_tc_col2 {
+    min-height: 19.792vw;
+    display: flex;
+    align-items: flex-start;
+    align-content: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    padding: 1.5vw;
+}
+
+.bmg_two_cols .bmg_tc_col1 > *, .bmg_two_cols .bmg_tc_col2 > * {width: 100%;display: block;}
+
+.bmg_two_cols h3 {
+    font-size: 1.146vw;
+    font-family: 'AvenirNext-Regular';
+    font-weight: 100;
+    margin: 0;
+}
+
+.bmg_two_cols p {
+    font-size: 0.833vw;
+    max-width: 18.229vw;
+    margin: 3vw 0;
+}
+
+.bmg_two_cols .bmg_tc_col2 p {
+    max-width: 11.719vw;
+    margin: 2vw 0;
 }
 
 /********************************************************
