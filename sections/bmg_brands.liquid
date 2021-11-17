@@ -1,19 +1,16 @@
-<div class="bmg_categories">
+<div class="bmg_brands">
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h2>{{ section.settings.bmg_customized_heading }}</h2>
-                <p>{{ section.settings.bmg_customized_text }}</p>
+                <h2>{{ section.settings.bmg_brands_heading }}</h2>
+                <p>{{ section.settings.bmg_brands_text }}</p>
             </div>
         </div>
         <div class="row">
             {% for block in section.blocks %}
                 <div class="col-md-3">
-                    <div class="bmgc_body">
-                        {% if collections[block.settings.featured_collection].featured_image == blank %} 
-                            <img src="{{ block.settings.collection_image | img_url: 'master' }}"> 
-                        {% else %}
-                            <img src="{{ collections[block.settings.featured_collection].featured_image | img_url: 'master'}}"> 
+                    <div class="bmgb_body">
+                            <img src="{{ block.settings.brand_logo | img_url: 'master' }}"> 
                         {% endif %}
                         <h3>{{ collections[block.settings.featured_collection].title }}</h3>
                     </div>
@@ -29,12 +26,12 @@
     "settings": [
         {
             "type": "text",
-            "id": "bmg_customized_heading",
+            "id": "bmg_brands_heading",
             "label": "BMG Brands Heading"
         },
         {
             "type": "text",
-            "id": "bmg_customized_text",
+            "id": "bmg_brands_text",
             "label": "BMG Categories Paragraph"
         }
     ], 
