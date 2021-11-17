@@ -1,3 +1,23 @@
+<div class="bmg_categories">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>{{ section.settings.bmg_categories }}</h2>
+            </div>
+        </div>
+        <div class="row">
+            {% for block in section.blocks %}
+                <div class="col-md-3">
+                    <div class="bmgc_body">
+                        {% if collections[block.settings.featured_collection].featured_image == blank %} <img src="{{ block.settings.collection_image }}"> {% endif %}
+                        <h3>{{ collections[block.settings.featured_collection].title }}</h3>
+                    </div>>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
 {% schema %}
   {
     "name": "BMG Categories",
@@ -17,19 +37,7 @@
                     "type": "collection",
                     "id": "featured_collection",
                     "label": "Collection"
-                },
-                {
-                    "type": "text",
-                    "id": "collection_title",
-                    "label": "Collection Title",
-                    "info": "This field is for manual addition of collection title only"
-                },
-                {
-                    "type": "url",
-                    "id": "collection_url",
-                    "label": "Collection URL",
-                    "info": "This field is for manual addition of collection url only"
-                },                  
+                },               
                 {
                     "type": "image_picker",
                     "id": "collection_image",
