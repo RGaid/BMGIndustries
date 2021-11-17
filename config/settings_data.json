@@ -377,12 +377,64 @@
           "bmg_customized_heading": "Customized products",
           "bmg_customized_text": "Partner with one of 60,000 experienced manufacturers with design & production capabilities and on-time delivery."
         }
+      },
+      "16371524090d1b6977": {
+        "type": "bmg_brands",
+        "blocks": {
+          "706df181-dea4-4c34-ba49-395cb19f769c": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Mask_Group_1.png",
+              "brand_text": "St John Ambulance"
+            }
+          },
+          "c9ca7799-c46e-430e-b914-2ee9d77f8690": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Image_70.png",
+              "brand_text": "Costco"
+            }
+          },
+          "14bb6e78-b84f-4d38-a930-47a140d3eecc": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Image_71.png",
+              "brand_text": "MEC"
+            }
+          },
+          "812a4951-1092-4cf8-95ad-9290781d72a7": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Image_72.png",
+              "brand_text": "Atmosphere"
+            }
+          },
+          "3e0009de-9c94-44bb-89ff-f27ca2269b56": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/Image_73.png",
+              "brand_text": "Princess auto"
+            }
+          }
+        },
+        "block_order": [
+          "706df181-dea4-4c34-ba49-395cb19f769c",
+          "c9ca7799-c46e-430e-b914-2ee9d77f8690",
+          "14bb6e78-b84f-4d38-a930-47a140d3eecc",
+          "812a4951-1092-4cf8-95ad-9290781d72a7",
+          "3e0009de-9c94-44bb-89ff-f27ca2269b56"
+        ],
+        "settings": {
+          "bmg_customized_heading": "BRANDS WE WORK WITH",
+          "bmg_customized_text": "Feel better shopping among the Shopify family. Shop was created by the commerce platform trusted by more than 1,000,000 businesses worldwide."
+        }
       }
     },
     "content_for_index": [
       "16371453744f8a29c1",
       "1637150341a30629fc",
-      "1637151719f59fb31b"
+      "1637151719f59fb31b",
+      "16371524090d1b6977"
     ]
   }
 }
