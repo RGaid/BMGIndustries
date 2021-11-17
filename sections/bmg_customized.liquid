@@ -10,12 +10,10 @@
             {% for block in section.blocks %}
                 <div class="col-md-3">
                     <div class="bmgcust_body">
-                        {% if collections[block.settings.featured_collection].featured_image == blank %} 
-                            <img src="{{ block.settings.collection_image | img_url: 'master' }}"> 
-                        {% else %}
-                            <img src="{{ collections[block.settings.featured_collection].featured_image | img_url: 'master'}}"> 
-                        {% endif %}
-                        <h3>{{ collections[block.settings.featured_collection].title }}</h3>
+                        <a href="{{ block.settings.customized_url }}">
+                            <h3>{{ block.settings.customized_text }}</h3>
+                            <img src="{{ block.settings.customized_image | img_url: 'master' }}"> 
+                        </a>
                     </div>
                 </div>
             {% endfor %}
@@ -44,15 +42,19 @@
             "type": "bmg_customized_categories",
             "settings": [
                 {
-                    "type": "collection",
-                    "id": "featured_collection",
-                    "label": "Collection"
-                },               
+                    "type": "text",
+                    "id": "customized_text",
+                    "label": "BMG Customized Text"
+                },
                 {
                     "type": "image_picker",
-                    "id": "collection_image",
-                    "label": "Collection Image",
-                    "info": "This field is for manual addition of collection featured image only or if the collection featured image is empty"
+                    "id": "customized_image",
+                    "label": "BMG Customized Image"
+                },
+                {
+                    "type": "url",
+                    "id": "customized_url",
+                    "label": "Customized URL"
                 }
             ]
         }
