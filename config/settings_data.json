@@ -324,6 +324,55 @@
       },
       "1637151719f59fb31b": {
         "type": "bmg_customized",
+        "blocks": {
+          "4a2cb7a9-aa1c-4b94-afbf-98a1b1d656f4": {
+            "type": "bmg_customized_categories",
+            "settings": {
+              "customized_text": "Bakpack",
+              "customized_image": "shopify:\/\/shop_images\/Image_74.png",
+              "customized_url": ""
+            }
+          },
+          "9afbb7cc-86ca-41c6-ae9f-9c33ff4c979b": {
+            "type": "bmg_customized_categories",
+            "settings": {
+              "customized_text": "Blanket",
+              "customized_image": "shopify:\/\/shop_images\/Image_75.png",
+              "customized_url": ""
+            }
+          },
+          "d8df7825-cd2b-43b2-a5cb-55bce9737a14": {
+            "type": "bmg_customized_categories",
+            "settings": {
+              "customized_text": "Mylar bags",
+              "customized_image": "shopify:\/\/shop_images\/Image_76.png",
+              "customized_url": ""
+            }
+          },
+          "0e58b7ba-d8ba-4630-abc7-8e6529a19084": {
+            "type": "bmg_customized_categories",
+            "settings": {
+              "customized_text": "Poncho",
+              "customized_image": "shopify:\/\/shop_images\/Image_77.png",
+              "customized_url": ""
+            }
+          },
+          "18a18cea-55e0-4e5c-a964-c1d4ab94c882": {
+            "type": "bmg_customized_categories",
+            "settings": {
+              "customized_text": "Survival kits",
+              "customized_image": "shopify:\/\/shop_images\/1st_image_Deluxe_1_person.png",
+              "customized_url": ""
+            }
+          }
+        },
+        "block_order": [
+          "4a2cb7a9-aa1c-4b94-afbf-98a1b1d656f4",
+          "9afbb7cc-86ca-41c6-ae9f-9c33ff4c979b",
+          "d8df7825-cd2b-43b2-a5cb-55bce9737a14",
+          "0e58b7ba-d8ba-4630-abc7-8e6529a19084",
+          "18a18cea-55e0-4e5c-a964-c1d4ab94c882"
+        ],
         "settings": {
           "bmg_customized_heading": "Customized products",
           "bmg_customized_text": "Partner with one of 60,000 experienced manufacturers with design & production capabilities and on-time delivery."
