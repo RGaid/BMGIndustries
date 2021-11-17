@@ -271,10 +271,56 @@
           "banner_button_text": "SHOP NOW",
           "banner_button_url": "shopify:\/\/collections"
         }
+      },
+      "1637150341a30629fc": {
+        "type": "bmg_categories",
+        "blocks": {
+          "f3df0fda-8b6d-485a-95ee-3e859eeafdfd": {
+            "type": "bmg_categories",
+            "settings": {
+              "featured_collection": "food-and-water"
+            }
+          },
+          "87f03140-9b85-4e4b-9b19-0ea0ec4fd74d": {
+            "type": "bmg_categories",
+            "settings": {
+              "featured_collection": "packaging"
+            }
+          },
+          "2a2e35d5-70aa-414d-8eaf-005f775ab66e": {
+            "type": "bmg_categories",
+            "settings": {
+              "featured_collection": "supplies"
+            }
+          },
+          "2be03e08-d5cc-4c15-a275-4037459af196": {
+            "type": "bmg_categories",
+            "settings": {
+              "featured_collection": "first-aid-kit-and-supplies"
+            }
+          },
+          "ef1af326-54c9-4f5d-80bf-f9202ae70086": {
+            "type": "bmg_categories",
+            "settings": {
+              "featured_collection": "first-aid-safety-equipment"
+            }
+          }
+        },
+        "block_order": [
+          "f3df0fda-8b6d-485a-95ee-3e859eeafdfd",
+          "87f03140-9b85-4e4b-9b19-0ea0ec4fd74d",
+          "2a2e35d5-70aa-414d-8eaf-005f775ab66e",
+          "2be03e08-d5cc-4c15-a275-4037459af196",
+          "ef1af326-54c9-4f5d-80bf-f9202ae70086"
+        ],
+        "settings": {
+          "bmg_categories": "Browse by Categories"
+        }
       }
     },
     "content_for_index": [
-      "16371453744f8a29c1"
+      "16371453744f8a29c1",
+      "1637150341a30629fc"
     ]
   }
 }
