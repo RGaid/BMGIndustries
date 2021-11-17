@@ -1,0 +1,84 @@
+<div class="bmg_two_cols">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="bmg_tc_col1" style="background-image: url({{ section.settings.background_image_1 | img_url: 'master' }})">
+                    <h3>{{ section.settings.heading_1 }}</h3>
+                    <p>{{ section.settings.desc_1 }}</p>
+                    <a href="{{ section.settings.button_url_1 }}" class="bmg_button">{{ section.settings.button_text_1 }}</a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="bmg_tc_col2" style="background-image: url({{ section.settings.background_image_2 | img_url: 'master' }})">
+                    <h3>{{ section.settings.heading_2 }}</h3>
+                    <p>{{ section.settings.desc_2 }}</p>
+                    <a href="{{ section.settings.button_url_2 }}" class="bmg_button">{{ section.settings.button_text_2 }}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% schema %}
+  {
+    "name": "BMG Two Colunms",
+    "settings": [
+        {
+            "type": "image_picker",
+            "id": "background_image_1",
+            "label": "Col 1 BG Image"
+        },
+        {
+            "type": "text",
+            "id": "heading_1",
+            "label": "Col 1 Heading"
+        },
+        {
+            "type": "textarea",
+            "id": "desc_1",
+            "label": "Col 1 Paragraph"
+        },
+        {
+            "type": "text",
+            "id": "button_text_1",
+            "label": "Col 1 Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_url_1",
+            "label": "Col 1 Button Url"
+        },
+        {
+            "type": "image_picker",
+            "id": "background_image_2",
+            "label": "Col 2 BG Image"
+        },
+        {
+            "type": "text",
+            "id": "heading_2",
+            "label": "Col 2 Heading"
+        },
+        {
+            "type": "textarea",
+            "id": "desc_2",
+            "label": "Col 2 Paragraph"
+        },
+        {
+            "type": "text",
+            "id": "button_text_2",
+            "label": "Col 2 Button Text"
+        },
+        {
+            "type": "url",
+            "id": "button_url_2",
+            "label": "Col 2 Button Url"
+        }
+    ],
+    "presets": [
+      {
+        "name": "BMG Two Colunms",
+        "category": "2021 - BMG"
+      } 
+    ]
+  }
+{% endschema %}
