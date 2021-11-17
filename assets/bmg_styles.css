@@ -40,6 +40,7 @@ HOMEPAGE STYLING
     font-size: 2.5vw;
     font-family: 'AvenirNext-Bold';
     margin-bottom: .5vw;
+    line-height: 1;
 }
 
 .bmg_banner p {
@@ -82,6 +83,22 @@ HOMEPAGE STYLING
     font-size: 1.771vw;
     font-weight: 100;
     margin: 0;
+    font-family: 'AvenirNext-Regular';
+    margin-bottom: 1.5vw;
+}
+
+.bmg_categories .bmgc_body {
+    box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.17);
+    -webkit-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.17);
+    -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.17);
+    border-radius: 8px;
+    padding: 10px;
+}
+
+.bmg_categories .bmgc_body img {
+    max-height: 10.417vw;
+    margin: auto;
+    display: block;
 }
 
 .bmg_categories h3 {
@@ -89,6 +106,7 @@ HOMEPAGE STYLING
     font-weight: 100;
     font-family: 'AvenirNext-Regular';
     text-align: center;
+    color: #4C5DC9;
 }
 
 /** HOMEPAGE CUSTOMIZED **/
