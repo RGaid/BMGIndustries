@@ -191,6 +191,23 @@ HOMEPAGE STYLING
     width: 20%;
 }
 
+.bmg_brands h2 {
+    color: #333333;
+    font-size: 1.771vw;
+    font-weight: 100;
+    margin: 0;
+    font-family: 'AvenirNext-Regular';
+    margin-bottom: 1.5vw;
+}
+
+.bmg_brands p {
+    font-size: .729vw;
+    font-family: AvenirNext-Regular;
+    margin-bottom: 1.5vw;
+    padding-left: .5vw;
+}
+
+
 /** HOMEPAGE TWO COL **/
 
 .bmg_two_cols .container {
