@@ -77,7 +77,7 @@ HOMEPAGE STYLING
     width: 100%;
 }
 
-.bmg_categories .row > div:not(.col-md-12) {
+.bmg_customized .row > div:not(.col-md-12) {
     width: 20%;
 }
 
@@ -88,7 +88,7 @@ HOMEPAGE STYLING
     width: 100%;
 }
 
-.bmg_categories .row > div:not(.col-md-12) {
+.bmg_brands .row > div:not(.col-md-12) {
     width: 20%;
 }
 
