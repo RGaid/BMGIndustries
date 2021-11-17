@@ -1,0 +1,49 @@
+{% schema %}
+  {
+    "name": "BMG Categories",
+    "settings": [
+        {
+            "type": "text",
+            "id": "bmg_categories",
+            "label": "BMG Categories Heading"
+        }
+    ], 
+    "blocks": [
+        {
+            "name": "BMG Categories",
+            "type": "bmg_categories",
+            "settings": [
+                {
+                    "type": "collection",
+                    "id": "featured_collection",
+                    "label": "Collection"
+                },
+                {
+                    "type": "text",
+                    "id": "collection_title",
+                    "label": "Collection Title",
+                    "info": "This field is for manual addition of collection title only"
+                },
+                {
+                    "type": "url",
+                    "id": "collection_url",
+                    "label": "Collection URL",
+                    "info": "This field is for manual addition of collection url only"
+                },                  
+                {
+                    "type": "image_picker",
+                    "id": "collection_image",
+                    "label": "Collection Image",
+                    "info": "This field is for manual addition of collection featured image only or if the collection featured image is empty"
+                }
+            ]
+        }
+    ],
+    "presets": [
+      {
+        "name": "BMG Categories",
+        "category": "2021 - BMG"
+      } 
+    ]
+  }
+{% endschema %}
