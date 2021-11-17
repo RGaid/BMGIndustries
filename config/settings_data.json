@@ -428,13 +428,29 @@
           "bmg_brands_heading": "BRANDS WE WORK WITH",
           "bmg_brands_text": "Feel better shopping among the Shopify family. Shop was created by the commerce platform trusted by more than 1,000,000 businesses worldwide."
         }
+      },
+      "16371536365caef564": {
+        "type": "bmg_two_column",
+        "settings": {
+          "background_image_1": "shopify:\/\/shop_images\/masks_2.jpg",
+          "heading_1": "New Arrivals",
+          "desc_1": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+          "button_text_1": "SHOP NOW",
+          "button_url_1": "shopify:\/\/collections",
+          "background_image_2": "shopify:\/\/shop_images\/set-with-various-cereal-grains-on-stone-background-2021-08-28-05-58-14-utc.jpg",
+          "heading_2": "New Arrivals",
+          "desc_2": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.",
+          "button_text_2": "SHOP NOW",
+          "button_url_2": "shopify:\/\/collections"
+        }
       }
     },
     "content_for_index": [
       "16371453744f8a29c1",
       "1637150341a30629fc",
       "1637151719f59fb31b",
-      "16371524090d1b6977"
+      "16371524090d1b6977",
+      "16371536365caef564"
     ]
   }
 }
