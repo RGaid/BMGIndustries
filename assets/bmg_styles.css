@@ -133,8 +133,15 @@ HOMEPAGE STYLING
     padding: .5vw;
 }
 
-.bmg_customized .row > div:not(.col-md-12) {
-    width: 20%;
+.bmg_customized .row.bmgc_customblocks > div {
+    padding-left: 0;
+    padding-right: 0;
+    width: 19%;
+}
+
+.bmg_customized .row.bmgc_customblocks {
+    display: flex;
+    justify-content: space-evenly;
 }
 
 .bmg_customized h2 {
