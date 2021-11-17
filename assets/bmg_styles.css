@@ -304,3 +304,9 @@ END HOMEPAGE STYLING
     max-width: 73.958vw;
     width: 100%;
 }
+
+.bmg_footer .bmgf_top_outer {
+    background: #4C5DC9;
+    padding-top: 3vw;
+    padding-bottom: 3vw;
+}
