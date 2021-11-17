@@ -3,6 +3,11 @@
 
 /** HEADER STYLING **/
 
+.bmg_header .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
 /********************************************************
 HOMEPAGE STYLING
 ********************************************************/
@@ -294,3 +299,8 @@ END HOMEPAGE STYLING
 ********************************************************/
 
 /** FOOTER STYLING **/
+
+.bmg_footer .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
