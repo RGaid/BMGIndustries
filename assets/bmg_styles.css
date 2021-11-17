@@ -235,6 +235,10 @@ HOMEPAGE STYLING
 
 /** HOMEPAGE TWO COL **/
 
+.bmg_two_cols {
+    padding-bottom: 2vw;
+}
+
 .bmg_two_cols .container {
     max-width: 73.958vw;
     width: 100%;
