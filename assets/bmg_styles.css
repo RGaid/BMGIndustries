@@ -66,6 +66,10 @@ HOMEPAGE STYLING
     width: 100%;
 }
 
+.bmg_categories .row > div:not(.col-md-12) {
+    width: 20%;
+}
+
 /** HOMEPAGE CUSTOMIZED **/
 
 .bmg_customized .container {
@@ -73,11 +77,19 @@ HOMEPAGE STYLING
     width: 100%;
 }
 
+.bmg_categories .row > div:not(.col-md-12) {
+    width: 20%;
+}
+
 /** HOMEPAGE BRANDS **/
 
 .bmg_brands .container {
     max-width: 73.958vw;
     width: 100%;
+}
+
+.bmg_categories .row > div:not(.col-md-12) {
+    width: 20%;
 }
 
 /** HOMEPAGE TWO COL **/
