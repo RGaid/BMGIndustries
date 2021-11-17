@@ -321,11 +321,19 @@
         "settings": {
           "bmg_categories": "Browse by Categories"
         }
+      },
+      "1637151719f59fb31b": {
+        "type": "bmg_customized",
+        "settings": {
+          "bmg_customized_heading": "Customized products",
+          "bmg_customized_text": "Partner with one of 60,000 experienced manufacturers with design & production capabilities and on-time delivery."
+        }
       }
     },
     "content_for_index": [
       "16371453744f8a29c1",
-      "1637150341a30629fc"
+      "1637150341a30629fc",
+      "1637151719f59fb31b"
     ]
   }
 }
