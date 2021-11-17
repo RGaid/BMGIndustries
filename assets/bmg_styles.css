@@ -46,6 +46,47 @@ HOMEPAGE STYLING
     max-width: 27.083vw;
 }
 
+.bmg_banner .bmg_button {
+    max-width: 5.729vw;
+    width: 100%;
+    min-height: 2.500vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #4C5DC9;
+    font-size: 0.729vw;
+    color: #fff;
+    border-radius: 4px;
+}
+
+/** HOMEPAGE CATEGORIES **/
+
+.bmg_categories .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
+/** HOMEPAGE CUSTOMIZED **/
+
+.bmg_customized .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
+/** HOMEPAGE BRANDS **/
+
+.bmg_brands .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
+/** HOMEPAGE TWO COL **/
+
+.bmg_two_cols .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
 /********************************************************
 END HOMEPAGE STYLING
 ********************************************************/
