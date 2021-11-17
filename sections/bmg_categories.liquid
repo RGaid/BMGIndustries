@@ -9,9 +9,13 @@
             {% for block in section.blocks %}
                 <div class="col-md-3">
                     <div class="bmgc_body">
-                        {% if collections[block.settings.featured_collection].featured_image == blank %} <img src="{{ block.settings.collection_image }}"> {% endif %}
+                        {% if collections[block.settings.featured_collection].featured_image == blank %} 
+                            <img src="{{ block.settings.collection_image }}"> 
+                        {% else %}
+                            <img src="{{ collections[block.settings.featured_collection].featured_image }}"> 
+                        {% endif %}
                         <h3>{{ collections[block.settings.featured_collection].title }}</h3>
-                    </div>>
+                    </div>
                 </div>
             {% endfor %}
         </div>
