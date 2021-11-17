@@ -130,7 +130,7 @@ HOMEPAGE STYLING
     -moz-box-shadow: 0px 2px 6px 0px rgba(0,0,0,0.16);
     background: #fff;
     border-radius: 8px;
-    padding: .5vw;
+    padding: .75vw;
 }
 
 .bmg_customized .row.bmgc_customblocks > div {
@@ -150,12 +150,14 @@ HOMEPAGE STYLING
     color: #333333;
     font-weight: 100;
     margin: 0 0 0.5vw;
+    padding-left: .5vw;
 }
 
 .bmg_customized p {
     font-size: .729vw;
     font-family: AvenirNext-Regular;
     margin-bottom: 1.5vw;
+    padding-left: .5vw;
 }
 
 .bmg_customized .bmgcust_body {
