@@ -137,14 +137,6 @@
           "title": "Collection list"
         }
       },
-      "featured-collection-2": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "Packaging",
-          "collection": "mylar-bag-pouches",
-          "alltext": "Shop All Packaging"
-        }
-      },
       "featured-product": {
         "type": "featured-product",
         "settings": {
@@ -165,38 +157,6 @@
       "cart": {
         "type": "cart",
         "settings": {
-        }
-      },
-      "1572669420397": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "Food and Water",
-          "collection": "mountain-house",
-          "alltext": "Show All Food and Water"
-        }
-      },
-      "1572669455803": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "Supplies",
-          "collection": "supplies",
-          "alltext": "Shop all Supplies"
-        }
-      },
-      "1577920655761": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "First Aid Kit and Supplies",
-          "collection": "first-aid-kit-and-supplies",
-          "alltext": "Shop all First Aid Kit and Supplies"
-        }
-      },
-      "1577920939349": {
-        "type": "featured-collection",
-        "settings": {
-          "title": "First Aid Safety Equipment",
-          "collection": "first-aid-safety-equipment",
-          "alltext": "Shop all First Aid Safety Equipment"
         }
       },
       "bmg_header": {
@@ -301,14 +261,20 @@
           "copyright_footer_links": "copyright",
           "copyright_footer_payments": "shopify:\/\/shop_images\/Payment_Icons.png"
         }
+      },
+      "16371453744f8a29c1": {
+        "type": "bmg_banner",
+        "settings": {
+          "background_image": "shopify:\/\/shop_images\/coronavirus-2019-ncov-precautionary-measures-pers-2021-08-27-18-44-37-utc.jpg",
+          "heading": "BMG INDUSTRIES",
+          "banner_desc": "Canada’s leading provider of Emergency Kits tailored towards individuals, families, automobiles, or large groups.",
+          "banner_button_text": "SHOP NOW",
+          "banner_button_url": "shopify:\/\/collections"
+        }
       }
     },
     "content_for_index": [
-      "1572669420397",
-      "featured-collection-2",
-      "1572669455803",
-      "1577920655761",
-      "1577920939349"
+      "16371453744f8a29c1"
     ]
   }
 }
