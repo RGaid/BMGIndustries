@@ -35,15 +35,18 @@ HOMEPAGE STYLING
 
 .bmg_banner h1 {
     margin: 0;
-    font-weight: 900;
+    font-weight: 100;
     color: #fff;
-    font-size: 2.500vw;
+    font-size: 2.5vw;
+    font-family: 'AvenirNext-Bold';
+    margin-bottom: .5vw;
 }
 
 .bmg_banner p {
     font-size: 0.833vw;
     color: #fff;
     max-width: 27.083vw;
+    margin-bottom: .5vw;
 }
 
 .bmg_banner .bmg_button {
@@ -61,6 +64,11 @@ HOMEPAGE STYLING
 
 /** HOMEPAGE CATEGORIES **/
 
+.bmg_categories {
+    padding-top: 2.344vw;
+    padding-bottom: 2.344vw;
+}
+
 .bmg_categories .container {
     max-width: 73.958vw;
     width: 100%;
@@ -70,7 +78,24 @@ HOMEPAGE STYLING
     width: 20%;
 }
 
+.bmg_categories h2 {
+    font-size: 1.771vw;
+    font-weight: 100;
+    margin: 0;
+}
+
+.bmg_categories h3 {
+    font-size: 0.833vw;
+    font-weight: 100;
+    font-family: 'AvenirNext-Regular';
+    text-align: center;
+}
+
 /** HOMEPAGE CUSTOMIZED **/
+
+.bmg_customized {
+    background: #F0F0FD;
+}
 
 .bmg_customized .container {
     max-width: 73.958vw;
