@@ -146,8 +146,9 @@ HOMEPAGE STYLING
 }
 
 .bmg_customized p {
-    font-size: 0.729vw;
-    font-family: 'AvenirNext-Regular';
+    font-size: .729vw;
+    font-family: AvenirNext-Regular;
+    margin-bottom: 1.5vw;
 }
 
 .bmg_customized .bmgcust_body {
