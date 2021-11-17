@@ -278,31 +278,36 @@
           "f3df0fda-8b6d-485a-95ee-3e859eeafdfd": {
             "type": "bmg_categories",
             "settings": {
-              "featured_collection": "food-and-water"
+              "featured_collection": "food-and-water",
+              "collection_image": "shopify:\/\/shop_images\/Screen_Shot_2021-10-26_at_10.31.10_AM.jpg"
             }
           },
           "87f03140-9b85-4e4b-9b19-0ea0ec4fd74d": {
             "type": "bmg_categories",
             "settings": {
-              "featured_collection": "packaging"
+              "featured_collection": "packaging",
+              "collection_image": "shopify:\/\/shop_images\/Screen_Shot_2021-10-26_at_10.31.55_AM.jpg"
             }
           },
           "2a2e35d5-70aa-414d-8eaf-005f775ab66e": {
             "type": "bmg_categories",
             "settings": {
-              "featured_collection": "supplies"
+              "featured_collection": "supplies",
+              "collection_image": "shopify:\/\/shop_images\/crusader.jpg"
             }
           },
           "2be03e08-d5cc-4c15-a275-4037459af196": {
             "type": "bmg_categories",
             "settings": {
-              "featured_collection": "first-aid-kit-and-supplies"
+              "featured_collection": "first-aid-kit-and-supplies",
+              "collection_image": "shopify:\/\/shop_images\/Screen_Shot_2021-10-26_at_10.33.38_AM.jpg"
             }
           },
           "ef1af326-54c9-4f5d-80bf-f9202ae70086": {
             "type": "bmg_categories",
             "settings": {
-              "featured_collection": "first-aid-safety-equipment"
+              "featured_collection": "first-aid-safety-equipment",
+              "collection_image": "shopify:\/\/shop_images\/Screen_Shot_2021-10-26_at_10.35.03_AM.jpg"
             }
           }
         },
