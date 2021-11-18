@@ -544,21 +544,21 @@ END HOMEPAGE STYLING
     text-align: center;
 }
 
-.bmg_footer .bmgf_top .footer_content ul {
+.bmg_footer .bmgf_top .footer_contents ul {
     margin-bottom: 0;
 }
 
-.bmg_footer .bmgf_top .footer_content ul li {
+.bmg_footer .bmgf_top .footer_contents ul li {
     display: flex;
     align-items: center;
     margin-bottom: .40vw;
 }
 
-.bmg_footer .bmgf_top .footer_content ul li a {
+.bmg_footer .bmgf_top .footer_contents ul li a {
     margin-bottom: 0;
 }
 
-.bmg_footer .bmgf_top .footer_content ul li img {
+.bmg_footer .bmgf_top .footer_contents ul li img {
     margin-bottom: -0.15vw;
     margin-right: .25vw;
 }
