@@ -123,6 +123,7 @@
 .bmgh_nav_header .row.bmg_h_main {
     display: flex;
     align-items: center;
+    padding-bottom: 1vw;
 }
 
 .bmgh_nav_header .bmgh_m_logo_search .searchbar input {
@@ -131,11 +132,16 @@
     background: #F0F0FD;
     border: none;
     padding-left: 1.5vw;
+    border-radius: 4px;
 }
 
 .bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form {
     max-width: 40.625vw;
     width: 100%;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search a {
+    line-height: 1;
 }
 
 .bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form form {
@@ -146,13 +152,19 @@
 .bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form form .searchbaricon {
     position: absolute;
     top: 0;
+    height: 2.083vw;
+    width: 2.083vw;
     bottom: 0;
-    margin: auto;
+    right: 0;
     color: #fff;
     background: #4c5dc9;
     fill: #fff;
+    background-image: url(https://cdn.shopify.com/s/files/1/0264/9633/5946/files/zoom-2.png?v=1637233263);
+    background-size: 0.938vw;
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 4px;
 }
-
 /********************************************************
 HOMEPAGE STYLING
 ********************************************************/
