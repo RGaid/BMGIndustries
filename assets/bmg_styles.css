@@ -8,6 +8,151 @@
     width: 100%;
 }
 
+.bmg_header .bmgh_top_header {
+    padding-top: .5vw;
+    padding-bottom: .5vw;
+}
+
+.bmg_header .bmg_h_top a {
+    font-size: 0.729vw;
+}
+
+.bmg_header .bmg_h_top a > img {
+    width: 0.729vw;
+    height: 0.729vw;
+    object-fit: contain;
+}
+
+
+.bmg_header .bmg_h_top .bmgh_top_col:first-child a {
+    margin-right: 2.5vw;
+}
+
+.bmg_header .bmg_h_top .bmgh_top_col:last-child {
+    display: flex;
+    justify-content: right;
+}
+
+.bmg_header .bmg_h_top .bmgh_top_col:last-child a {
+    padding-left: 2.5vw;
+}
+
+.bmg_header .bmgh_top_header {
+    padding-top: .5vw;
+    padding-bottom: .5vw;
+}
+
+.bmg_header .bmg_h_top a {
+    font-size: 0.729vw;
+}
+
+.bmg_header .bmg_h_top a > img {
+    width: 0.729vw;
+    height: 0.729vw;
+    object-fit: contain;
+}
+
+
+.bmg_header .bmg_h_top .bmgh_top_col:first-child a {
+    margin-right: 2.5vw;
+}
+
+.bmg_header .bmg_h_top .bmgh_top_col:last-child {
+    display: flex;
+    justify-content: right;
+}
+
+.bmg_header .bmg_h_top .bmgh_top_col:last-child a {
+    padding-left: 2.5vw;
+}
+
+.bmgh_nav_header .row.bmg_h_main {
+    display: flex;
+    align-items: center;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search img {
+    max-width: 6.510vw;
+    margin-right: 1.5vw;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search {
+    display: flex;
+    align-items: center;
+}
+
+.bmgh_nav_header .bmgh_m_icons ul {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+.bmgh_nav_header .bmgh_m_icons ul li a {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    font-size: 0.729vw;
+}
+
+.bmgh_nav_header .bmgh_m_icons ul li a img {
+    height: 1.042vw;
+    width: 1.042vw;
+    object-fit: contain;
+}
+
+.bmgh_nav_header .bmgh_m_icons ul li {
+    padding-left: 1.5vw;
+}
+
+.bmgh_bot_header {
+    background: #4C5DC9;
+    padding-top: .5vw;
+    padding-bottom: .5vw;
+}
+
+.bmgh_bot_header a {
+    color: #fff;
+    font-size: 0.833vw;
+    padding-right: 1.5vw;
+}
+
+.bmgh_nav_header .row.bmg_h_main {
+    display: flex;
+    align-items: center;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search .searchbar input {
+    max-width: 40.625vw;
+    width: 100%;
+    background: #F0F0FD;
+    border: none;
+    padding-left: 1.5vw;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form {
+    max-width: 40.625vw;
+    width: 100%;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form form {
+    margin-bottom: 0;
+    position: relative;
+}
+
+.bmgh_nav_header .bmgh_m_logo_search .bmgh_search_form form .searchbaricon {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    color: #fff;
+    background: #4c5dc9;
+    fill: #fff;
+}
+
 /********************************************************
 HOMEPAGE STYLING
 ********************************************************/
