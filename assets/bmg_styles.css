@@ -472,3 +472,73 @@ END HOMEPAGE STYLING
     padding-top: 3vw;
     padding-bottom: 3vw;
 }
+
+.bmg_footer .bmgf_copyright ul li {
+    font-size: 0.625vw;
+    margin-bottom: 0;
+    margin-left: 1vw;
+    margin-right: 1vw;
+}
+
+.bmg_footer .bmgf_copyright ul {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.bmg_footer .bmgf_copyright ul li:first-child {
+    margin-left: 0;
+}
+
+.bmg_footer .bmgf_copyright {
+    display: flex;
+    align-items: center;
+}
+
+.bmgf_bot {
+    padding-top: .75vw;
+    padding-bottom: .75vw;
+}
+
+.bmg_footer .bmgf_copyright img {
+    height: 1.250vw;
+    width: auto;
+}
+
+.bmg_footer .bmgf_copyright > div:last-child {
+    text-align: right;
+}
+
+.bmg_footer .bmgf_top h3 {
+    font-size: 0.729vw;
+    color: #fff;
+    font-weight: 100;
+    font-family: 'AvenirNext-Regular';
+    margin-bottom: .6vw;
+    margin-top: 0;
+}
+
+.bmg_footer .bmgf_top > div a {
+    color: #fff;
+    font-size: 0.625vw;
+    font-family: 'AvenirNext-Regular';
+    font-weight: 100;
+    display: block;
+    margin-bottom: .4vw;
+}
+
+.bmg_footer .bmgf_top > div {
+    width: 20%;
+}
+
+.bmg_footer .bmgf_top > div:last-child {
+    text-align: center;
+}
+
+.bmg_footer .bmgf_top > div img.logo_footer {
+    max-width: 6.302vw;
+}
+
+.bmg_footer .bmgf_top > div:first-child {
+    text-align: center;
+}
