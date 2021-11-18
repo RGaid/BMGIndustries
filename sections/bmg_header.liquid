@@ -1,63 +1,73 @@
 <div class="bmg_header">
-    <div class="container">
-        <div class="row bmg_h_top">
-            <div class="col-md-6 bmgh_top_col">
-                {% for block in section.blocks %}
-                    {% if block.type == 'tnl_links' %}
-                        <a href="{{ block.settings.topnavright_link_url }}" {% if block.settings.topnavleft_link_icon %}class="bgm_h_icon"{% endif %}>
-                            {% if block.settings.topnavleft_link_icon %}<img src="{{ block.settings.topnavleft_link_icon | img_url: 'master'}}">{% endif %}
-                            {{ block.settings.topnavleft_link_text }}
-                        </a>
-                    {% endif %}
-                {% endfor %}
-            </div>
-            <div class="col-md-6 bmgh_top_col">
-                {% for block in section.blocks %}
-                    {% if block.type == 'tnr_links' %}
-                        <a href="{{ block.settings.topnavleft_link_url }}" {% if block.settings.topnavright_link_icon %}class="bgm_h_icon"{% endif %}>
-                            {% if block.settings.topnavright_link_icon %}<img src="{{ block.settings.topnavright_link_icon | img_url: 'master'}}">{% endif %}
-                            {{ block.settings.topnavright_link_text }}
-                        </a>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </div>
-        <div class="row bmg_h_main">
-            <div class="col-md-8 bmgh_m_logo_search">
-                <a href="/"> 
-                    <img src="{{ section.settings.logo | img_url: 'master' }}">
-                </a>
-                <div class="bmgh_search_form">
-                    <form action="/search" method="get" class="searchbar" role="search">
-                        <i class="icon searchbaricon" aria-hidden="true"></i>
-                        <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Enter the product name, item # " class="searchinput" />
-                        <input type="hidden" name="type" value="product" />    
-                        
-                      </form>
+    <div class="bmgh_top_header">
+        <div class="container">
+            <div class="row bmg_h_top">
+                <div class="col-md-6 bmgh_top_col">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'tnl_links' %}
+                            <a href="{{ block.settings.topnavright_link_url }}" {% if block.settings.topnavleft_link_icon %}class="bgm_h_icon"{% endif %}>
+                                {% if block.settings.topnavleft_link_icon %}<img src="{{ block.settings.topnavleft_link_icon | img_url: 'master'}}">{% endif %}
+                                {{ block.settings.topnavleft_link_text }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="bmgh_m_icons">
-                    <ul>
-                        {% for block in section.blocks %}
-                            {% if block.type == 'icons' %}
-                                <li>
-                                    <a href="{{ block.settings.header_icon_url }}">
-                                        <img src="{{ block.settings.header_icon | img_url: 'master'}}">
-                                        {{ block.settings.header_icon_text }}
-                                    </a>
-                                </li>
-                            {% endif %}
-                        {% endfor %}
-                    </ul>
+                <div class="col-md-6 bmgh_top_col">
+                    {% for block in section.blocks %}
+                        {% if block.type == 'tnr_links' %}
+                            <a href="{{ block.settings.topnavleft_link_url }}" {% if block.settings.topnavright_link_icon %}class="bgm_h_icon"{% endif %}>
+                                {% if block.settings.topnavright_link_icon %}<img src="{{ block.settings.topnavright_link_icon | img_url: 'master'}}">{% endif %}
+                                {{ block.settings.topnavright_link_text }}
+                            </a>
+                        {% endif %}
+                    {% endfor %}
                 </div>
             </div>
         </div>
-        <div class="row bmg_h_nav">
-            <div class="col-md-12 bmgh_nav">
-                {% for link in linklists[section.settings.header_menu].links %}
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                {% endfor %}
+    </div>
+    <div class="bmgh_nav_header">
+        <div class="container">
+            <div class="row bmg_h_main">
+                <div class="col-md-8 bmgh_m_logo_search">
+                    <a href="/"> 
+                        <img src="{{ section.settings.logo | img_url: 'master' }}">
+                    </a>
+                    <div class="bmgh_search_form">
+                        <form action="/search" method="get" class="searchbar" role="search">
+                            <i class="icon searchbaricon" aria-hidden="true"></i>
+                            <input type="search" name="q" value="{{ search.terms | escape }}" placeholder="Enter the product name, item # " class="searchinput" />
+                            <input type="hidden" name="type" value="product" />    
+                            
+                          </form>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="bmgh_m_icons">
+                        <ul>
+                            {% for block in section.blocks %}
+                                {% if block.type == 'icons' %}
+                                    <li>
+                                        <a href="{{ block.settings.header_icon_url }}">
+                                            <img src="{{ block.settings.header_icon | img_url: 'master'}}">
+                                            {{ block.settings.header_icon_text }}
+                                        </a>
+                                    </li>
+                                {% endif %}
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="bmgh_bot_header">
+        <div class="container">
+            <div class="row bmg_h_nav">
+                <div class="col-md-12 bmgh_nav">
+                    {% for link in linklists[section.settings.header_menu].links %}
+                        <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
