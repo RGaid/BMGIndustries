@@ -256,10 +256,44 @@
               "footer_1_text": "sales@bmgind.com",
               "footer_1_url": "mailto:sales@bmgind.com"
             }
+          },
+          "3190f382-2ed7-4cf6-b854-72e1153cf35c": {
+            "type": "footer1",
+            "settings": {
+              "footer_1_icon": "shopify:\/\/shop_images\/phone-footer.png",
+              "footer_1_text": "1-800-964-2029",
+              "footer_1_url": "tel:1-800-964-2029"
+            }
+          },
+          "732b64f5-7ad6-4897-8889-c6fd8061d709": {
+            "type": "footer1",
+            "settings": {
+              "footer_1_icon": "shopify:\/\/shop_images\/footer_fax_2.png",
+              "footer_1_text": "1-888-983-3006",
+              "footer_1_url": "tel: 1-888-983-3006"
+            }
+          },
+          "cf9d53a4-f0b6-412b-a580-07f50a2897d2": {
+            "type": "footer1",
+            "settings": {
+              "footer_1_text": "Mon - Fri: 9 am - 6 am PST",
+              "footer_1_url": ""
+            }
+          },
+          "27afaa64-70e5-41ff-a8aa-e904c75c572e": {
+            "type": "footer1",
+            "settings": {
+              "footer_1_text": "Sat: 12 pm - 4pm PST",
+              "footer_1_url": ""
+            }
           }
         },
         "block_order": [
-          "eddb6270-4142-4451-8fd7-6a0280d759bf"
+          "eddb6270-4142-4451-8fd7-6a0280d759bf",
+          "3190f382-2ed7-4cf6-b854-72e1153cf35c",
+          "732b64f5-7ad6-4897-8889-c6fd8061d709",
+          "cf9d53a4-f0b6-412b-a580-07f50a2897d2",
+          "27afaa64-70e5-41ff-a8aa-e904c75c572e"
         ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
