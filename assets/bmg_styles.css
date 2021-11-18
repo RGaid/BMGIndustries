@@ -39,7 +39,7 @@
 
 .bmg_header .bmgh_top_header {
     padding-top: .5vw;
-    padding-bottom: .5vw;
+    padding-bottom: 1vw;
 }
 
 .bmg_header .bmg_h_top a {
@@ -111,7 +111,7 @@
 .bmgh_bot_header {
     background: #4C5DC9;
     padding-top: .5vw;
-    padding-bottom: 1vw;
+    padding-bottom: .5vw;
 }
 
 .bmgh_bot_header a {
