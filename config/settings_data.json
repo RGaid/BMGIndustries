@@ -248,6 +248,19 @@
       },
       "bmg_footer": {
         "type": "bmg_footer",
+        "blocks": {
+          "eddb6270-4142-4451-8fd7-6a0280d759bf": {
+            "type": "footer1",
+            "settings": {
+              "footer_1_icon": "shopify:\/\/shop_images\/Group_680.png",
+              "footer_1_text": "sales@bmgind.com",
+              "footer_1_url": "mailto:sales@bmgind.com"
+            }
+          }
+        },
+        "block_order": [
+          "eddb6270-4142-4451-8fd7-6a0280d759bf"
+        ],
         "settings": {
           "logo": "shopify:\/\/shop_images\/bmg_new.png",
           "footer_heading_1": "GOT A QUESTION?",
