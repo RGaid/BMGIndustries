@@ -572,3 +572,17 @@ END HOMEPAGE STYLING
 /********************************************************
 COLLECTION STYLING
 ********************************************************/
+
+.bmg_main_collection {
+    background: #F0F0FD;
+}
+
+.bmg_main_collection > .container {
+    max-width: 73.958vw;
+    width: 100%;
+}
+
+.bmgmc_mc_list ul {
+    display: flex;
+    justify-content: space-between;
+}
