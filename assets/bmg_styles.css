@@ -577,6 +577,12 @@ COLLECTION STYLING
     background: #F0F0FD;
 }
 
+.bmgmc_breadcrumbs {
+    background: #fff;
+    padding: .5vw;
+    margin-bottom: 1.5vw;
+}
+
 .bmg_main_collection .container {
     max-width: 73.958vw;
     width: 100%;
@@ -585,4 +591,16 @@ COLLECTION STYLING
 .bmgmc_mc_list ul {
     display: flex;
     justify-content: space-between;
+}
+
+.bmg_sidebar_filter_body {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1vw;
+}
+
+.bmg_sidebar_filter_body .columntitle:first-child {
+    font-size: 1.771vw;
+    font-family: 'AvenirNext-Regular';
+    font-weight: 400;
 }
