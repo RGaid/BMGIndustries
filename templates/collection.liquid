@@ -19,15 +19,14 @@
                 {% assign navdata = collection.metafields['Navigation'] %}
                 {% assign nav_parent = navdata.parent %}
                 {% if nav_parent != '' %}
-                  
                   {% for link in linklists.main-menu.links[1].links%}
                     {% if link.handle == nav_parent %}
-                        <div class="columntitle">{{link.title}}</div>
-                        <hr/>
                         {% for sub_link in link.links %}
-                          <label class="lblfilter {%if sub_link.url contains collection.handle%}active{%endif%}" trgt="{{ sub_link.url }}" >
+                          <li>
+                            <label class="lblfilter {%if sub_link.url contains collection.handle%}active{%endif%}" trgt="{{ sub_link.url }}" >
                                 {{sub_link.title}}
                             </label>
+                          </li>
                         {% endfor %}
                     {% endif %}
                   {% endfor%}
