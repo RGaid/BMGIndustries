@@ -1,14 +1,16 @@
 {% paginate collection.products by 120 %}
 <div class="bmg_main_collection">
-  <div class="container">
-    <div class="bmgmc_breadcrumbs">
+  <div class="bmgmc_breadcrumbs">
+    <div class="">
       <div class="row">
         <div class="col-md-12">
           {% include 'breadcrumb' %}
         </div>
       </div>  
     </div>
-    <div class="bmgmc_main_body">
+  </div>
+  <div class="bmgmc_main_body">
+    <div class="container">
       <div class="row">
         <div class="col-md-3">
           {% include 'collection-tags' %}
