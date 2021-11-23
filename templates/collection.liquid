@@ -14,6 +14,64 @@
           {% include 'collection-tags' %}
         </div>
         <div class="col-md-9">
+            <div class="bmgmc_mc_list">
+              <ul>
+                {% assign navdata = collection.metafields['Navigation'] %}
+                {% assign nav_parent = navdata.parent %}
+                {% if nav_parent != '' %}
+                  
+                  {% for link in linklists.main-menu.links[1].links%}
+                    {% if link.handle == nav_parent %}
+                        <div class="columntitle">{{link.title}}</div>
+                        <hr/>
+                        {% for sub_link in link.links %}
+                          <label class="lblfilter {%if sub_link.url contains collection.handle%}active{%endif%}" trgt="{{ sub_link.url }}" >
+                                {{sub_link.title}}
+                            </label>
+                        {% endfor %}
+                    {% endif %}
+                  {% endfor%}
+                {% endif %}
+                {% assign filters = navdata.sidebar | split: ',' %}
+  
+                {% for filter in filters %}
+                    <p class="space50" />
+                    
+                    <div class="columntitle">{{ filter | capitalize }}</div>
+                    <hr/>
+                    {% for tag in tags %}
+                      {% assign tagmatch = filter | append: '-' %}
+                      {% if tag contains tagmatch%}
+                        
+                        {% if strparams == ''%}
+                          {% assign new_url = collection.url | append: '/' | append: tag %}
+                        {% elsif strparams contains tag %}
+                          {% assign params = strparams | remove: '/' | remove: tag | split: '+'%}
+                          {% assign newstrparams = params | reverse | join: '+' %}
+                          {% assign new_url = collection.url | append: '/' | append: newstrparams %}
+                        {% else %}
+                          {% assign newstrparams = strparams | append: '+' | append: tag %}
+                          {% assign new_url = collection.url | append: newstrparams %}
+                        {% endif %}
+
+                        <div>
+                              <label class="lblfilter" trgt="{{new_url}}">
+                                <input type="checkbox" name="{{filter}}" value="{{tag}}" class="chkfilter" {% if strparams contains tag%}checked{%endif%}/>
+                                {% if filter contains 'calories' %}
+                                  {{ tag | replace: tagmatch,'' | replace: '0',' ' | lstrip | replace: ' ','0' }}
+                                {% elsif tag contains 'Mylar' %}
+                                  {{ tag | replace: tagmatch,'' | replace: '-',' ' | replace: '_','.'}}
+                                {% else %}
+                                  {{ tag | replace: tagmatch,'' }}
+                                {% endif %}
+                                {% if strparams contains tag%}<i class="fa fa-times-circle"></i>{%endif%}
+                            </label>
+                        </div>
+                      {% endif %}
+                    {% endfor %}
+                {% endfor %}
+              </ul>
+            </div>
             <div class="columntitle">
               {% include 'collection-sorting' %}
             </div>
