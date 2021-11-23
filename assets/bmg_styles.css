@@ -598,10 +598,12 @@ COLLECTION STYLING
     background: #fff;
     padding: 1vw;
     border-radius: 8px;
+    margin-bottom: 1vw;
 }
 
 .bmgmc_mc_list ul li {
     width: 23.5%;
+    margin-bottom: 0;
 }
 
 .bmgmc_mc_list ul li label {
@@ -621,6 +623,13 @@ COLLECTION STYLING
     font-weight: 400;
 }
 
+.bmgmc_sorting_view {
+    background: #fff;
+    padding: 1vw;
+    border-radius: 8px;
+    margin-bottom: 1vw;
+}
+
 .bmg_sidebar_filter_body {
     background: #fff;
     border-radius: 8px;
@@ -631,4 +640,22 @@ COLLECTION STYLING
     font-size: 1.771vw;
     font-family: 'AvenirNext-Regular';
     font-weight: 400;
+}
+
+.bmgmc_sorting_view {
+    background: #fff;
+    padding: 1vw;
+    border-radius: 8px;
+    margin-bottom: 1vw;
+}
+
+.bmgmc_main_body .bmg_mainbody .grid-uniform > .grid__item {
+    width: 23.5%;
+    padding-left: 0;
+}
+
+.bmgmc_main_body .bmg_mainbody .grid-uniform {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
 }
