@@ -577,7 +577,7 @@ COLLECTION STYLING
     background: #F0F0FD;
 }
 
-.bmg_main_collection > .container {
+.bmg_main_collection .container {
     max-width: 73.958vw;
     width: 100%;
 }
