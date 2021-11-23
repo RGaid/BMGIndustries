@@ -2,14 +2,7 @@
 <div class="centercontent bmgcoll" id="CollectionSection" data-section-id="{{ section.id }}" data-section-type="collection-template" data-sort-enabled="true" data-tags-enabled="true">
  
   {%assign coll_image = collection.image.src | img_url: '1400x300'%}
-
-  <header class="section-header section-header--large collectionheader" >
-    <div class="collectiontitle">
-      <div class="collectiontitleinner">
-        <h1 class="section-header__title ">{{ collection.title }}</h1>
-      </div>
-    </div>
-  </header>
+  
   <div class="section-header section-header--breadcrumb collcrumb">
     {% include 'breadcrumb' %}
   </div>
