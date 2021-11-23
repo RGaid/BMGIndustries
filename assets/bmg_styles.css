@@ -591,6 +591,34 @@ COLLECTION STYLING
 .bmgmc_mc_list ul {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 0;
+}
+
+.bmgmc_mc_list {
+    background: #fff;
+    padding: 1vw;
+    border-radius: 8px;
+}
+
+.bmgmc_mc_list ul li {
+    width: 23.5%;
+}
+
+.bmgmc_mc_list ul li label {
+    border: 2px solid #4C5DC9;
+    min-height: 2.396vw;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.833vw;
+    color: #4C5DC9;
+}
+
+.bmgmc_mc_list ul li label.active {
+    background: #4C5DC9;
+    color: #fff;
+    font-weight: 400;
 }
 
 .bmg_sidebar_filter_body {
