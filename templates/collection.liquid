@@ -32,44 +32,6 @@
                     {% endif %}
                   {% endfor%}
                 {% endif %}
-                {% assign filters = navdata.sidebar | split: ',' %}
-  
-                {% for filter in filters %}
-                    <p class="space50" />
-                    
-                    <div class="columntitle">{{ filter | capitalize }}</div>
-                    <hr/>
-                    {% for tag in tags %}
-                      {% assign tagmatch = filter | append: '-' %}
-                      {% if tag contains tagmatch%}
-                        
-                        {% if strparams == ''%}
-                          {% assign new_url = collection.url | append: '/' | append: tag %}
-                        {% elsif strparams contains tag %}
-                          {% assign params = strparams | remove: '/' | remove: tag | split: '+'%}
-                          {% assign newstrparams = params | reverse | join: '+' %}
-                          {% assign new_url = collection.url | append: '/' | append: newstrparams %}
-                        {% else %}
-                          {% assign newstrparams = strparams | append: '+' | append: tag %}
-                          {% assign new_url = collection.url | append: newstrparams %}
-                        {% endif %}
-
-                        <div>
-                              <label class="lblfilter" trgt="{{new_url}}">
-                                <input type="checkbox" name="{{filter}}" value="{{tag}}" class="chkfilter" {% if strparams contains tag%}checked{%endif%}/>
-                                {% if filter contains 'calories' %}
-                                  {{ tag | replace: tagmatch,'' | replace: '0',' ' | lstrip | replace: ' ','0' }}
-                                {% elsif tag contains 'Mylar' %}
-                                  {{ tag | replace: tagmatch,'' | replace: '-',' ' | replace: '_','.'}}
-                                {% else %}
-                                  {{ tag | replace: tagmatch,'' }}
-                                {% endif %}
-                                {% if strparams contains tag%}<i class="fa fa-times-circle"></i>{%endif%}
-                            </label>
-                        </div>
-                      {% endif %}
-                    {% endfor %}
-                {% endfor %}
               </ul>
             </div>
             <div class="columntitle">
