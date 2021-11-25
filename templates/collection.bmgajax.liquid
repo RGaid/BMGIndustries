@@ -5,6 +5,8 @@
         <h1 v-html="collection.title"></h1>
         <div v-for="product in collection.products">
             <h3 v-html="product.title"></h3>
+            <p v-html="product.description"></p>
+            <p v-html="product.price"></p>
         </div>
     </template>
 </div>
