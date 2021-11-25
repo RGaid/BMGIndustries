@@ -1,0 +1,13 @@
+{% layout none %}
+
+{
+    "title" : "{{ collection.title}}",
+    "description" : "{{ collection.description }}",
+    "products" : [
+        {% for product in collection.products %}
+            {
+                "title" : "{{ product.title}}"
+            }
+        {% endfor %}
+    ]
+}
