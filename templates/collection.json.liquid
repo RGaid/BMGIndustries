@@ -6,7 +6,9 @@
     "products" : [
         {% for product in collection.products %}
             {
-                "title" : "{{ product.title}}"
+                "title" : "{{ product.title}}",
+                "decription" : "{{product.description}}",
+                "price" : "{{product.price}}"
             }
             {% unless forloop.last %},{% endunless %}
         {% endfor %}
