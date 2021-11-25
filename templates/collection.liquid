@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/vue@next"></script>
+
 {% paginate collection.products by 120 %}
 
 <div class="bmg_main_collection">
@@ -30,46 +32,37 @@
                 </div>
               </div>
             </div>
-            <div class="grid-uniform grid-link__container">
-              {% assign grid_item_width = 'wide--one-third medium--one-half small--one-half' %}
-              {%- assign product_width = 335 -%}
-              {% if collection.products  != empty %}
-                {% for product in collection.products %}
-                  {% assign featured = product %}
-                  <div class="grid__item {{grid_item_width}}">
-                    {% include 'product-grid-item' %}
-                  </div>
-                {% endfor %}
-              {% else %}
-                {% if shop.products_count == 0 %}
-                  <div class="grid__item">
-                    <div class="helper-section">
-                      <div class="grid-uniform helper-content{% if section.settings.center_grid_link %} text-center{% endif %}">
-                        {% for i in (1..8) %}
-                          <div class="grid__item one-half post-large--one-quarter">
-                            <a href="/admin/products" class="grid-link">
-                              <span class="grid-link__image grid-link__image--product">
-                                <span class="grid-link__image-centered">
-                                  {% capture current %}{% cycle 1, 2, 3, 4, 5, 6 %}{% endcapture %}
-                                  {{ 'product-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-                                </span>
-                              </span>
-                              <p class="grid-link__title">{{ 'home_page.onboarding.product_title' | t }}</p>
-                              <p class="grid-link__meta">
-                                <strong>$19.99</strong>
-                              </p>
-                            </a>
-                          </div>
-                        {% endfor %}
+            <div class="bmg_collection_products">
+              <div id="app">
+                  <template v-if="collection">
+                      <h1 v-html="collection.title"></h1>
+                      <div v-for="product in collection.products">
+                          <h3 v-html="product.title"></h3>
+                          <p v-html="product.description"></p>
+                          <p v-html="product.price"></p>
                       </div>
-                    </div>
-                  </div>
-                {% else %}
-                  <div class="grid__item">
-                    <p><em>{{ 'collections.general.no_matches' | t }}</em></p>
-                  </div>
-                {% endif %}
-              {% endif %}
+                  </template>
+              </div>
+              
+              <script>
+                const options = {
+                  name: "Collection App",
+                  data() {
+                    return {
+                      collection: null
+                    }
+                  },
+                  methods: {
+                    grabCollection() {
+                      fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json').then(response => response.json()).then(data => this.collection = data);
+                    }
+                  },
+                  mounted() {
+                    this.grabCollection();
+                  }
+                }
+                const CollectionApp = Vue.createApp(options).mount('#app');
+              </script>
             </div>
             {% if paginate.pages > 1 %}
               {% include 'pagination' %}
