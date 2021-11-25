@@ -28,22 +28,18 @@
   {% assign filters = navdata.sidebar | split: ',' %}
 
   {% for filter in filters %}
-      {{ filter }}
       <p class="space50" />
       
       <div class="columntitle">{{ filter | capitalize }}</div>
       <hr/>
       {% for tag in tags %}
-      {{ tag }}
         {% assign tagmatch = filter | append: '-' %}
         {% if tag contains tagmatch%}
           
           {% if strparams == ''%}
             {% assign new_url = collection.url | append: '/' | append: tag %}
           {% elsif strparams contains tag %}
-            {% assign params = strparams | remove: '/' | remove: tag | split: '+'%}
-            {% assign newstrparams = params | reverse | join: '+' %}
-            {% assign new_url = collection.url | append: '/' | append: newstrparams %}
+              <!-- DO NOTHING -->
           {% else %}
             {% assign newstrparams = strparams | append: '+' | append: tag %}
             {% assign new_url = collection.url | append: newstrparams %}
