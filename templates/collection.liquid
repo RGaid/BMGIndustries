@@ -67,7 +67,24 @@
                 }).mount('#ajaxCollection');
 
                 document.getElementById('clickMe').onclick = function(){
-                  alert('test');
+                  Vue.createApp({
+                    name: "Ajaxify App",
+                    data() {
+                      return {
+                        collection: null
+                      }
+                    },
+                    methods: {
+                      grabCollection() {
+                        fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
+                        .then(response => response.json())
+                        .then(data => this.collection = data);
+                      }
+                    },
+                    mounted() {
+                      this.grabCollection();
+                    }
+                  }).mount('#ajaxCollection');
                 }
 
               </script>
