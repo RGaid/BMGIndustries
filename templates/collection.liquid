@@ -34,7 +34,7 @@
             </div>
             <div class="bmg_collection_products">
               <div id="ajaxCollection">
-                  <div id="clickMe" @click="greet">TEST CLICK</div>
+                {% include 'collection-tags' %}
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
                       <div v-for="product in collection.products">
@@ -60,7 +60,9 @@
                       .then(response => response.json())
                       .then(data => this.collection = data);
                     },
-                    greet(event) {
+                    updateProducts(event) {
+                      var dataAttribute = this.getAttribute('data-name');
+                      console.log(dataAttribute);
                       fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
                       .then(response => response.json())
                       .then(data => this.collection = data);
