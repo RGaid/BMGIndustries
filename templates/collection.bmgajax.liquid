@@ -1,7 +1,9 @@
 {% layout none %}
 
 <div id="app">
-    <h1 v-html="collection.title"></h1>
+    <template v-if="collection">
+        <h1 v-html="collection.title"></h1>
+    </template>
 </div>
 
 <script src="https://unpkg.com/vue@next"></script>
