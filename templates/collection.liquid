@@ -18,25 +18,6 @@
           </div>
         </div>
         <div class="col-md-9 bmg_mainbody">
-            <div class="bmgmc_mc_list">
-              <ul>
-                {% assign navdata = collection.metafields['Navigation'] %}
-                {% assign nav_parent = navdata.parent %}
-                {% if nav_parent != '' %}
-                  {% for link in linklists.main-menu.links[1].links%}
-                    {% if link.handle == nav_parent %}
-                        {% for sub_link in link.links %}
-                          <li>
-                            <label class="lblfilter {%if sub_link.url contains collection.handle%}active{%endif%}" trgt="{{ sub_link.url }}" >
-                                {{sub_link.title}}
-                            </label>
-                          </li>
-                        {% endfor %}
-                    {% endif %}
-                  {% endfor%}
-                {% endif %}
-              </ul>
-            </div>
             <div class="bmgmc_sorting_view">
               {% include 'collection-sorting' %}
               <div class="bmgmc_grid_list">
