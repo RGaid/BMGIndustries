@@ -34,7 +34,6 @@
             </div>
             <div class="bmg_collection_products">
               <div id="ajaxCollection">
-                  {% include 'collection-tags' %}
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
                       <div v-for="product in collection.products">
@@ -46,8 +45,6 @@
               </div>
               
               <script>
-
-                import Vue from 'vue'
 
                 const options = {
                   name: "Collection App",
@@ -66,27 +63,6 @@
                   }
                 }
                 const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
-
-                var ajaxCollection = new Vue({
-                  el: '#ajaxCollection',
-                  data: {
-                    name: 'Vue.js'
-                  },
-                  // define methods under the `methods` object
-                  methods: {
-                    ajaxUpdate: function (event) {
-                      // `this` inside methods points to the Vue instance
-                      alert('Hello ' + this.name + '!')
-                      // `event` is the native DOM event
-                      if (event) {
-                        alert(event.target.tagName)
-                      }
-                    }
-                  }
-                })
-
-                // you can invoke methods in JavaScript too
-                ajaxCollection.ajaxUpdate() // => 'Hello Vue.js!'
 
               </script>
             </div>
