@@ -33,7 +33,7 @@
               </div>
             </div>
             <div class="bmg_collection_products">
-              <div id="clickMe">TEST CLICK</div>
+              <div id="clickMe" @click="greet">TEST CLICK</div>
               <div id="ajaxCollection">
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
@@ -59,6 +59,14 @@
                       fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json')
                       .then(response => response.json())
                       .then(data => this.collection = data);
+                    },
+                    greet(event) {
+                      // `this` inside methods points to the current active instance
+                      alert('Hello ' + this.name + '!')
+                      // `event` is the native DOM event
+                      if (event) {
+                        alert(event.target.tagName)
+                      }
                     }
                   },
                   mounted() {
@@ -66,25 +74,6 @@
                   }
                 }).mount('#ajaxCollection');
 
-                document.getElementById('clickMe').onclick = function(){
-                  Vue.createApp({
-                    name: "Ajaxify App",
-                    data() {
-                      return {
-                        collection: null
-                      }
-                    },
-                    methods: {
-                      grabCollection() {
-                        fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
-                        .then(response => response.json())
-                        .then(data => this.collection = data);
-                      }
-                    },
-                    mounted() {
-                      this.grabCollection();
-                    }
-                  }).mount('#ajaxCollection');
                 }
 
               </script>
