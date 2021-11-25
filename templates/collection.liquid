@@ -64,6 +64,7 @@
                       fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
                       .then(response => response.json())
                       .then(data => this.collection = data);
+                      this.$mount();
                     }
                   },
                   mounted() {
