@@ -33,6 +33,7 @@
               </div>
             </div>
             <div class="bmg_collection_products">
+              <div id="clickMe">TEST CLICK</div>
               <div id="ajaxCollection">
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
@@ -64,6 +65,10 @@
                     this.grabCollection();
                   }
                 }).mount('#ajaxCollection');
+
+                document.getElementById('clickMe').onclick = function(){
+                  alert('test');
+                }
 
               </script>
             </div>
