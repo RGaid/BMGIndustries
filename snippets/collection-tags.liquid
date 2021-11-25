@@ -37,11 +37,14 @@
         {% if tag contains tagmatch%}
           
           {% if strparams == ''%}
-            <!-- DO NOTHING -->
+            {% assign new_url = collection.url | append: '/' | append: tag %}
           {% elsif strparams contains tag %}
-              <!-- DO NOTHING -->
+            {% assign params = strparams | remove: '/' | remove: tag | split: '+'%}
+            {% assign newstrparams = params | reverse | join: '+' %}
+            {% assign new_url = collection.url | append: '/' | append: newstrparams %}
           {% else %}
-            <!-- DO NOTHING -->
+            {% assign newstrparams = strparams | append: '+' | append: tag %}
+            {% assign new_url = collection.url | append: newstrparams %}
           {% endif %}
 
           <div>
