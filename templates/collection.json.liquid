@@ -2,7 +2,7 @@
 
 {
     "title" : "{{ collection.title}}",
-    "description" : "{{ collection.description }}",
+    "description" : "{{ collection.description | strip_html }}",
     "totalproducts" : "{{ collection.all_products_count }}",
     "products" : [
         {% for product in collection.products %}
