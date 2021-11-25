@@ -1,3 +1,5 @@
+<script src="https://unpkg.com/vue@next"></script>
+
 {% paginate collection.products by 120 %}
 
 <div class="bmg_main_collection">
@@ -31,26 +33,39 @@
               </div>
             </div>
             <div class="bmg_collection_products">
-              <div id="myData"></div>
+              <div id="ajaxCollection">
+                  <template v-if="collection">
+                      <h1 v-html="collection.title"></h1>
+                      <div v-for="product in collection.products">
+                          <h3 v-html="product.title"></h3>
+                          <p v-html="product.description"></p>
+                          <p v-html="product.price"></p>
+                      </div>
+                  </template>
+              </div>
+              
               <script>
-                  fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json')
-                      .then(function (response) {
-                          return response.json();
-                      })
-                      .then(function (data) {
-                          appendData(data);
-                      })
-                      .catch(function (err) {
-                          console.log('error: ' + err);
-                      });
-                  function appendData(data) {
-                      var mainContainer = document.getElementById("myData");
-                      for (var i = 0; i < data.length; i++) {
-                          var div = document.createElement("div");
-                          div.innerHTML = 'Name: ' + data[i].title + ' ' + data[i].totalproducts;
-                          mainContainer.appendChild(div);
-                      }
+
+                const options = {
+                  name: "Collection App",
+                  data() {
+                    return {
+                      collection: null
+                    }
+                  },
+                  methods: {
+                    grabCollection() {
+                      fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json')
+                      .then(response => response.json())
+                      .then(data => this.collection = data);
+                    }
+                  },
+                  mounted() {
+                    this.grabCollection();
                   }
+                }
+                const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
+
               </script>
             </div>
             {% if paginate.pages > 1 %}
