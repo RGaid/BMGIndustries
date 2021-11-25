@@ -37,7 +37,7 @@
         {% if tag contains tagmatch%}
           
           {% if strparams == ''%}
-            {% assign new_url = collection.url | append: '/' | append: tag %}
+            <!-- DO NOTHING -->
           {% elsif strparams contains tag %}
               <!-- DO NOTHING -->
           {% else %}
