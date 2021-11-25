@@ -37,7 +37,7 @@
         {% if tag contains tagmatch%}
 
           <div>
-                <label class="bmgfilter" data-url="{{tag}}" v-on:click="ajaxUpdate">
+                <label class="bmgfilter" data-url="{{tag}}" @click="ajaxUpdate">
                   <input type="checkbox" name="{{filter}}" value="{{tag}}" class="bmgfiltercheck" {% if strparams contains tag%}checked{%endif%}/>
                   {% if filter contains 'calories' %}
                     {{ tag | replace: tagmatch,'' | replace: '0',' ' | lstrip | replace: ' ','0' }}

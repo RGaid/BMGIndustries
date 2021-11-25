@@ -34,6 +34,7 @@
             </div>
             <div class="bmg_collection_products">
               <div id="ajaxCollection">
+                  {% include 'collection-tags' %}
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
                       <div v-for="product in collection.products">
@@ -41,12 +42,6 @@
                           <p v-html="product.description"></p>
                           <p v-html="product.price"></p>
                       </div>
-
-                      <div id="example-1">
-                        <button v-on:click="counter += 1">Add 1</button>
-                        <p>The button above has been clicked {{ counter }} times.</p>
-                      </div>
-
                   </template>
               </div>
               
@@ -72,12 +67,21 @@
                 }
                 const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
 
-                var example1 = Vue.createApp({
-  el: '#example-1',
-  data: {
-    counter: 0
-  }
-})
+                Vue.createApp({
+                  data() {
+                    return {
+                      collection: null
+                    }
+                  },
+                  methods: {
+                    ajaxUpdate(event) {
+                        fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
+                        .then(response => response.json())
+                        .then(data => this.collection = data);
+                      }
+                    }
+                  }
+                ).mount('#ajaxCollection')
 
               </script>
             </div>
