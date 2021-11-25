@@ -33,8 +33,8 @@
               </div>
             </div>
             <div class="bmg_collection_products">
-              <div id="clickMe" @click="greet">TEST CLICK</div>
               <div id="ajaxCollection">
+                  <div id="clickMe" @click="greet">TEST CLICK</div>
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
                       <div v-for="product in collection.products">
