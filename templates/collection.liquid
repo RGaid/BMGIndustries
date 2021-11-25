@@ -71,7 +71,26 @@
 
                     elem.onclick = function() {
                         var dataUrl = this.getAttribute('data-url');
-                        alert("hello " + dataUrl );
+
+                        const ajaxOptions = {
+                          name: "Collection Ajax",
+                          data() {
+                            return {
+                              collection: null
+                            }
+                          },
+                          methods: {
+                            grabCollectionAjax() {
+                              fetch(window.location.href + '/' + dataUrl + '?view=json').then(response => response.json()).then(data => this.collection = data);
+                            }
+                          },
+                          mounted() {
+                            this.grabCollectionAjax();
+                          }
+                        }
+
+                        const CollectionAjax = Vue.createApp(ajaxOptions).mount('#app');
+                        
                         return false;
                     };
 
