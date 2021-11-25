@@ -62,6 +62,16 @@
                   }
                 }
                 const CollectionApp = Vue.createApp(options).mount('#app');
+
+                var filter = document.querySelector(".lblfilter");;
+                  for(var z = 0; z < anchors.length; z++) {
+                      var elem = anchors[z];   
+                      elem.onclick = function() {
+                          alert("hello");
+                          return false;
+                      };
+                  }
+
               </script>
             </div>
             {% if paginate.pages > 1 %}
