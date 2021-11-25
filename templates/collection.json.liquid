@@ -3,6 +3,7 @@
 {
     "title" : "{{ collection.title}}",
     "description" : "{{ collection.description }}",
+    "totalproducts" : "{{ collection.all_products_count }}",
     "products" : [
         {% for product in collection.products %}
             {
