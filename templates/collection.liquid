@@ -63,7 +63,7 @@
                     updateProducts(event) {
                       var dataAttribute = event.target.getAttribute('data-url');
                       console.log(dataAttribute);
-                      fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
+                      fetch('https://www.bmgind.com/collections/{{ collection.handle }}/' + dataAttribute + '?view=json')
                       .then(response => response.json())
                       .then(data => this.collection = data);
                       this.$forceUpdate();
