@@ -70,7 +70,7 @@
                     var elem = filter[z];   
 
                     elem.onclick = function() {
-                        var dataUrl = elem.getAttribute('data-url');
+                        var dataUrl = this.getAttribute('data-url');
                         alert("hello " + dataUrl );
                         return false;
                     };
