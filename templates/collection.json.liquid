@@ -1,14 +1,27 @@
 {% layout none %}
 
-{
-    "title" : "{{ collection.title}}",
-    "totalproducts" : "{{ collection.all_products_count }}",
-    "products" : [
-        {% for product in collection.products %}
-            {
-                "title" : "{{ product.title}}"
-            }
-            {% unless forloop.last %},{% endunless %}
-        {% endfor %}
-    ]
-}
+<div id="app">
+
+</div>
+
+<script src="https://unpkg.com/vue@next"></script>
+
+<script>
+  const options = {
+    name: "Collection App",
+    data() {
+      return {
+        collection: null
+      }
+    },
+    methods: {
+      grabCollection() {
+        fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json').then(response => response.json()).then(data => this.collection = data);
+      }
+    },
+    mounted() {
+      this.grabCollection();
+    }
+  }
+  const CollectionApp = Vue.createApp(options).mount('#app');
+</script>
