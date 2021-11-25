@@ -3,6 +3,9 @@
 <div id="app">
     <template v-if="collection">
         <h1 v-html="collection.title"></h1>
+        <div v-for="product in collection.products">
+            <h3 v-html="product.title"></h3>
+        </div>
     </template>
 </div>
 
