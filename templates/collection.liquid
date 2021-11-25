@@ -33,7 +33,8 @@
               </div>
             </div>
             <div class="bmg_collection_products">
-              <div id="app">
+              <div id="ajaxCollection">
+                  {% include 'collection-tags' %}
                   <template v-if="collection">
                       <h1 v-html="collection.title"></h1>
                       <div v-for="product in collection.products">
@@ -61,40 +62,28 @@
                     this.grabCollection();
                   }
                 }
-                const CollectionApp = Vue.createApp(options).mount('#app');
+                const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
 
-                var filter = document.querySelectorAll(".bmgfilter");
+                var ajaxCollection = new Vue({
+                  el: '#ajaxCollection',
+                  data: {
+                    name: 'Vue.js'
+                  },
+                  // define methods under the `methods` object
+                  methods: {
+                    ajaxUpdate: function (event) {
+                      // `this` inside methods points to the Vue instance
+                      alert('Hello ' + this.name + '!')
+                      // `event` is the native DOM event
+                      if (event) {
+                        alert(event.target.tagName)
+                      }
+                    }
+                  }
+                })
 
-                for(var z = 0; z < filter.length; z++) {
-
-                    var elem = filter[z];   
-
-                    elem.onclick = function() {
-                        var dataUrl = this.getAttribute('data-url');
-
-                        const ajaxOptions = {
-                          name: "Collection Ajax",
-                          data() {
-                            return {
-                              collection: null
-                            }
-                          },
-                          methods: {
-                            grabCollectionAjax() {
-                              fetch(window.location.href + '/' + dataUrl + '?view=json').then(response => response.json()).then(data => this.collection = data);
-                            }
-                          },
-                          mounted() {
-                            this.grabCollectionAjax();
-                          }
-                        }
-
-                        const CollectionApp = Vue.createApp(ajaxOptions).mount('#app');
-                        
-                        return false;
-                    };
-
-                }
+                // you can invoke methods in JavaScript too
+                ajaxCollection.ajaxUpdate() // => 'Hello Vue.js!'
 
               </script>
             </div>
