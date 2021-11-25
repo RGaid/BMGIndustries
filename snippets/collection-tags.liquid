@@ -26,10 +26,9 @@
   {% endif %}
   
   {% assign filters = navdata.sidebar | split: ',' %}
-  <script>
-    console.log( {{ filters }} );
-  </script>
+
   {% for filter in filters %}
+      {{ filter }}
       <p class="space50" />
       
       <div class="columntitle">{{ filter | capitalize }}</div>
