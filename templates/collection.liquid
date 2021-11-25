@@ -61,7 +61,7 @@
                       .then(data => this.collection = data);
                     },
                     updateProducts(event) {
-                      var dataAttribute = this.getAttribute('data-name');
+                      var dataAttribute = event.target.getAttribute('data-url');
                       console.log(dataAttribute);
                       fetch('https://www.bmgind.com/collections/emergency-food-ration?view=json')
                       .then(response => response.json())
