@@ -46,7 +46,7 @@
               
               <script>
 
-                const options = {
+                Vue.createApp({
                   name: "Collection App",
                   data() {
                     return {
@@ -63,8 +63,7 @@
                   mounted() {
                     this.grabCollection();
                   }
-                }
-                const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
+                }).mount('#ajaxCollection');
 
               </script>
             </div>
