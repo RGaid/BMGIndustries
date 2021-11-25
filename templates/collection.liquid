@@ -41,6 +41,12 @@
                           <p v-html="product.description"></p>
                           <p v-html="product.price"></p>
                       </div>
+
+                      <div id="example-1">
+                        <button v-on:click="counter += 1">Add 1</button>
+                        <p>The button above has been clicked {{ counter }} times.</p>
+                      </div>
+
                   </template>
               </div>
               
@@ -55,7 +61,9 @@
                   },
                   methods: {
                     grabCollection() {
-                      fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json').then(response => response.json()).then(data => this.collection = data);
+                      fetch('https://www.bmgind.com/collections/{{ collection.handle }}?view=json')
+                      .then(response => response.json())
+                      .then(data => this.collection = data);
                     }
                   },
                   mounted() {
@@ -63,6 +71,13 @@
                   }
                 }
                 const CollectionApp = Vue.createApp(options).mount('#ajaxCollection');
+
+                var example1 = new Vue({
+  el: '#example-1',
+  data: {
+    counter: 0
+  }
+})
 
               </script>
             </div>
