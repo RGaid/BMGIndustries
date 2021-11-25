@@ -64,8 +64,8 @@
                 const CollectionApp = Vue.createApp(options).mount('#app');
 
                 var filter = document.querySelector(".bmgfilter");;
-                  for(var z = 0; z < anchors.length; z++) {
-                      var elem = anchors[z];   
+                  for(var z = 0; z < filter.length; z++) {
+                      var elem = filter[z];   
                       elem.onclick = function() {
                           alert("hello");
                           return false;
