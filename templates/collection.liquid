@@ -1,6 +1,3 @@
-
-{{'bc-sf-filter-lib.js' | asset_url | script_tag}}
-{{'bc-sf-filter.js' | asset_url | script_tag}}
 <script src="https://unpkg.com/vue@next"></script>
 
 {% paginate collection.products by 120 %}
@@ -84,3 +81,53 @@
 </div>
 
 {% endpaginate %}
+
+<script>
+  // Declare bcSfFilterConfig variable
+  var bcSfFilterConfig = {
+    shop: {
+      apiUrl: 'https://services.mybcapps.com/bc-sf-filter/filter',
+      name: '{{ shop.name }}',
+      domain: '{{ shop.permanent_domain }}',
+      currency: '{{ shop.currency }}',
+      money_format: '{{ shop.money_format }}'
+    },
+    general: {
+      file_url: "{{ '' | file_url }}",
+      collection_id: {{ collection.id | default: 0 }},
+      collection_handle: "{{ collection.handle }}",
+      default_sort_by: "{{ collection.default_sort_by }}",
+      swatch_extension: "png",
+      no_image_url: "{{ 'bc-sf-filter-no-image.gif' | asset_url }}"
+    },
+    label: {
+      sale: "{{ 'products.product.sale' | t }}",
+      sold_out: "{{ 'products.product.sold_out' | t }}",
+      regular_price: "{{ 'products.product.regular_price' | t }}",
+      sale_price: "{{ 'products.product.sale_price' | t }}",
+      from_price: "{{ 'products.general.from_html' | t }}",
+      homepage_product_title: "{{ 'home_page.onboarding.product_title' | t }}",
+      sorting: "{{ 'collections.sorting.title' | t }}",
+      sorting_featured: "{{ 'collections.sorting.featured' | t }}",
+      sorting_title_ascending: "{{ 'collections.sorting.az' | t }}",
+      sorting_title_descending: "{{ 'collections.sorting.za' | t }}",
+      sorting_price_ascending: "{{ 'collections.sorting.price_ascending' | t }}",
+      sorting_price_descending: "{{ 'collections.sorting.price_descending' | t }}",
+      sorting_date_ascending: "{{ 'collections.sorting.date_ascending' | t }}",
+      sorting_date_descending: "{{ 'collections.sorting.date_descending' | t }}",
+    },
+    cart: {
+      pagination: "{{ cart.attributes.pagination }}"
+    },
+    section: {
+      center_grid_link: {% if section.settings.center_grid_link != nil %} {{ section.settings.center_grid_link | json }} {% else %} false {% endif %},
+      show_sale_circle: true,
+      show_sold_out_circle: true,
+      vendor_enable: {% if section.settings.vendor_enable != nil %} {{ section.settings.vendor_enable }} {% else %} false {% endif %},
+      show_review: 1
+    }
+  };
+</script>
+
+{{'bc-sf-filter-lib.js' | asset_url | script_tag}}
+{{'bc-sf-filter.js' | asset_url | script_tag}}
