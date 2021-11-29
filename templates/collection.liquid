@@ -23,23 +23,7 @@
     </div>
       
   </div>  
-  
-  {% else %} 
 
-  <div class="grid__item one-whole nopadding">
-    <div class="sortingbar">
-      <div class="form-horizontal grid__item one-half nopadding">
-      </div>
-      <div class="form-horizontal grid__item one-whole medium--one-half small--one-half nopadding">
-      {% include 'collection-sorting' %}
-      </div> 
-       <div class="clearfix"></div> 
-
-    </div>    
-  </div>    
-  
-  {% endif %} 
-  
   <div class="grid__item {% if customlayout == 'sidebar' %}nine-twelfths{% else %} one-whole{% endif %} medium--one-whole small--one-whole nopadding swap3">
   <!--bs filter code-->      
     <div id="bc-sf-filter-products" class="grid-uniform grid-link__container">
