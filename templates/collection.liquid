@@ -1,11 +1,10 @@
 <script src="https://unpkg.com/vue@next"></script>
 
-{% paginate collection.products by 120 %}
-
 <div class="grid containerswap">
    
   <div class="grid__item three-twelfths medium--one-whole small--one-whole sidebar swap1">
-  <div id="bc-sf-filter-tree"></div>             
+  <div id="bc-sf-filter-tree"></div>      
+  </div>       
 
   
   <div class="grid__item nine-twelfths medium--one-whole small--one-whole nopadding swap2">
@@ -62,8 +61,6 @@
   </div>
 </div>
 
-{% endpaginate %}
-
 <script>
   // Declare bcSfFilterConfig variable
   var bcSfFilterMainConfig = {
@@ -114,10 +111,7 @@
 
 <!-- Include Resources -->
 {{ 'bc-sf-filter-lib.js' | asset_url | script_tag }}
-{% if template contains 'collection' %}
 {{ 'bc-sf-filter.js' | asset_url | script_tag }}
-{% endif %}
-
 <!-- Initialize App -->
 <script>
   var bcsffilter = new BCSfFilter();
@@ -125,6 +119,4 @@
 </script>
 
 <!-- Initialize & Customize Filter -->
-{% if template contains 'collection' %}
 <script>bcsffilter.initFilter();</script>
-{% endif %}
