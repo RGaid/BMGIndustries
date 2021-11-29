@@ -1,7 +1,5 @@
 // Override Settings
 var bcSfFilterSettings = {
-    general: {
-        limit: bcSfFilterConfig.cart.pagination ? bcSfFilterConfig.cart.pagination : 48,
         showLimitList: '12,24,48,96',
         activeFilterScrollbar: !1,
         loadProductFirst: false,
