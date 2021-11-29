@@ -158,7 +158,12 @@
 
 <!-- Include Resources -->
 {{ 'bc-sf-filter-lib.js' | asset_url | script_tag }}
+{% if template contains 'collection' %}
+{% unless template contains 'bc-original' %}
 {{ 'bc-sf-filter.js' | asset_url | script_tag }}
+{% endunless %}
+{% endif %}
+
 <!-- Initialize App -->
 <script>
   var bcsffilter = new BCSfFilter();
@@ -166,4 +171,8 @@
 </script>
 
 <!-- Initialize & Customize Filter -->
+{% if template contains 'collection' %}
+{% unless template contains 'bc-original' %}
 <script>bcsffilter.initFilter();</script>
+{% endunless %}
+{% endif %}
