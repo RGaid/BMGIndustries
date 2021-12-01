@@ -663,3 +663,8 @@ COLLECTION STYLING
 div#ajaxCollection {
     padding-bottom: 50px;
 }
+
+.collection_body > .row {
+    display: flex;
+    flex-wrap: wrap;
+}
