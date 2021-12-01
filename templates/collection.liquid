@@ -57,11 +57,12 @@
         },
         updateProducts(event) {
           var dataAttribute = event.target.getAttribute('data-url');
-          console.log(dataAttribute);
-          fetch('https://www.bmgind.com/collections/{{ collection.handle }}/' + dataAttribute + '?view=json')
+          var dataUrl = 'https://www.bmgind.com/collections/{{ collection.handle }}/' + dataAttribute + '?view=json';
+          fetch(dataUrl)
           .then(response => response.json())
           .then(data => this.collection = data);
           this.$forceUpdate();
+          console.log(dataUrl);
         }
       },
       mounted() {
