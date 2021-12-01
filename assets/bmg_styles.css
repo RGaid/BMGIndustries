@@ -668,3 +668,38 @@ div#ajaxCollection {
     display: flex;
     flex-wrap: wrap;
 }
+
+.collection_inner_body {
+    background: #fff;
+    padding: 1vw;
+    border-radius: 8px;
+}
+
+.collection_inner_body h3 {
+    margin: 0;
+    font-size: 0.833vw;
+    font-family: 'AvenirNext-Regular';
+    margin-bottom: 1vw;
+    font-weight: 400;
+}
+
+.collection_body>.row > div {
+    padding-left: .4vw;
+    padding-right: 0.4vw;
+}
+
+.collection_inner_body p {
+    font-size: 1.250vw;
+    color: #4C5DC9;
+    margin-bottom: 1vw;
+}
+
+.collection_inner_body a {
+    border: 2px solid #4C5DC9;
+    display: block;
+    padding: .5vw;
+    text-align: center;
+    color: #4C5DC9;
+    font-size: 0.729vw;
+    border-radius: 5px;
+}

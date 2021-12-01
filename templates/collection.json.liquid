@@ -8,6 +8,7 @@
             {
                 "title" : "{{ product.title}}",
                 "description" : "{{product.description | strip_html | strip_newlines }}",
+                "image" : " {{ product.featured_image | img_url: 'master' }}",
                 "price" : "{{product.price | money}}",
                 "url" : "{{ product.url }}"
             }
