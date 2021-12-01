@@ -23,12 +23,13 @@
           </div>
         </div>
         <div class="col-md-9 collection_body">
-          <template v-if="collection">
-              <h1 v-html="collection.title"></h1>
-              <div v-for="product in collection.products">
+          <template v-if="collection">  
+              <div v-for="product in collection.products" class="row">
+                <div class="col-md-3">
                   <h3 v-html="product.title"></h3>
-                  <p v-html="product.description"></p>
                   <p v-html="product.price"></p>
+                  <a :href="product.url">LEARN MORE</a>
+                </div>
               </div>
           </template>
         </div>
