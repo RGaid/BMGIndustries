@@ -17,12 +17,12 @@
   <div id="ajaxCollection">
     <div class="container">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 collection_sidebar">
           <div class="bmg_sidebar_filter_body">
             {% include 'collection-tags' %}
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 collection_body">
           <template v-if="collection">
               <h1 v-html="collection.title"></h1>
               <div v-for="product in collection.products">
