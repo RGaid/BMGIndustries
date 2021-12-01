@@ -664,6 +664,10 @@ div#ajaxCollection {
     padding-bottom: 50px;
 }
 
+.collection_body {
+    padding-left: 2.5vw;
+}
+
 .collection_body > .row {
     display: flex;
     flex-wrap: wrap;
@@ -677,10 +681,11 @@ div#ajaxCollection {
 
 .collection_inner_body h3 {
     margin: 0;
-    font-size: 0.833vw;
-    font-family: 'AvenirNext-Regular';
+    font-size: .833vw;
+    font-family: AvenirNext-Regular;
     margin-bottom: 1vw;
     font-weight: 400;
+    min-height: 3.646vw;
 }
 
 .collection_body>.row > div {
@@ -691,7 +696,7 @@ div#ajaxCollection {
 .collection_inner_body p {
     font-size: 1.250vw;
     color: #4C5DC9;
-    margin-bottom: 1vw;
+    margin-bottom: .75vw;
 }
 
 .collection_inner_body a {

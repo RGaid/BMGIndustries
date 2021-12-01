@@ -6,7 +6,7 @@
     "products" : [
         {% for product in collection.products %}
             {
-                "title" : "{{ product.title}}",
+                "title" : "{{ product.title | truncate: 50 }}",
                 "description" : "{{product.description | strip_html | strip_newlines }}",
                 "image" : " {{ product.featured_image | img_url: 'master' }}",
                 "price" : "{{product.price | money}}",
