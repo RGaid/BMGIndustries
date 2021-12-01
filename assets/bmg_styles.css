@@ -688,9 +688,10 @@ div#ajaxCollection {
     min-height: 3.646vw;
 }
 
-.collection_body>.row > div {
+.collection_body>.row>div {
     padding-left: .4vw;
-    padding-right: 0.4vw;
+    padding-right: .4vw;
+    margin-bottom: 1vw;
 }
 
 .collection_inner_body p {
