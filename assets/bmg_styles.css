@@ -767,3 +767,7 @@ div#ajaxCollection {
 .collectionListType ul li:first-child {
     border-right: 0;
 }
+
+.bmg_sidebar_filter_body label {
+    cursor: pointer;
+}
