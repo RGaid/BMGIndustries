@@ -25,6 +25,35 @@
         <div class="col-md-9 collection_body">
           <template v-if="collection">  
             <div class="row">
+              <div class="col-md-12">
+                <div class="sortClear">
+                  <div class="sortingList">
+                    <div class="sortSelector">
+                      <p>Sort by</p>
+                      <select name="SortBy" id="SortBy">
+                        <option value="best-selling">Best Selling</option>
+                        <option value="manual">Featured</option>
+                        <option value="price-ascending">Price, low to high</option>
+                        <option value="price-descending">Price, high to low</option>
+                        <option value="title-ascending">Alphabetically, A-Z</option>
+                        <option value="title-descending">Alphabetically, Z-A</option>
+                     </select>
+                    </div>
+                    <div class="collectionListType">
+                      <ul>
+                        <li>
+                          <img src="">
+                        </li>
+                        <li>
+                          <img src="">
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
               <div v-for="product in collection.products" class="col-md-3">
                   <div class="collection_inner_body">
                     <img :src="product.image">
