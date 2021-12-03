@@ -776,13 +776,22 @@ div#ajaxCollection {
     border: 1px solid #4c5dc9;
     align-items: center;
     display: flex;
-    padding: .25vw;
-    margin: 0 0.25vw;
+    padding: .25vw .5vw;
+    margin: 0 .25vw;
+    display: flex;
+    cursor: pointer;
 }
 
 .clearRow ul li p {
     margin-bottom: 0;
     color: #4c5dc9;
+    font-size: .75vw;
+}
+
+.clearRow ul li img {
+    width: .65vw;
+    height: .65vw;
+    margin-left: .5vw;
 }
 
 .clearRow {
