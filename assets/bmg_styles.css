@@ -771,3 +771,44 @@ div#ajaxCollection {
 .bmg_sidebar_filter_body label {
     cursor: pointer;
 }
+
+.clearRow ul li {
+    border: 1px solid #4c5dc9;
+    align-items: center;
+    display: flex;
+    padding: .25vw;
+    margin: 0 0.25vw;
+}
+
+.clearRow ul li p {
+    margin-bottom: 0;
+    color: #4c5dc9;
+}
+
+.clearRow {
+    border-top: 1px solid #aaa;
+    margin-top: 1vw;
+    padding-top: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.clearRow ul {
+    width: 84%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 0;
+}
+
+.clearRow button {
+    width: 14%;
+    border: none;
+    background: transparent;
+    text-decoration: underline;
+    color: #4c5dc9;
+    font-size: .7vw;
+    text-transform: uppercase;
+    width: auto;
+    padding: 0;
+}
