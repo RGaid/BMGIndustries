@@ -709,3 +709,61 @@ div#ajaxCollection {
     font-size: 0.729vw;
     border-radius: 5px;
 }
+
+.sortClear {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1vw;
+}
+
+.sortingList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    justify-items: flex-end;
+    width: 100%;
+    margin-right: 0;
+}
+
+.sortSelector {
+    display: flex;
+    width: 35%;
+    align-items: center;
+}
+
+.collectionListType {
+    width: 5vw;
+    margin-left: 1vw;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.sortSelector p {
+    margin-bottom: 0;
+    max-width: 4vw;
+    width: 100%;
+}
+
+.sortSelector select {
+    margin-bottom: 0;
+}
+
+.collectionListType ul li {
+    border: 1px solid #4c5dc9;
+    width: 50%;
+    height: 2.3vw;
+    margin-bottom: 0;
+}
+
+.collectionListType ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 0;
+    width: 100%;
+}
+
+.collectionListType ul li:first-child {
+    border-right: 0;
+}
