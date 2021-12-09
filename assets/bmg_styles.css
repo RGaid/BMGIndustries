@@ -516,7 +516,7 @@ END HOMEPAGE STYLING
     font-size: 0.729vw;
     color: #fff;
     font-weight: 100;
-    font-family: 'AvenirNext-Regular';
+    font-family: 'AvenirNext-Bold';
     margin-bottom: .6vw;
     margin-top: 0;
 }
@@ -535,7 +535,7 @@ END HOMEPAGE STYLING
 }
 
 .bmg_footer .bmgf_top > div:last-child {
-    text-align: center;
+    text-align: left;
 }
 
 .bmg_footer .bmgf_top>div img.logo_footer {
@@ -544,7 +544,7 @@ END HOMEPAGE STYLING
 }
 
 .bmg_footer .bmgf_top > div:first-child {
-    text-align: left;
+    text-align: center;
 }
 
 .bmg_footer .bmgf_top .footer_contents ul {
