@@ -213,14 +213,6 @@
               "header_icon_url": "#"
             }
           },
-          "2f242878-8e85-4f38-8d26-e0ae55624cdb": {
-            "type": "icons",
-            "settings": {
-              "header_icon": "shopify:\/\/shop_images\/1.png",
-              "header_icon_text": "Order by Item No.",
-              "header_icon_url": ""
-            }
-          },
           "f34f097e-fd70-4935-b38b-519359324736": {
             "type": "icons",
             "settings": {
@@ -238,7 +230,6 @@
           "f88ebbd3-1d14-41d7-a002-b0328428a518",
           "731420e8-c791-4c87-92c4-e4bab4d80fcc",
           "6f5c5608-2531-43d3-9550-e1dcff9f3f6e",
-          "2f242878-8e85-4f38-8d26-e0ae55624cdb",
           "f34f097e-fd70-4935-b38b-519359324736"
         ],
         "settings": {
