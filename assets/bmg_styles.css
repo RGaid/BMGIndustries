@@ -243,12 +243,13 @@ HOMEPAGE STYLING
 }
 
 .bmg_categories h2 {
-    color: #333333;
+    color: #333;
     font-size: 1.771vw;
     font-weight: 100;
     margin: 0;
-    font-family: 'AvenirNext-Regular';
+    font-family: 'AvenirNext-Bold';
     margin-bottom: 1.5vw;
+    text-transform: uppercase;
 }
 
 .bmg_categories .bmgc_body {
@@ -309,11 +310,12 @@ HOMEPAGE STYLING
 
 .bmg_customized h2 {
     font-size: 1.146vw;
-    font-family: 'AvenirNext-Regular';
-    color: #333333;
+    font-family: 'AvenirNext-Bold';
+    color: #333;
     font-weight: 100;
-    margin: 0 0 0.5vw;
+    margin: 0 0 .5vw;
     padding-left: .5vw;
+    text-transform: uppercase;
 }
 
 .bmg_customized p {
@@ -360,11 +362,11 @@ HOMEPAGE STYLING
 }
 
 .bmg_brands h2 {
-    color: #333333;
+    color: #333;
     font-size: 1.771vw;
     font-weight: 100;
     margin: 0;
-    font-family: 'AvenirNext-Regular';
+    font-family: 'AvenirNext-Bold';
     margin-bottom: 1vw;
 }
 
@@ -427,9 +429,10 @@ HOMEPAGE STYLING
 
 .bmg_two_cols h3 {
     font-size: 1.146vw;
-    font-family: 'AvenirNext-Regular';
+    font-family: 'AvenirNext-Bold';
     font-weight: 100;
     margin: 0;
+    text-transform: uppercase;
 }
 
 .bmg_two_cols p {
@@ -637,9 +640,10 @@ COLLECTION STYLING
 }
 
 .bmg_sidebar_filter_body .columntitle:first-child {
-    font-size: 1.771vw;
-    font-family: 'AvenirNext-Regular';
+    font-size: 1.4vw;
+    font-family: 'AvenirNext-Bold';
     font-weight: 400;
+    text-transform: uppercase;
 }
 
 .bmgmc_sorting_view {
