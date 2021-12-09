@@ -247,7 +247,7 @@ HOMEPAGE STYLING
     font-size: 1.771vw;
     font-weight: 100;
     margin: 0;
-    font-family: 'AvenirNext-Bold';
+    font-family: 'AvenirNext-Regular';
     margin-bottom: 1.5vw;
     text-transform: uppercase;
 }
@@ -310,7 +310,7 @@ HOMEPAGE STYLING
 
 .bmg_customized h2 {
     font-size: 1.146vw;
-    font-family: 'AvenirNext-Bold';
+    font-family: 'AvenirNext-Regular';
     color: #333;
     font-weight: 100;
     margin: 0 0 .5vw;
@@ -366,7 +366,7 @@ HOMEPAGE STYLING
     font-size: 1.771vw;
     font-weight: 100;
     margin: 0;
-    font-family: 'AvenirNext-Bold';
+    font-family: 'AvenirNext-Regular';
     margin-bottom: 1vw;
 }
 
@@ -429,7 +429,7 @@ HOMEPAGE STYLING
 
 .bmg_two_cols h3 {
     font-size: 1.146vw;
-    font-family: 'AvenirNext-Bold';
+    font-family: 'AvenirNext-Regular';
     font-weight: 100;
     margin: 0;
     text-transform: uppercase;
