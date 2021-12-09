@@ -223,7 +223,7 @@ HOMEPAGE STYLING
     background-color: #4C5DC9;
     font-size: 0.729vw;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 /** HOMEPAGE CATEGORIES **/
@@ -453,7 +453,7 @@ HOMEPAGE STYLING
     background-color: #4c5dc9;
     font-size: .729vw;
     color: #fff;
-    border-radius: 4px;
+    border-radius: 0;
 }
 
 /********************************************************
@@ -541,7 +541,7 @@ END HOMEPAGE STYLING
 }
 
 .bmg_footer .bmgf_top > div:first-child {
-    text-align: center;
+    text-align: left;
 }
 
 .bmg_footer .bmgf_top .footer_contents ul {
