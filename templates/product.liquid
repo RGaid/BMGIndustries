@@ -1,23 +1,2 @@
 
-{% if product.tags contains 'kitpage'%}
-  {% section 'kit_product' %}
-{% elsif product.tags contains 'mhtemplate'%}
-  {% section 'mountain_house_product' %}
-{% elsif product.tags contains 'mhpage'%}
-  {% section 'mountain_house_product_bkup' %}
-{% else %}
-  {% section 'product-template' %}
-{% endif %}
- 
-<script>
-  document.addEventListener("StartOtherLoading", function(event) {
-    // Override default values of shop.strings for each template.
-    // Alternate product templates can change values of
-    // add to cart button, sold out, and unavailable states here. 
-    theme.productStrings = {
-      addToCart: {{ 'products.product.add_to_cart' | t | json }},
-      soldOut: {{ 'products.product.sold_out' | t | json }},
-      unavailable: {{ 'products.product.unavailable' | t | json }}
-    }
-  });
-</script>
+{% section 'product_page_v2' %}
