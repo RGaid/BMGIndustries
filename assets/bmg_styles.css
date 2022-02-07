@@ -577,7 +577,7 @@ COLLECTION STYLING
 ********************************************************/
 
 .bmg_main_collection {
-    background: #F0F0FD;
+    background: #FFF;
 }
 
 .bmgmc_breadcrumbs {
@@ -680,7 +680,7 @@ div#ajaxCollection {
 .collection_inner_body {
     background: #fff;
     padding: 1vw;
-    border-radius: 8px;
+    border: 1px solid #c6c6c6;
 }
 
 .collection_inner_body h3 {
@@ -711,7 +711,6 @@ div#ajaxCollection {
     text-align: center;
     color: #4C5DC9;
     font-size: 0.729vw;
-    border-radius: 5px;
 }
 
 .sortClear {
