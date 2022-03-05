@@ -443,7 +443,14 @@
             "type": "bmg_brand_logos",
             "settings": {
               "brand_logo": "shopify:\/\/shop_images\/Image_73.png",
-              "brand_text": "Princess auto"
+              "brand_text": "Princess Auto"
+            }
+          },
+          "f9de88b4-4531-4a34-87ed-88ec5438f75a": {
+            "type": "bmg_brand_logos",
+            "settings": {
+              "brand_logo": "shopify:\/\/shop_images\/London_Drugs_Logo.svg_e0294632-9ecc-4e67-9cd5-af7157b244a3.png",
+              "brand_text": "London Drugs"
             }
           }
         },
@@ -452,7 +459,8 @@
           "c9ca7799-c46e-430e-b914-2ee9d77f8690",
           "14bb6e78-b84f-4d38-a930-47a140d3eecc",
           "812a4951-1092-4cf8-95ad-9290781d72a7",
-          "3e0009de-9c94-44bb-89ff-f27ca2269b56"
+          "3e0009de-9c94-44bb-89ff-f27ca2269b56",
+          "f9de88b4-4531-4a34-87ed-88ec5438f75a"
         ],
         "settings": {
           "bmg_brands_heading": "BRANDS WE WORK WITH",
