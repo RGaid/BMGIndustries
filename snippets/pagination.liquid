@@ -1,6 +1,6 @@
 <div class='collpaginate'>
     {% if paginate.previous %}
-      <span class="prevpage"><a {% if !paginate.previous %}disabled{%endif%} href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">PREVIOUS PAGE</a></span>
+      <span class="prevpage"><a {% if paginate.previous %}disabled{%endif%} href="{{ paginate.previous.url }}" title="{{ paginate.previous.title }}">PREVIOUS PAGE</a></span>
     {% else %}
       <span class="prevpage"><a class='disabled'>PREVIOUS PAGE</a></span>
     {% endif %}  
@@ -24,4 +24,13 @@
     {% else %}
       <span class="nextpage"><a  class='disabled'>NEXT PAGE</a></span>
     {% endif %}
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if !paginate.previous %}"
+  to: "{% if paginate.previous %}"
+  position: 90..116
+{%- endcomment -%}

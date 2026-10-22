@@ -42,7 +42,7 @@
 				  <div class="collimageinner">	
                    {%assign image_object = subcollection.metafields.coverimage['url'] %} 
 
-                  {% if image_object != blank || subcollection.products.first != blank %}
+                  {% if image_object != blank %}
 
                     <div class="collimageholder">
                       <img class="Image--lazyLoad Image--fadeIn" data-src="{{ image_object }}" alt="{{ 'collections.general.link_title' | t: title: title }}" border="0" />
@@ -102,3 +102,13 @@
         <hr class="hr--clear hr--small hr--divline space30"> 
 	  </div>
       {% endif %}  
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if image_object != blank || subcollection.products.first != blank %}"
+  to: "{% if image_object != blank %}"
+  position: 2169..2199
+{% endcomment %}

@@ -61,11 +61,7 @@
       <div class="pagecenter blogarticle grid">
         <div class="grid__item one-half medium--one-whole small--one-whole">
           <a href="{{ article.url }}">
-            {% include 'responsive-image' with
-              image: article.image,
-              max_width: 500,
-              max_height: 500
-            %}
+            {% include 'responsive-image' with image, image: article.image, max_width: 500, max_height: 500 %}
           </a>
         </div>
         <div class="grid__item one-half medium--one-whole small--one-whole paddingleft50">
@@ -93,4 +89,19 @@
     {% include 'pagination' %}
   {% endif %}
 
-{% endpaginate %}
+{% endpaginate %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                  image: article.image,
+                  max_width: 500,
+                  max_height: 500
+                %}
+  to: "{% include 'responsive-image' with image, image: article.image, max_width:
+    500, max_height: 500 %}"
+  position: 2419..2517
+{%- endcomment -%}

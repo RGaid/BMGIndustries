@@ -12,7 +12,7 @@
   {% comment %} <img src="{{ featured_image | img_url: '500x500' }}" alt="{{ featured_image.alt | escape }}" id="ProductPhotoImg"  data-zoom="{{ featured_image | img_url: '1024x1024' }}"  class="zoom-lightbox" > {% endcomment %}
   
   
-  {% if product.metafields.video !=blank %}   
+  {% if true %}{{ 'Liquid error (snippets/product_images_panning line 15): Unknown operator !=blank' }}{% elsif false %}   
     <div class="video-wrapperinner">
       <iframe src="//www.youtube.com/embed/{{ product.metafields.video['videoid'] }}?rel=0&showinfo=0&vq=720"  width="850" height="480" frameborder="0" allowfullscreen></iframe>
     </div>
@@ -40,7 +40,7 @@
         </a>
       </li>
     {% endfor %}
-   {% if product.metafields.video !=blank %} 
+   {% if true %}{{ 'Liquid error (snippets/product_images_panning line 43): Unknown operator !=blank' }}{% elsif false %} 
     <li class="grid__item wide--one-eighth large--one-sixth medium-down--one-third">
         <a href="#" class="thmvideotoggle"><img class="Image--lazyLoad Image--fadeIn" data-src="https://i1.ytimg.com/vi/{{ product.metafields.video['videoid'] }}/1.jpg" border="0" alt="Video" /></a>
       </li>
@@ -60,4 +60,18 @@
    {% endif %}
 </ul>
 
-{% endif %}
+{% endif %}{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% if product.metafields.video !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/product_images_panning line 15): Unknown
+    operator !=blank' }}{% elsif false %}"
+  position: 749..867
+- from: "{% if product.metafields.video !=blank %}"
+  to: "{% if true %}{{ 'Liquid error (snippets/product_images_panning line 43): Unknown
+    operator !=blank' }}{% elsif false %}"
+  position: 2090..2208
+{%- endcomment -%}

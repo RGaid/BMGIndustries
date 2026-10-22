@@ -23,12 +23,7 @@
         {% endif %}
           
           	<div class="productimageholderinner">
-            {% include 'responsive-image' with
-                image: featured.featured_image.src ,
-                max_width: 280,
-                max_height: 280,
-                wrapper_class: 'prodgridimgnew'
-              %}
+            {% include 'responsive-image' with image, image: featured.featured_image.src, max_width: 280, max_height: 280, wrapper_class: 'prodgridimgnew' %}
           </div>
         </div>  
       </div>
@@ -57,11 +52,7 @@
       <div class="grid">
         <div class="grid__item one-half small--one-whole">
           <span class="grid-link__image{% if section.settings.show_sold_out_circle %} grid-link__image-sold-out{% endif %} grid-link__image--product">
-          {% include 'responsive-image' with
-              image: featured.featured_image.src ,
-              max_width: 450,
-              max_height: 450
-            %}
+          {% include 'responsive-image' with image, image: featured.featured_image.src, max_width: 450, max_height: 450 %}
         </span>
         </div>
         <div class="grid__item one-half small--one-whole">
@@ -110,3 +101,29 @@
 
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                    image: featured.featured_image.src ,
+                    max_width: 280,
+                    max_height: 280,
+                    wrapper_class: 'prodgridimgnew'
+                  %}
+  to: "{% include 'responsive-image' with image, image: featured.featured_image.src,
+    max_width: 280, max_height: 280, wrapper_class: 'prodgridimgnew' %}"
+  position: 1163..1308
+- from: |-
+    {% include 'responsive-image' with
+                  image: featured.featured_image.src ,
+                  max_width: 450,
+                  max_height: 450
+                %}
+  to: "{% include 'responsive-image' with image, image: featured.featured_image.src,
+    max_width: 450, max_height: 450 %}"
+  position: 2487..2599
+{% endcomment %}

@@ -23,12 +23,7 @@
         {% endif %}
           
           	<div class="productimageholderinner">
-            {% include 'responsive-image' with
-                image: featured.featured_image.src ,
-                max_width: 280,
-                max_height: 280,
-                wrapper_class: 'prodgridimgnew'
-              %}
+            {% include 'responsive-image' with image, image: featured.featured_image.src, max_width: 280, max_height: 280, wrapper_class: 'prodgridimgnew' %}
           </div>
         </div>  
       </div>
@@ -57,3 +52,20 @@
   
 
 </div>
+{% comment %}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                    image: featured.featured_image.src ,
+                    max_width: 280,
+                    max_height: 280,
+                    wrapper_class: 'prodgridimgnew'
+                  %}
+  to: "{% include 'responsive-image' with image, image: featured.featured_image.src,
+    max_width: 280, max_height: 280, wrapper_class: 'prodgridimgnew' %}"
+  position: 1163..1308
+{% endcomment %}

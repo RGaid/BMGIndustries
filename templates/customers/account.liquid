@@ -1,9 +1,9 @@
 <div class="grid usraccount ">
   <div class="grid__item acntnav one-quarter rightalign medium--hide small--hide padding20">
-    {% include 'account_nav' with currpage: '/account' %}
+    {% include 'account_nav' with currpage, currpage: '/account' %}
   </div>
   <div class="grid__item post-large--hide wide--hide nopadding medium--one-whole small--one-whole centeralign">
-    {% include 'account_nav_mobile' with currpage: '/account' %}
+    {% include 'account_nav_mobile' with currpage, currpage: '/account' %}
   </div>
   <div class="grid__item three-quarters medium--one-whole small--one-whole padding50">
     <div class="centercontent">
@@ -74,4 +74,16 @@
       });
     } );
    } );
-  </script>
+  </script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'account_nav' with currpage: '/account' %}"
+  to: "{% include 'account_nav' with currpage, currpage: '/account' %}"
+  position: 128..191
+- from: "{% include 'account_nav_mobile' with currpage: '/account' %}"
+  to: "{% include 'account_nav_mobile' with currpage, currpage: '/account' %}"
+  position: 317..387
+{%- endcomment -%}

@@ -2,11 +2,7 @@
   <div class="slides">
     {% for image in product.images %}
     <div >
-      {% include 'responsive-image' with
-            image: image,
-            max_width: 500,
-            max_height: 500
-          %}
+      {% include 'responsive-image' with image, image: image, max_width: 500, max_height: 500 %}
     </div>
     {% endfor %}
   </div>
@@ -17,11 +13,7 @@
     {% for image in product.images %}
       <li >
         <a data-lightbox="prodimages"  href="{{ image | img_url: '1024x1024' }}">
-        {% include 'responsive-image' with
-            image: image,
-            max_width: 100,
-            max_height: 100
-          %}
+        {% include 'responsive-image' with image, image: image, max_width: 100, max_height: 100 %}
         </a>
       </li>
     {% endfor %}
@@ -54,4 +46,28 @@
       pauseOnHover: true
     });
   });
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: |-
+    {% include 'responsive-image' with
+                image: image,
+                max_width: 500,
+                max_height: 500
+              %}
+  to: "{% include 'responsive-image' with image, image: image, max_width: 500, max_height:
+    500 %}"
+  position: 119..209
+- from: |-
+    {% include 'responsive-image' with
+                image: image,
+                max_width: 100,
+                max_height: 100
+              %}
+  to: "{% include 'responsive-image' with image, image: image, max_width: 100, max_height:
+    100 %}"
+  position: 485..575
+{%- endcomment -%}

@@ -1,9 +1,9 @@
 <div class="grid usraccount ">
   <div class="grid__item acntnav one-quarter rightalign medium--hide small--hide">
-    {% include 'account_nav' with currpage: '/account' %}
+    {% include 'account_nav' with currpage, currpage: '/account' %}
   </div>
   <div class="grid__item post-large--hide wide--hide medium--one-whole small--one-whole centeralign">
-    {% include 'account_nav_mobile' with currpage: '/account' %}
+    {% include 'account_nav_mobile' with currpage, currpage: '/account' %}
   </div>
   <div class="grid__item three-quarters medium--one-whole small--one-whole">
     <div class="centercontent">
@@ -79,7 +79,7 @@
         {{ order.billing_address | format_address }}
         <p>{{ 'customer.order.payment_status' | t }}: {{ order.financial_status_label }}</p>
 
-        {%if order.billing_address!=order.shipping_address%}
+        {% if order.billing_address.order.shipping_address %}
           <h3>{{ 'customer.order.shipping_address' | t }}</h3>
           {{ order.shipping_address | format_address }}
           <p>{{ 'customer.order.fulfillment_status' | t }}: {{ order.fulfillment_status_label }}</p>
@@ -95,4 +95,19 @@
       {% include 'contactinfo' %}
     </div>
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'account_nav' with currpage: '/account' %}"
+  to: "{% include 'account_nav' with currpage, currpage: '/account' %}"
+  position: 118..181
+- from: "{% include 'account_nav_mobile' with currpage: '/account' %}"
+  to: "{% include 'account_nav_mobile' with currpage, currpage: '/account' %}"
+  position: 297..367
+- from: "{%if order.billing_address!=order.shipping_address%}"
+  to: "{% if order.billing_address.order.shipping_address %}"
+  position: 4059..4112
+{%- endcomment -%}

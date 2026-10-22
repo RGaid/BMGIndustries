@@ -1,9 +1,9 @@
 <div class="grid usraccount ">
   <div class="grid__item acntnav one-quarter rightalign medium--hide small--hide padding20">
-    {% include 'account_nav' with currpage: '/account/addresses' %}
+    {% include 'account_nav' with currpage, currpage: '/account/addresses' %}
   </div>
   <div class="grid__item post-large--hide wide--hide medium--one-whole small--one-whole centeralign">
-    {% include 'account_nav_mobile' with currpage: '/account/addresses' %}
+    {% include 'account_nav_mobile' with currpage, currpage: '/account/addresses' %}
   </div>
   <div class="grid__item three-quarters medium--one-whole small--one-whole padding50">
     <div class="centercontent">
@@ -264,4 +264,17 @@
   <div class="grid__item post-large--hide wide--hide medium--one-whole small--one-whole navcontents bottominfo">
       {% include 'contactinfo' %}
   </div>
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{% include 'account_nav' with currpage: '/account/addresses' %}"
+  to: "{% include 'account_nav' with currpage, currpage: '/account/addresses' %}"
+  position: 128..201
+- from: "{% include 'account_nav_mobile' with currpage: '/account/addresses' %}"
+  to: "{% include 'account_nav_mobile' with currpage, currpage: '/account/addresses'
+    %}"
+  position: 317..397
+{%- endcomment -%}

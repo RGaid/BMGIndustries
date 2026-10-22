@@ -3,13 +3,25 @@
     <h1 class="acttitle">MY ACCOUNT</h1>
 
     <p>
-        <a href="/account" {%if currpage=='/account' %} class="currentpage" {% endif %}>My orders</a>
+        <a href="/account" {% if currpage.account %} class="currentpage" {% endif %}>My orders</a>
     </p>
     <p>
-        <a href="/account/addresses" {%if currpage=='/account/addresses' %} class="currentpage" {% endif %}>My profile</a>
+        <a href="/account/addresses" {% if currpage.account.addresses %} class="currentpage" {% endif %}>My profile</a>
     </p>
     <p>
         {{ 'layout.customer.log_out' | t | customer_logout_link }}
     </p>
     {% include 'contactinfo' %}
-</div>
+</div>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: "{%if currpage=='/account' %}"
+  to: "{% if currpage.account %}"
+  position: 130..155
+- from: "{%if currpage=='/account/addresses' %}"
+  to: "{% if currpage.account.addresses %}"
+  position: 256..291
+{%- endcomment -%}
